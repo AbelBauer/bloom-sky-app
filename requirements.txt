@@ -1,0 +1,15 @@
+pytz
+#pytz brings the entire Olson timezone database into Python, allowing you to work with timezones accurately across platforms.
+#Key Features:
+#Converts naive datetime objects into timezone-aware ones
+#Handles Daylight Saving Time transitions properly.
+#Supports nearly all global timezones (e.g. 'Europe/Amsterdam', 'US/Eastern', 'Asia/Tokyo').
+#Works well with Python’s built-in datetime module.
+
+python-dateutil
+#dateutil is like a Swiss Army knife for dates. It extends Python’s datetime module with intelligent parsing, relative deltas, and recurrence rules.
+#Key Features:
+#Parse almost any date string format (e.g. "16th September, 2024")
+#Calculate relative time deltas (e.g. “next Monday”, “2 weeks ago”)
+#Handle timezones with its own tz module.
+#Manage recurring events (like calendar rules)
