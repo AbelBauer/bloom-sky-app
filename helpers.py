@@ -215,14 +215,16 @@ def main_menu():
         print("")
         console.rule("[bold red]MAIN MENU", align="left")
         print("")
-        print("\n  [E] Check HOME location's extended forecast")
+        print("\n  [E] Check extended forecast for 'HOME' location.")
         print("  [L] Type in custom location.")
         print("  [G] Enter virtual garden.")
-        print("  [Q] Quit")
+        print("  [Q] Quit.")
         choice = input("➤ ").strip().lower()
 
         if choice == "q":
-            sys.exit("\nGood bye!")
+            print("")
+            console.rule("[bold red]GOOD BYE!", align="left")
+            sys.exit()
         elif choice == "l":
             print("")
             location, latitude, longitude = get_location()

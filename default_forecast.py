@@ -7,7 +7,7 @@ from rich.console import Console
 from rich import print
 from rich.panel import Panel
 
-def default_forecast():
+def get_default_forecast(lat, long): # lat="52.094523",long= "4.279590" for default location
     console = Console()
     print("")
     print("")
@@ -23,9 +23,8 @@ def default_forecast():
 ===============================================================
 ===============================================================
 """)
+    
     time.sleep(1)
-    is_day, temp, description, humidity, rain_prob = get_current_weather(lat="52.094523",long= "4.279590") # Forecast for home (Statenkwartier, Zuid Holland, NL)
-    grass, tree, weed = get_pollen("Statenkwartier, Zuid Holland")
-    print_table("Statenkwartier, Zuid-Holland (Home).", is_day, temp, description, humidity, rain_prob)
-    time.sleep(1)
-    print(Panel(f"\n{get_recommendation(is_day, temp, rain_prob, humidity, grass, tree, weed)}"))
+    is_day, temp, description, humidity, rain_prob = get_current_weather(lat,long) # Forecast for home (Statenkwartier, Zuid Holland, NL)
+    
+    return is_day, temp, description, humidity, rain_prob
