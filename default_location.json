@@ -1,0 +1,90 @@
+[
+    {
+        "address_components": [
+            {
+                "long_name": "Statenkwartier",
+                "short_name": "Statenkwartier",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_2"
+                ]
+            },
+            {
+                "long_name": "Scheveningen",
+                "short_name": "Scheveningen",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_1"
+                ]
+            },
+            {
+                "long_name": "Den Haag",
+                "short_name": "Den Haag",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Den Haag",
+                "short_name": "Den Haag",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Zuid-Holland",
+                "short_name": "ZH",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Netherlands",
+                "short_name": "NL",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "Statenkwartier, Den Haag, Netherlands",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 52.1022039,
+                    "lng": 4.2863069
+                },
+                "southwest": {
+                    "lat": 52.08535089999999,
+                    "lng": 4.269358899999999
+                }
+            },
+            "location": {
+                "lat": 52.0945228,
+                "lng": 4.279590499999999
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 52.1022039,
+                    "lng": 4.2863069
+                },
+                "southwest": {
+                    "lat": 52.08535089999999,
+                    "lng": 4.269358899999999
+                }
+            }
+        },
+        "place_id": "ChIJiUJztriwxUcRPo-n7lDRnC4",
+        "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_2"
+        ]
+    }
+]

@@ -1,3 +1,20 @@
+requests~=2.32
+python-dotenv~=1.0
+openmeteo_requests
+datetime
+pandas
+requests-cache~=1.2
+schedule~=1.2
+rich~=13.7
+sys
+opencage.geocoder
+
+# Nice-to-haves (uncomment if wanna use them)
+# geopy~=2.4
+# tenacity~=8.4
+# typer~=0.12
+# pydantic~=2.8
+
 pytz
 #pytz brings the entire Olson timezone database into Python, allowing you to work with timezones accurately across platforms.
 #Key Features:

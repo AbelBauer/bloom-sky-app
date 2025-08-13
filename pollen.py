@@ -15,7 +15,7 @@ def get_pollen(location):
     }
 
     response = requests.get(url, headers=headers, params=params)
-
+    
     # Check if the request was successful
     try:
         response_data = response.json() # Convert to JSON first. Do not forget!
@@ -32,3 +32,5 @@ def get_pollen(location):
     except requests.RequestException as r:
         print(f"Error fetching pollen data: {r}.")
         sys.exit(1)
+
+#print(get_pollen("Statenkwartier, Zuid Holland"))
