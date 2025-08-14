@@ -9,53 +9,19 @@ def get_geocode(location) -> tuple:
     API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
     gmaps = googlemaps.Client(key=API_key)
 
-    # Location geocoding
-    geocode_result = gmaps.geocode(location) # implement 'statenkwartier, zuid holland.' by default
+    try:
+        # Location geocoding
+        geocode_result = gmaps.geocode(location) # implement 'statenkwartier, zuid holland.' by default
 
-    lat, long = tuple(geocode_result[0]["geometry"]["location"].values())
+        lat, long = tuple(geocode_result[0]["geometry"]["location"].values())
 
-    return lat, long
-   
+        return lat, long
+    except (IndexError, googlemaps.exceptions.HTTPError):
+        raise
+
 #with open("default_location.json", "w", encoding="utf-8") as f:
 #    json.dump(default, f, indent=4, ensure_ascii=False)
 
-#Script to request pollen data from Google Maps Pollen API. It returns grass, weed and trees risk levels in a given location.
-
-def get_pollen(lat, long):
-
-    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
-
-    url = f"https://pollen.googleapis.com/v1/forecast:lookup?key={API_key}&location.longitude={long}&location.latitude={lat}&days=1"
-
-    response = requests.get(url)
-
-    try:
-        data = response.json()
-        
-        daily = data["dailyInfo"][0]
-
-        
-        risk_levels = {
-        'GRASS': 'unknown',
-        'WEED': 'unknown',
-        'TREE': 'unknown'
-        }
-
-        # Search in pollenTypeInfo
-        for item in daily.get('pollenTypeInfo', []):
-            code = item.get('code')
-            index_info = item.get('indexInfo')
-            if code in risk_levels and index_info:
-                risk_levels[code] = index_info.get('category', 'unknown')
-
-        return risk_levels['GRASS'], risk_levels['WEED'], risk_levels['TREE']
-        
-        #with open("daily.json", "w", encoding="utf-8") as f:
-            #json.dump(daily, f, indent=4, ensure_ascii=False)
-    except requests.RequestException as r:
-        print(f"Error fetching pollen data: {r}.")
-
-#print(get_pollen(location="den haag, nl"))
 
 def extract_forecast(api_data):
     
@@ -80,20 +46,25 @@ def get_current_weather(lat, long):
     url = f"https://weather.googleapis.com/v1/currentConditions:lookup?key={API_key}&location.latitude={lat}&location.longitude={long}"
 
     response = requests.get(url)
-    content = response.json()
 
-    is_day = content["isDaytime"]
-    temp = content["temperature"].get("degrees", {})
-    description = content["weatherCondition"].get("description", {}).get("text", {})
-    humidity = content["relativeHumidity"]
-    rain_prob = content["precipitation"].get("probability", {}).get("percent", {})
+    try:        
+        content = response.json()
 
-    #with open("today.json", "w", encoding="utf-8") as f:
-     #      json.dump(content, f, indent=4, ensure_ascii=False)
+        is_day = content.get("isDaytime", "Unknown")
+        temp = content.get("temperature", {}).get("degrees", "Unknown")
+        description = content.get("weatherCondition", {}).get("description", {}).get("text", "Unknown")
+        humidity = content.get("relativeHumidity", "Unknown")
+        rain_prob = content.get("precipitation", {}).get("probability", {}).get("percent", "Unknown")
 
-    #get_current_weather(52.0945228, 4.279590499999999)
+        #with open("today.json", "w", encoding="utf-8") as f:
+        #      json.dump(content, f, indent=4, ensure_ascii=False)
 
-    return is_day, round(temp), description.title(), round(humidity), round(rain_prob)
+        return bool(is_day), int(temp), str(description.title()), int(humidity), int(rain_prob)
+        #print(get_current_weather(52.0945228, 4.279590499999999))
+    
+    except (Exception, googlemaps.exceptions.HTTPError) as e:
+        print(f"Error fetching current weather data: {e}")
+        return "Unknown", "Unknown", "Unknown", "Unknown", "Unknown"
 
 
 #Script to get weather forecast (today and tomorrow) from Google Maps Weather API.
@@ -123,7 +94,7 @@ def extended_forecast(location, lat, long):
         console = Console()
         #Tables for today's weather forecast
         td_table_day = Table(title=f"\n{location} ➜  Today's Forecast:\n", title_style="bold on yellow", header_style="bold red")
-        td_table_temps = Table(title="Temperatures", header_style="bold red")
+        td_table_temps = Table(title="Temperatures", header_style="bold red", title_style="bold")
 
         td_table_temps.add_column("Min. 🌡 (°C)", justify="center")
         td_table_temps.add_column("Max. 🌡 (°C)", justify="center")
@@ -155,6 +126,8 @@ def extended_forecast(location, lat, long):
 
         return console.print(td_table_day), console.print(td_table_temps), console.print(tm_table_day), console.print(tm_table_temps)
 
-    except requests.RequestException as r:
-            print(f"Error fetching weather data: {r}")
+    except (requests.RequestException, googlemaps.exceptions.HTTPError) as r:
+        print(f"Error fetching extended forecast: {r}")
+    except KeyError as k:
+        print(f"Error fetching extended forecast: {k}")
         
