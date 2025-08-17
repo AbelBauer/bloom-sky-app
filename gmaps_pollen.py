@@ -32,9 +32,8 @@ def get_pollen(lat, long):
         
         #with open("daily.json", "w", encoding="utf-8") as f:
             #json.dump(daily, f, indent=4, ensure_ascii=False)
-    except Exception as e:
-        print(f"Error fetching pollen data: {e}.")
-        return "Unknown", "Unknown", "Unknown"
+    except (TypeError, ValueError, requests.RequestException):
+        raise
 
 
 #print(get_pollen(lat=52.0945228, long=4.2795904999))

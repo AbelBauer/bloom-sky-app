@@ -1,0 +1,5 @@
+get_geocode() -> IndexError, googlemaps.exceptions.HTTPError
+get_current_weather() -> TypeError, ValueError, googlemaps.exceptions.HTTPError
+extended_forecast() -> requests.RequestException, googlemaps.exceptions.HTTPError, KeyError
+validate_input() -> ValueError
+get_pollen() -> Exception

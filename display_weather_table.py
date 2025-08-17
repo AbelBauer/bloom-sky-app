@@ -16,11 +16,11 @@ def print_table(location, is_day, temp, description, rain_prob, humidity):
 
     table.add_column("Time of Day", justify="center")
     table.add_column("📝", justify="center")
-    table.add_column("Temp. 🌡 (°C)", justify="center")
-    table.add_column("Rain prob. 🌦️ (%)", justify="center")
-    table.add_column("Humidity 💧(%)", justify="center")
+    table.add_column("Temp. 🌡", justify="center")
+    table.add_column("Rain prob. 🌦️ ", justify="center")
+    table.add_column("Humidity 💧", justify="center")
 
-    table.add_row(time_to_emoji(is_day), str(description), str(temp),
-                str(rain_prob), str(humidity))
+    table.add_row(time_to_emoji(is_day), str(description), f"{str(temp)}°C",
+                f"{str(rain_prob)} %", f"{str(humidity)} %")
 
     return console.print(table)
