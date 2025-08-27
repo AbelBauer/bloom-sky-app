@@ -1,0 +1,735 @@
+{
+  "data": [
+    {
+      "id": 2335,
+      "species_id": 1010,
+      "common_name": "swamp milkweed",
+      "scientific_name": [
+        "Asclepias incarnata 'Cinderella'"
+      ],
+      "section": [
+        {
+          "id": 7210,
+          "type": "watering",
+          "description": "Swamp Milkweed generally prefers moist well-drained soil, but will tolerate drier soil provided it is watered regularly. Aim for watering the plant twice a week (or whenever the top inch or 2 of soil in the planting area feels dry). During dry and hot weather, it may be necessary to water the plant 3 times a week. Water slowly and deeply to encourage deep and strong root development."
+        },
+        {
+          "id": 7211,
+          "type": "sunlight",
+          "description": "Swamp milkweed needs approximately 6-8 hours of full sunlight per day to perform best. In midday, it can tolerate some partial shade. A location that receives direct sunlight in the morning and late afternoon is ideal. Drawback of too much shade can cause the plant to be weak and less likely to bloom. Thus, ensuring swamp milkweed is receiving enough direct sunlight is key to its success."
+        },
+        {
+          "id": 7212,
+          "type": "pruning",
+          "description": "Swamp milkweed (Asclepias incarnata 'Cinderella') should be pruned each year, starting in the early spring, before new growth begins. Pruning should be done back to the crown of the plant, leaving no more than 3 to 5 inches of the flower stalk. This allows the plant to spend its energy on new growth and flowers instead of flowering on the previous year\u2019s stems. Deadheading the spent flowers can also promote more blooms. However, be mindful not to accidentally cut back the new growth, as it is needed for new blooms. After pruning, be sure to fertilize and water the plant. Pruning swamp milkweed helps to promote better airflow and reduces the potential for disease. Pruning should take place throughout the growing season, as needed."
+        }
+      ]
+    }
+  ],
+  "to": 1,
+  "per_page": 30,
+  "current_page": 1,
+  "from": 1,
+  "last_page": 1,
+  "total": 1,
+  "lady fern": {
+    "data": [
+      {
+        "id": 2430,
+        "species_id": 1115,
+        "common_name": "lady fern",
+        "scientific_name": [
+          "Athyrium filix-femina"
+        ],
+        "section": [
+          {
+            "id": 7495,
+            "type": "watering",
+            "description": "Water the Lady fern plant regularly but only when the top few inches of soil are dry. Generally, the plant should be watered about once a week but this could be more during hot and dry weather or less during rainy periods. The soil level should always be monitored to ensure it does not become either too dry or too wet. If it is too wet, the plant can become susceptible to mold and fungal diseases."
+          },
+          {
+            "id": 7496,
+            "type": "sunlight",
+            "description": "Lady ferns prefer bright, indirect sunlight. They should be placed in spots where they will get light for at least 4 hours a day, such as a sunny window or a partially shaded porch. Avoid areas that are too shady, or the ferns won't be able to photosynthesize properly and will eventually die. This species of fern enjoys more light than many other types, so don't be afraid to give it a full day of sun if you have a spot that will provide it. Lady ferns should receive at least 6 hours of strong light daily, preferably in the morning."
+          },
+          {
+            "id": 7497,
+            "type": "pruning",
+            "description": "Lady fern is a low maintenance, hardy fern species that requires little pruning. However, it should be pruned in the early spring or late winter, before new growth begins. Prune the plant by cutting away any damaged, diseased, or dead fronds, or if they have become unsightly. This will help to encourage vigorous regrowth and maintain the desired size and shape of the plant. Be careful not to remove too many fronds at 1 time as this could cause the fern to suffer shock."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "arizona beggarstick": {
+    "data": [
+      {
+        "id": 2557,
+        "species_id": 1294,
+        "common_name": "Arizona beggarstick",
+        "scientific_name": [
+          "Bidens aurea"
+        ],
+        "section": [
+          {
+            "id": 7877,
+            "type": "watering",
+            "description": "Arizona beggarstick (Bidens aurea) should be watered once a month during the growing season, which falls between March and October. During the spring and summer months, the plant should be watered generously, providing a thorough soaking to the soil. In the fall, watering can be lessened and in the winter months, it can be reduced to just enough to keep the soil slightly damp. Make sure that the plant is in well-draining soil to reduce the likelihood of root rot. The plant is relatively drought-tolerant, but adequate moisture will ensure that it thrives and produces flowers."
+          },
+          {
+            "id": 7878,
+            "type": "sunlight",
+            "description": "Sunlight is essential for the Arizona beggarstick (Bidens aurea) to thrive, as it requires at least 6 hours of direct sunlight each day. Ideally, the plant should be planted in full sun, but may tolerate some afternoon shade if necessary. Additionally, the plant benefits from supplemental light if it is exposed to less than the ideal 6 hours of sunlight. When in full sun, the Arizona beggarstick should be watered regularly to keep the soil lightly moist and should be fertilized every 12 weeks in order to support healthy growth."
+          },
+          {
+            "id": 7879,
+            "type": "pruning",
+            "description": "Arizona beggarstick (Bidens aurea) is a vigorous, heat-tolerant annual that grows to between 12-24 inches tall and 16 inches wide. It should be pruned regularly to control its size and shape and to promote healthy, compact growth. Pruning should be done when the plant is actively growing (usually from early spring through mid-summer). For most plants, pruning should be done to remove any dead, diseased, or damaged stems and branches. Pruning can also be used to reduce the overall size of the plant, and to encourage new, fresh growth. It is recommended to prune no more than 1/3 of the overall plant at any 1 time. Doing so can help to maintain the health of the plant and prevent it from becoming too lanky and unruly."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "Japanese barberry": {
+    "data": [
+      {
+        "id": 2511,
+        "species_id": 1240,
+        "common_name": "Japanese barberry",
+        "scientific_name": [
+          "Berberis 'Tara' EMERALD CAROUSEL"
+        ],
+        "section": [
+          {
+            "id": 7739,
+            "type": "watering",
+            "description": "Water Japanese barberry (Berberis 'Tara' EMERALD CAROUSEL) deeply and thoroughly about twice per week in spring when the soil appears dry. During periods of extreme heat, increase water frequency to every other day. During hot summer months, water twice weekly in the morning to ensure the roots stay cool. During the autumn months, reduce the amount of water gradually as the plant begins to go dormant. Water less in the winter, though the plant should not be allowed to completely dry out. For a more mature barberry, water deeply only when the soil appears dry."
+          },
+          {
+            "id": 7740,
+            "type": "sunlight",
+            "description": "Japanese barberry (Berberis 'Tara' EMERALD CAROUSEL) grows best in full sun to partial shade, with 4 to 6 hours of direct sunlight per day being optimal. It\u2019s important that the plant receive indirect sunlight during the warmer parts of the day to avoid sunburn. If possible, try to plant the Japanese barberry in a spot where it will receive morning sunlight and afternoon shade. This will provide the best balance of sunshine and protection from scorching heat."
+          },
+          {
+            "id": 7741,
+            "type": "pruning",
+            "description": "Japanese barberry (Berberis 'Tara' EMERALD CAROUSEL) should be pruned just once per year, in late winter or early spring. Be sure to remove any dead, damaged, or diseased branches, as well as any crossed branches, and any growth that is too dense. If necessary, prune the shrubs to stay within the desired size and shape. Pruning should be done with sharp pruning shears to get a clean cut. Furthermore, pruning should be concentrated on the outer portions of the shrub to keep the natural shape of the plant and to ensure all the inner areas are accessible for sunlight and air circulation."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "beta vulgaris": {
+    "data": [
+      {
+        "id": 2538,
+        "species_id": 1273,
+        "common_name": "beet",
+        "scientific_name": [
+          "Beta vulgaris"
+        ],
+        "section": [
+          {
+            "id": 7820,
+            "type": "watering",
+            "description": "Beets (Beta vulgaris) should be watered regularly to keep the soil moist but not overly saturated. The amount of water and frequency of watering will depend on several factors such as the season, soil type, climate, and how quickly the soil becomes dry. In general, it is best to check the soil\u2019s moisture level before watering and water only when the top inch of soil is dry. In hot weather, it may be necessary to water beets every few days. In cooler weather, they may need watering only once a week. The amount of water to use should also depend on the soil type. Sandy soils generally require less water than clay soils, which hold moisture better. During summer, it may be necessary to water beets more frequently, using 1-2 inches of water per week."
+          },
+          {
+            "id": 7821,
+            "type": "sunlight",
+            "description": "Beet plants (Beta vulgaris) need a minimum of 6 hours of direct sunlight per day in order to thrive. Full sun locations that receive at least 6 to 8 hours of direct sunlight on a daily basis are ideal for growing this plant species. The most favorable periods for receiving this amount of sunlight are between 11am and 4pm during summer months. Avoiding extreme heat during the middle of the day is best. For the winter months, it's recommended that the plant receive at least 5 hours of direct sunlight in a day. Temperatures that drop below 50\u00b0F can cause stunting of beet root growth, so be sure to bring beet plants indoors or give them frost-protection if necessary."
+          },
+          {
+            "id": 7822,
+            "type": "pruning",
+            "description": "Beets should be pruned regularly during their growing season. Pruning should occur after the first harvesting, usually about 3 months after germination. During continuous harvesting, begin removing the outer leaves of the plant when they reach an inch or 2 in length, removing no more than half of the outer leaves. When harvesting beets for storage, prune the plant only after it has reached maturity, trimming off all leaves including the healthiest looking ones. This will help protect the beets from disease and promote healthy root development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "bet vulgaris": {
+    "data": [
+      {
+        "id": 2538,
+        "species_id": 1273,
+        "common_name": "beet",
+        "scientific_name": [
+          "Beta vulgaris"
+        ],
+        "section": [
+          {
+            "id": 7820,
+            "type": "watering",
+            "description": "Beets (Beta vulgaris) should be watered regularly to keep the soil moist but not overly saturated. The amount of water and frequency of watering will depend on several factors such as the season, soil type, climate, and how quickly the soil becomes dry. In general, it is best to check the soil\u2019s moisture level before watering and water only when the top inch of soil is dry. In hot weather, it may be necessary to water beets every few days. In cooler weather, they may need watering only once a week. The amount of water to use should also depend on the soil type. Sandy soils generally require less water than clay soils, which hold moisture better. During summer, it may be necessary to water beets more frequently, using 1-2 inches of water per week."
+          },
+          {
+            "id": 7821,
+            "type": "sunlight",
+            "description": "Beet plants (Beta vulgaris) need a minimum of 6 hours of direct sunlight per day in order to thrive. Full sun locations that receive at least 6 to 8 hours of direct sunlight on a daily basis are ideal for growing this plant species. The most favorable periods for receiving this amount of sunlight are between 11am and 4pm during summer months. Avoiding extreme heat during the middle of the day is best. For the winter months, it's recommended that the plant receive at least 5 hours of direct sunlight in a day. Temperatures that drop below 50\u00b0F can cause stunting of beet root growth, so be sure to bring beet plants indoors or give them frost-protection if necessary."
+          },
+          {
+            "id": 7822,
+            "type": "pruning",
+            "description": "Beets should be pruned regularly during their growing season. Pruning should occur after the first harvesting, usually about 3 months after germination. During continuous harvesting, begin removing the outer leaves of the plant when they reach an inch or 2 in length, removing no more than half of the outer leaves. When harvesting beets for storage, prune the plant only after it has reached maturity, trimming off all leaves including the healthiest looking ones. This will help protect the beets from disease and promote healthy root development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "bet vulgris": {
+    "data": [
+      {
+        "id": 2538,
+        "species_id": 1273,
+        "common_name": "beet",
+        "scientific_name": [
+          "Beta vulgaris"
+        ],
+        "section": [
+          {
+            "id": 7820,
+            "type": "watering",
+            "description": "Beets (Beta vulgaris) should be watered regularly to keep the soil moist but not overly saturated. The amount of water and frequency of watering will depend on several factors such as the season, soil type, climate, and how quickly the soil becomes dry. In general, it is best to check the soil\u2019s moisture level before watering and water only when the top inch of soil is dry. In hot weather, it may be necessary to water beets every few days. In cooler weather, they may need watering only once a week. The amount of water to use should also depend on the soil type. Sandy soils generally require less water than clay soils, which hold moisture better. During summer, it may be necessary to water beets more frequently, using 1-2 inches of water per week."
+          },
+          {
+            "id": 7821,
+            "type": "sunlight",
+            "description": "Beet plants (Beta vulgaris) need a minimum of 6 hours of direct sunlight per day in order to thrive. Full sun locations that receive at least 6 to 8 hours of direct sunlight on a daily basis are ideal for growing this plant species. The most favorable periods for receiving this amount of sunlight are between 11am and 4pm during summer months. Avoiding extreme heat during the middle of the day is best. For the winter months, it's recommended that the plant receive at least 5 hours of direct sunlight in a day. Temperatures that drop below 50\u00b0F can cause stunting of beet root growth, so be sure to bring beet plants indoors or give them frost-protection if necessary."
+          },
+          {
+            "id": 7822,
+            "type": "pruning",
+            "description": "Beets should be pruned regularly during their growing season. Pruning should occur after the first harvesting, usually about 3 months after germination. During continuous harvesting, begin removing the outer leaves of the plant when they reach an inch or 2 in length, removing no more than half of the outer leaves. When harvesting beets for storage, prune the plant only after it has reached maturity, trimming off all leaves including the healthiest looking ones. This will help protect the beets from disease and promote healthy root development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "beta vulgriss": {
+    "data": [
+      {
+        "id": 2538,
+        "species_id": 1273,
+        "common_name": "beet",
+        "scientific_name": [
+          "Beta vulgaris"
+        ],
+        "section": [
+          {
+            "id": 7820,
+            "type": "watering",
+            "description": "Beets (Beta vulgaris) should be watered regularly to keep the soil moist but not overly saturated. The amount of water and frequency of watering will depend on several factors such as the season, soil type, climate, and how quickly the soil becomes dry. In general, it is best to check the soil\u2019s moisture level before watering and water only when the top inch of soil is dry. In hot weather, it may be necessary to water beets every few days. In cooler weather, they may need watering only once a week. The amount of water to use should also depend on the soil type. Sandy soils generally require less water than clay soils, which hold moisture better. During summer, it may be necessary to water beets more frequently, using 1-2 inches of water per week."
+          },
+          {
+            "id": 7821,
+            "type": "sunlight",
+            "description": "Beet plants (Beta vulgaris) need a minimum of 6 hours of direct sunlight per day in order to thrive. Full sun locations that receive at least 6 to 8 hours of direct sunlight on a daily basis are ideal for growing this plant species. The most favorable periods for receiving this amount of sunlight are between 11am and 4pm during summer months. Avoiding extreme heat during the middle of the day is best. For the winter months, it's recommended that the plant receive at least 5 hours of direct sunlight in a day. Temperatures that drop below 50\u00b0F can cause stunting of beet root growth, so be sure to bring beet plants indoors or give them frost-protection if necessary."
+          },
+          {
+            "id": 7822,
+            "type": "pruning",
+            "description": "Beets should be pruned regularly during their growing season. Pruning should occur after the first harvesting, usually about 3 months after germination. During continuous harvesting, begin removing the outer leaves of the plant when they reach an inch or 2 in length, removing no more than half of the outer leaves. When harvesting beets for storage, prune the plant only after it has reached maturity, trimming off all leaves including the healthiest looking ones. This will help protect the beets from disease and promote healthy root development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "beta vlgaris": {
+    "data": [
+      {
+        "id": 2538,
+        "species_id": 1273,
+        "common_name": "beet",
+        "scientific_name": [
+          "Beta vulgaris"
+        ],
+        "section": [
+          {
+            "id": 7820,
+            "type": "watering",
+            "description": "Beets (Beta vulgaris) should be watered regularly to keep the soil moist but not overly saturated. The amount of water and frequency of watering will depend on several factors such as the season, soil type, climate, and how quickly the soil becomes dry. In general, it is best to check the soil\u2019s moisture level before watering and water only when the top inch of soil is dry. In hot weather, it may be necessary to water beets every few days. In cooler weather, they may need watering only once a week. The amount of water to use should also depend on the soil type. Sandy soils generally require less water than clay soils, which hold moisture better. During summer, it may be necessary to water beets more frequently, using 1-2 inches of water per week."
+          },
+          {
+            "id": 7821,
+            "type": "sunlight",
+            "description": "Beet plants (Beta vulgaris) need a minimum of 6 hours of direct sunlight per day in order to thrive. Full sun locations that receive at least 6 to 8 hours of direct sunlight on a daily basis are ideal for growing this plant species. The most favorable periods for receiving this amount of sunlight are between 11am and 4pm during summer months. Avoiding extreme heat during the middle of the day is best. For the winter months, it's recommended that the plant receive at least 5 hours of direct sunlight in a day. Temperatures that drop below 50\u00b0F can cause stunting of beet root growth, so be sure to bring beet plants indoors or give them frost-protection if necessary."
+          },
+          {
+            "id": 7822,
+            "type": "pruning",
+            "description": "Beets should be pruned regularly during their growing season. Pruning should occur after the first harvesting, usually about 3 months after germination. During continuous harvesting, begin removing the outer leaves of the plant when they reach an inch or 2 in length, removing no more than half of the outer leaves. When harvesting beets for storage, prune the plant only after it has reached maturity, trimming off all leaves including the healthiest looking ones. This will help protect the beets from disease and promote healthy root development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "beet": {
+    "data": [
+      {
+        "id": 2538,
+        "species_id": 1273,
+        "common_name": "beet",
+        "scientific_name": [
+          "Beta vulgaris"
+        ],
+        "section": [
+          {
+            "id": 7820,
+            "type": "watering",
+            "description": "Beets (Beta vulgaris) should be watered regularly to keep the soil moist but not overly saturated. The amount of water and frequency of watering will depend on several factors such as the season, soil type, climate, and how quickly the soil becomes dry. In general, it is best to check the soil\u2019s moisture level before watering and water only when the top inch of soil is dry. In hot weather, it may be necessary to water beets every few days. In cooler weather, they may need watering only once a week. The amount of water to use should also depend on the soil type. Sandy soils generally require less water than clay soils, which hold moisture better. During summer, it may be necessary to water beets more frequently, using 1-2 inches of water per week."
+          },
+          {
+            "id": 7821,
+            "type": "sunlight",
+            "description": "Beet plants (Beta vulgaris) need a minimum of 6 hours of direct sunlight per day in order to thrive. Full sun locations that receive at least 6 to 8 hours of direct sunlight on a daily basis are ideal for growing this plant species. The most favorable periods for receiving this amount of sunlight are between 11am and 4pm during summer months. Avoiding extreme heat during the middle of the day is best. For the winter months, it's recommended that the plant receive at least 5 hours of direct sunlight in a day. Temperatures that drop below 50\u00b0F can cause stunting of beet root growth, so be sure to bring beet plants indoors or give them frost-protection if necessary."
+          },
+          {
+            "id": 7822,
+            "type": "pruning",
+            "description": "Beets should be pruned regularly during their growing season. Pruning should occur after the first harvesting, usually about 3 months after germination. During continuous harvesting, begin removing the outer leaves of the plant when they reach an inch or 2 in length, removing no more than half of the outer leaves. When harvesting beets for storage, prune the plant only after it has reached maturity, trimming off all leaves including the healthiest looking ones. This will help protect the beets from disease and promote healthy root development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "ficus elastica": {
+    "data": [
+      {
+        "id": 747,
+        "species_id": 2961,
+        "common_name": "Indian rubberplant",
+        "scientific_name": [
+          "Ficus elastica"
+        ],
+        "section": [
+          {
+            "id": 2239,
+            "type": "watering",
+            "description": "Indian rubberplant (Ficus elastica) should be watered thoroughly until the excess water has drained out of the bottom of the container. Allow the top inch or 2 of soil to dry out before watering again. This plant does not like to sit in water, so it is important to avoid over-watering. During the active growing season, water every 7 to 10 days; during the dormancy period, water every 2 to 4 weeks."
+          },
+          {
+            "id": 2246,
+            "type": "sunlight",
+            "description": "Indian rubberplants, also known as Ficus elastica, thrive best in bright light, such as near a window that receives several hours of direct sunlight a day. To provide your plant with optimal levels of sunlight, try to keep its leaves in the sun for 12 to 16 hours a day. If you live in an area with plenty of bright, direct sunlight, you may want to place the plant outdoors for a few hours each day during the warmer months. During winter when sunlight levels are lower, you may consider investing in a supplemental light source such as a high-Wattage LED grow light to provide the necessary light for your plant species."
+          },
+          {
+            "id": 2253,
+            "type": "pruning",
+            "description": "Pruning an Indian rubberplant should be done about once a year, in late winter or early spring. The plant should be pruned to keep it in shape and size. Pruning can also be done to enhance the growth of new leaves or to remove lower branches that have grown too long. When pruning, remove no more than 1/3 of the total foliage. Be aware of where the cuts are made to avoid harming vital parts of the plant. Make sure to use sharp, clean scissors or garden shears."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "dracaena fragrans": {
+    "data": [
+      {
+        "id": 731,
+        "species_id": 2528,
+        "common_name": "fragrant dracaena",
+        "scientific_name": [
+          "Dracaena fragrans"
+        ],
+        "section": [
+          {
+            "id": 2177,
+            "type": "watering",
+            "description": "For Fragrant Dracaena (Dracaena fragrans) it is important to water them enough, but not too much. Water your plant once a week during the growing season, spring to fall, and once every 2 to 3 weeks during the winter. Make sure the soil is dry before you water, as they don\u2019t like to stay wet. Insert your finger into the soil up to your second knuckle, if it feels dry then it\u2019s time to water. It\u2019s also important to use lukewarm or room temperature water. Additionally, its best to water your plant from the bottom of the pot or in saucers to help avoid any leaf burn."
+          },
+          {
+            "id": 2194,
+            "type": "sunlight",
+            "description": "Fragrant dracaena (Dracaena fragrans) is an evergreen plant from the Agavaceae family that requires indirect sunlight for optimal growth. The best way to provide sunlight to this plant species is to place it near an unobstructed, south- or west-facing window, where it can receives bright, indirect light for 4 to 6 hours each day. If natural light is not available or is limited, supplementary lighting such as fluorescent lamps or grow lights may be used. Regardless of the type of lighting, the intensity should be adjusted accordingly so the plant can receive the appropriate duration and amount of light."
+          },
+          {
+            "id": 2210,
+            "type": "pruning",
+            "description": "Fragrant dracaena (Dracaena fragrans) should be pruned in late summer or early fall, removing only the top 1/3 of the foliage. This helps to encourage new growth and to maintain the size and shape of the plant. Pruning should be done carefully to avoid damaging the stem and leaves. Removing the dead leaves and stems will also help improve air circulation around the plant. Additionally, it is a good idea to pinch back the new growth periodically throughout the growing season in order to promote bushier growth."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "pyramidalis silver fir": {
+    "data": [
+      {
+        "id": 44,
+        "species_id": 2,
+        "common_name": "Pyramidalis Silver Fir",
+        "scientific_name": [
+          "Abies alba 'Pyramidalis'"
+        ],
+        "section": [
+          {
+            "id": 139,
+            "type": "watering",
+            "description": "Water your Pyramidalis Silver Fir when the soil appears dry to the touch. The amount of water you give the plant will depend on the area's climate and the pot size in which it is growing. Generally, a good rule of thumb is to water the plant about every 7 to 10 days, giving it an inch (2 cm) of water at a time. If the weather is very hot and dry, you may wish to water the plant more often."
+          },
+          {
+            "id": 140,
+            "type": "sunlight",
+            "description": "Pyramidalis Silver Fir Abies Alba 'Pyramidalis' will thrive in full sun, meaning 6 or more hours of direct sunlight each day. This species does best in bright, sunny locations, as it will not tolerate shade. It is important to provide it with the proper amount of light throughout the year, as too little sunlight can lead to stunted growth. During the summer months, it should receive full sun all day, while in the winter months it should receive at least 4 hours of direct sunlight each day."
+          },
+          {
+            "id": 141,
+            "type": "pruning",
+            "description": "Pruning Pyramidalis Silver Fir Abies Alba 'Pyramidalis' should be done in late winter or early spring. When pruning, the goal should be to maintain the natural pyramidal shape of the tree. Remove any broken or dead branches, as well as any branches that are crossing or rubbing. Be sure to remove any branches that are growing inward toward the center of the tree. It is best to prune only small amounts at a time, removing no more than one-third of the tree\u2019s foliage. This will ensure that the tree remains healthy and vigorous."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "Ficus elastic": {
+    "data": [
+      {
+        "id": 2430,
+        "species_id": 1115,
+        "common_name": "lady fern",
+        "scientific_name": [
+          "Athyrium filix-femina"
+        ],
+        "section": [
+          {
+            "id": 7495,
+            "type": "watering",
+            "description": "Water the Lady fern plant regularly but only when the top few inches of soil are dry. Generally, the plant should be watered about once a week but this could be more during hot and dry weather or less during rainy periods. The soil level should always be monitored to ensure it does not become either too dry or too wet. If it is too wet, the plant can become susceptible to mold and fungal diseases."
+          },
+          {
+            "id": 7496,
+            "type": "sunlight",
+            "description": "Lady ferns prefer bright, indirect sunlight. They should be placed in spots where they will get light for at least 4 hours a day, such as a sunny window or a partially shaded porch. Avoid areas that are too shady, or the ferns won't be able to photosynthesize properly and will eventually die. This species of fern enjoys more light than many other types, so don't be afraid to give it a full day of sun if you have a spot that will provide it. Lady ferns should receive at least 6 hours of strong light daily, preferably in the morning."
+          },
+          {
+            "id": 7497,
+            "type": "pruning",
+            "description": "Lady fern is a low maintenance, hardy fern species that requires little pruning. However, it should be pruned in the early spring or late winter, before new growth begins. Prune the plant by cutting away any damaged, diseased, or dead fronds, or if they have become unsightly. This will help to encourage vigorous regrowth and maintain the desired size and shape of the plant. Be careful not to remove too many fronds at 1 time as this could cause the fern to suffer shock."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "Dracaena fragrans": {
+    "data": [
+      {
+        "id": 2430,
+        "species_id": 1115,
+        "common_name": "lady fern",
+        "scientific_name": [
+          "Athyrium filix-femina"
+        ],
+        "section": [
+          {
+            "id": 7495,
+            "type": "watering",
+            "description": "Water the Lady fern plant regularly but only when the top few inches of soil are dry. Generally, the plant should be watered about once a week but this could be more during hot and dry weather or less during rainy periods. The soil level should always be monitored to ensure it does not become either too dry or too wet. If it is too wet, the plant can become susceptible to mold and fungal diseases."
+          },
+          {
+            "id": 7496,
+            "type": "sunlight",
+            "description": "Lady ferns prefer bright, indirect sunlight. They should be placed in spots where they will get light for at least 4 hours a day, such as a sunny window or a partially shaded porch. Avoid areas that are too shady, or the ferns won't be able to photosynthesize properly and will eventually die. This species of fern enjoys more light than many other types, so don't be afraid to give it a full day of sun if you have a spot that will provide it. Lady ferns should receive at least 6 hours of strong light daily, preferably in the morning."
+          },
+          {
+            "id": 7497,
+            "type": "pruning",
+            "description": "Lady fern is a low maintenance, hardy fern species that requires little pruning. However, it should be pruned in the early spring or late winter, before new growth begins. Prune the plant by cutting away any damaged, diseased, or dead fronds, or if they have become unsightly. This will help to encourage vigorous regrowth and maintain the desired size and shape of the plant. Be careful not to remove too many fronds at 1 time as this could cause the fern to suffer shock."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "weeping cedar of lebanon": {
+    "data": [
+      {
+        "id": 1725,
+        "species_id": 209,
+        "common_name": "Weeping Cedar of Lebanon",
+        "scientific_name": [
+          "Cedrus libani 'Pendula'"
+        ],
+        "section": [
+          {
+            "id": 5380,
+            "type": "watering",
+            "description": "Weeping Cedar of Lebanon (Cedrus libani 'Pendula') should be watered thoroughly, allowing a few inches of the soil to be completely saturated, and then allowing it to dry out somewhat before watering again. When watering container-grown plants, it is best to water until water starts to run from the drainage holes. This species of tree should be watered approximately once a week during the summer when the soil is dry, and about once every 10 to 14 days during the winter when there is less evaporation. Allowing the soil to go completely dry can cause damage, so it is wise to check the moisture level of the soil every few days. \n\nWhen planted on direct soil, check if the soil is dry to a depth of 2 to 3 inches, if it is, then the tree should be watered."
+          },
+          {
+            "id": 5381,
+            "type": "sunlight",
+            "description": "The Weeping Cedar of Lebanon (Cedrus libani 'Pendula') requires full sun for optimum growth. It should be planted in a location that receives at least 6 hours of unfiltered direct sunlight each day. "
+          },
+          {
+            "id": 5382,
+            "type": "pruning",
+            "description": "Weeping Cedar of Lebanon should be pruned during the spring or summer months. The amount of pruning needed varies depending on the size of the tree. Generally, it is recommended to prune only around 1/3 of the tree at any 1 time. This will help maintain the overall shape of the tree while removing dead, diseased, or crossing branches. The best way to prune a weeping cedar of Lebanon is to prune slowly and selectively. Care should be taken to avoid cutting too deeply, as this can damage the branches or even kill the entire tree. When finished, follow up with a balanced application of liquid fertilizer to nourish the newly pruned branches."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "japanese hornbeam": {
+    "data": [
+      {
+        "id": 1715,
+        "species_id": 198,
+        "common_name": "Japanese Hornbeam",
+        "scientific_name": [
+          "Carpinus japonica"
+        ],
+        "section": [
+          {
+            "id": 5350,
+            "type": "watering",
+            "description": "Japanese Hornbeam prefers to be watered approximately once a week, or when the soil feels dry. It is best to thoroughly saturate the soil until water begins to come out of the drainage holes. Allow the water to drain away before resuming normal watering. During summer months, increase watering to twice a week. In winter, reduce watering to every 2 weeks or when the soil feels dry. Established plants may require extra watering during intense heat or drought."
+          },
+          {
+            "id": 5351,
+            "type": "sunlight",
+            "description": "Japanese Hornbeam thrives in full sun to part shade, but prefers some limited shade during the hottest hours of the day. It grows best when it receives at least 6 hours of direct sunlight each day. During peak summer months, the Japanese Hornbeam can benefit from shade during mid-day hours. It is recommended to place the plant in a location with plenty of sunlight during early morning and late afternoon hours. This species of plant should have full sun from spring to fall, and then filtered sunlight and shade during winter months."
+          },
+          {
+            "id": 5352,
+            "type": "pruning",
+            "description": "Japanese Hornbeam should be lightly pruned in the spring, just after it finishes blooming. Pruning should remove dead, diseased, or damaged branches, as well as branches that are crossing or rubbing against other branches. It should also remove any branches that have grown too large for the intended purpose (a hedge, for example). Medium to heavy pruning of Japanese Hornbeam should be done in the winter months, since it won't affect the blooming period as significantly. Pruning should be kept to a minimum to ensure the plant's overall aesthetic value is retained."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "white fir": {
+    "data": [
+      {
+        "id": 45,
+        "species_id": 3,
+        "common_name": "White Fir",
+        "scientific_name": [
+          "Abies concolor"
+        ],
+        "section": [
+          {
+            "id": 142,
+            "type": "watering",
+            "description": "White Fir (Abies Concolor) should be watered thoroughly once per week during the growing season. During the winter, water should be reduced to once every two weeks. The soil should be moist but not soggy, so it is important to adjust the amount of water as needed.\n\nIf the soil around your White Fir becomes too wet, it is important to aerate the soil by adding a bit of sand or stone to allow water to drain better. Firs can also suffer from over-watering, so be sure to check the soil before each watering and adjust accordingly. When in doubt, less water is better than too much when it comes to White Firs."
+          },
+          {
+            "id": 143,
+            "type": "sunlight",
+            "description": "White Fir (Abies Concolor) requires a minimum of 6 hours of direct sunlight per day in order to grow and thrive. It prefers full sun, but it can also tolerate partial shade. The best time for White Fir to receive sunlight is between 10am and 2pm, when the sun is at its strongest. During the late afternoon and early morning, the sun's rays may be too weak for the tree to absorb.\n\nIf the tree is not receiving enough sunlight, it may become stunted or develop yellowing needles."
+          },
+          {
+            "id": 144,
+            "type": "pruning",
+            "description": "Pruning white fir Abies concolor should be done regularly to keep the tree healthy and promote new growth. Pruning should be done in late winter or early spring before new growth emerges. Make sure to remove any dead, diseased, or damaged branches at this time. Pruning should be light, removing no more than 1/3 of the tree\u2019s total foliage. Make sure to leave enough foliage to maintain the natural shape of the tree. Pruning can be done with hand shears or pruning saws."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "golden fullmoon maple": {
+    "data": [
+      {
+        "id": 62,
+        "species_id": 20,
+        "common_name": "Golden Fullmoon Maple",
+        "scientific_name": [
+          "Acer japonicum 'Aureum'"
+        ],
+        "section": [
+          {
+            "id": 1250,
+            "type": "watering",
+            "description": "Golden Fullmoon Maple should be watered when the top 2 inches of soil become dry, generally at least once a week. Water deeply, until it begins to trickle out of the bottom of the pot. In the summer months, when the temperature is higher, water more often to keep the soil moist. To prevent leaves from yellowing, reduce water in the winter months."
+          },
+          {
+            "id": 1251,
+            "type": "sunlight",
+            "description": "Golden Fullmoon Maple (Acer japonicum 'Aureum') will thrive in direct sunlight or partial shade, though it prefers to be in a sunnier spot. Its best to provide it with 4-5 hours of direct sunlight each day. Planting it in a location that gets direct sunlight in the morning and afternoon, or all day dappled sunlight is ideal. Additionally, avoid overheating by avoiding full, direct sunlight in the hottest part of the day (usually late afternoon)."
+          },
+          {
+            "id": 1252,
+            "type": "pruning",
+            "description": "The Golden Fullmoon Maple is a deciduous tree that should be pruned in late winter or early spring, when the tree is still dormant and not actively growing. It is important to avoid pruning too much during the growing season, because this can severely weaken budding and decrease its flowering potential.\n\nThe pruning should focus on dead and damaged branches, as well as branches that are large or that interfere with other branches and crossing branches. Prune back the branches to 1-third of their length. Cut at an angle so that water can easily flow away from the cut and prevent disease."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "varnish tree": {
+    "data": [
+      {
+        "id": 1807,
+        "species_id": 313,
+        "common_name": "Golden Rain Tree",
+        "scientific_name": [
+          "Koelreuteria paniculata"
+        ],
+        "section": [
+          {
+            "id": 5626,
+            "type": "watering",
+            "description": "The Golden Rain Tree should be watered deeply and infrequently, allowing the soil to dry out slightly between waterings. Generally, water the tree once a week in summer, reducing to every 2 or 3 weeks in autumn and spring and once a month or less in winter."
+          },
+          {
+            "id": 5627,
+            "type": "sunlight",
+            "description": "The Golden Rain Tree (Koelreuteria paniculata) thrives best in an area with full sun, requiring at least 6 hours of sunlight per day during its growing season (typically mid-spring to mid-fall). This species is also tolerant to partial shade, although it may not bloom or produce fruit in such an area. If the tree is planted in an area with less sun than 6 hours per day, the foliage may become thin and the tree itself may not reach its full size potential."
+          },
+          {
+            "id": 5628,
+            "type": "pruning",
+            "description": "Golden Rain Tree should be pruned in late winter or early spring, just before the new growth appears. This will ensure that the tree is shaped and growing correctly, and help with any future conflicts with other plants. Start by removing any dead, diseased, or damaged branches. After that, decide which limbs to remove depending on the desired shape of the tree. Be careful not to over prune, as the Golden Rain Tree grows back quickly if you prune too much. Remove no more than a third of the branches each time, and take care not to cut off any buds or flowers. In addition, it's important to prune the limbs so that the overall shape of the tree remains intact. Lastly, once you have finished pruning, make sure to clean up the dead branches and debris from the ground."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "golden rain tree": {
+    "data": [
+      {
+        "id": 1807,
+        "species_id": 313,
+        "common_name": "Golden Rain Tree",
+        "scientific_name": [
+          "Koelreuteria paniculata"
+        ],
+        "section": [
+          {
+            "id": 5626,
+            "type": "watering",
+            "description": "The Golden Rain Tree should be watered deeply and infrequently, allowing the soil to dry out slightly between waterings. Generally, water the tree once a week in summer, reducing to every 2 or 3 weeks in autumn and spring and once a month or less in winter."
+          },
+          {
+            "id": 5627,
+            "type": "sunlight",
+            "description": "The Golden Rain Tree (Koelreuteria paniculata) thrives best in an area with full sun, requiring at least 6 hours of sunlight per day during its growing season (typically mid-spring to mid-fall). This species is also tolerant to partial shade, although it may not bloom or produce fruit in such an area. If the tree is planted in an area with less sun than 6 hours per day, the foliage may become thin and the tree itself may not reach its full size potential."
+          },
+          {
+            "id": 5628,
+            "type": "pruning",
+            "description": "Golden Rain Tree should be pruned in late winter or early spring, just before the new growth appears. This will ensure that the tree is shaped and growing correctly, and help with any future conflicts with other plants. Start by removing any dead, diseased, or damaged branches. After that, decide which limbs to remove depending on the desired shape of the tree. Be careful not to over prune, as the Golden Rain Tree grows back quickly if you prune too much. Remove no more than a third of the branches each time, and take care not to cut off any buds or flowers. In addition, it's important to prune the limbs so that the overall shape of the tree remains intact. Lastly, once you have finished pruning, make sure to clean up the dead branches and debris from the ground."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  }
+}

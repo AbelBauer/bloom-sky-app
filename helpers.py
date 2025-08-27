@@ -1,14 +1,15 @@
-import time, datetime, re
+import time, datetime, re, sys
 from googlemaps.exceptions import HTTPError
 import requests
-from rich.console import Console #type: ignore
+from rich.console import Console
 from rich import print
 from rich.panel import Panel
 
 from recommendations import get_recommendation
 from display_weather_table import print_table
-from gmaps_package import get_geocode, get_extended_forecast, get_current_weather
+from gmaps_package import get_geocode, get_current_weather, get_extended_forecast
 from gmaps_pollen import get_pollen
+from garden_care_guide import display_care_info, display_care_description
 
 # HELPERS
 
@@ -69,10 +70,10 @@ def main_menu():
         console = Console()
         print("")
         console.rule("[bold red]MAIN MENU", align="left")
-        print("\n  [E] Check extended forecast for 'HOME' location.")
-        print("  [L] Type in custom location.")
-        print("  [G] Enter virtual garden.")
-        print("  [Q] Quit.")
+        console.print("\n  [bold cyan][E][/bold cyan] Check extended forecast for 'HOME' location.")
+        console.print("  [bold cyan][L][/bold cyan] Type in custom location.")
+        console.print("  [bold cyan][G][/bold cyan] Enter virtual garden.")
+        console.print("  [bold cyan][Q][/bold cyan] Quit.")
         choice = input("➤  ").strip().lower()
         valid_choices = ["e", "l", "g", "q"]
         if choice in valid_choices:
@@ -87,9 +88,10 @@ def not_supported_locations(regions):
     return Panel.fit(message)
 
 def location_subMenu():
+    console = Console()
     while True:
-        print("\n  [E] Check this location extended forecast")
-        print("  [M] Main Menu")
+        console.print("\n  [bold cyan][E][/bold cyan] - Check this location extended forecast")
+        console.print("  [bold cyan][M][/bold cyan] - Main Menu")
         choice = input("➤  ").strip().lower()
         valid_choice = ["e", "m"]
         if choice in valid_choice:
@@ -100,43 +102,84 @@ def location_subMenu():
             continue
 
 def prompt_plants():
-    plants = []
+    console= Console()
+    
+    soil_choice = prompt_soilType() # Prompt user for soil type. This is a global garden parameter.
+
+    intro_plantGrowth() # Introduce soil choice to user.
+    
     while True:
-        user_input= input("\nList the plants and/or trees in your garden (separate names with commas, e.g. fern, roses, etc):  ➤ ").lower().strip()
-        new_plants = [plant.strip().lower() for plant in user_input.split(",") if plant.strip()] # takes raw user input and transforms it into a clean, lowercase list of plant names.
-        plants.extend(new_plants)
-        print("\nYour garden currently includes: \n")
-
-        for i, plant in enumerate(plants, 1): # Numbered list. Makes it easy to read and visually organized.
-            print(f"{i}. {plant.capitalize()}")
-
-        choice = plants_subMenu()
-        if choice == "i":
-            ... # WIP 
-        elif choice == "m":
-            print("\nThanks for creating a virtual garden!\n")
-            break
-        elif choice == "a":
+        user_plant= input("\nType in here the name of a plant and/or tree in your garden. Use vernacular, common or scientific name: ➤  ").lower().strip() # Ask the user for plant name.
+        growth_stage = prompt_growthStage() # Ask the user for the plant growth stage.
+        plant_data, plant_name = display_care_info(user_plant, soil_choice, growth_stage) # Display table and recommendations.
+        i = input("\nWould you like to see detailed care information?: yes [Y], no [N] exit the program [E]?  ➤  ").lower().strip()
+        print("")
+        if i == "y":
+            display_care_description(plant_data, plant_name) # Display detailed care information from perenual.com.
             continue
+        elif i == "n":
+            continue
+        elif i == "e":
+            sys.exit()
         else:
-            print("\nInvalid option")
-            time.sleep(0.5)
-            if ask_retry():
-                continue
-            else:
-                break
-    return plants
+            print("Invalid option\n")
+            continue
+
+def prompt_soilType() -> str: # Prompt the user for soil type. Return soil type.
+    #Find a way to optionally return soil without consequences to get_recommendations() function.
+    console = Console()
+    while True:
+        console.print("\n[bold white]Knowing whether your soil type is [bold red]CLAY[/bold red], [bold red]SAND[/bold red], [bold red]SILT[/bold red], [bold red]LOAM[/bold red], [bold red]PEAT[/bold red] or [bold red]CHALK[/bold red] " \
+        "will help you choose the right plants for your garden and maintain them in good health. (Source: https://www.rhs.org.uk/)")
+        console.print("\nType in your garden's soil type here. Press [bold cyan][S][/bold cyan] to skip or [bold cyan][E][/bold cyan] to exit the program:  ")
+        soil_choice = input(" ➤ ").lower().strip()
+        valid_choices= ["clay", "sand", "silt", "loam", "peat", "chalk"]
+        if soil_choice in valid_choices:
+            return soil_choice
+        elif soil_choice == "e":
+            sys.exit()
+        elif soil_choice == "s":
+            return None
+        else:
+            print("Invalid option. Please try again.")
+            continue
+
+def intro_plantGrowth(): # Intro to plants growth stages
+    console = Console()
+    console.print("\n[bold white]There are many ways that the grower can influence the life cycle of a plant; " \
+    "forcing it to live longer, look younger or more attractive. The growth stages of plants can be define in seven stages: " \
+    "[bold red]SEED[/bold red], [bold red]JUVENILE[/bold red], [bold red]ADULT[/bold red], [bold red]FLOWERING[/bold red], " \
+    "[bold red]FRUITING[/bold red], [bold red]SENESCENCE[/bold red] and [bold white]DEATH[/bold white]. (Source: https://leafylearning.co.uk/)")
+    
+def prompt_growthStage(): # Prompt the user for plant growth stage. Return growth stage. 
+    #Find a way to optionally return growth without consequences to get_recommendations() function.
+    console= Console()
+    while True:
+        console.print("\nType in your plant growth stage. Press [bold cyan][S][/bold cyan] to skip or [bold cyan][E][/bold cyan] to exit the program:")
+        growth_choice= input(" ➤ ").lower().strip()
+        valid_choices= ["seed", "juvenile", "adult", "flowering", "fruiting", "senescence"]
+        if growth_choice in valid_choices:
+            return growth_choice
+        elif growth_choice == "e":
+            sys.exit()
+        elif growth_choice == "s":
+            return None
+        else:
+            print("Invalid option. Please, try again.")
+            continue
+
 
 def plants_subMenu():
     while True:
         console = Console()
         print("")
         console.rule("[bold red]GARDEN MENU", align="left")
-        print("\n [I] Display care information")
-        print(" [A] Add more plants")
-        print(" [M] Main Menu")
+        console.print("\n [bold cyan][I][/bold cyan] - Display care information")
+        console.print(" [bold cyan][A][/bold cyan] - Add more plants")
+        console.print(" [bold cyan][M][/bold cyan] - Main Menu")
         choice = input("➤ ").lower().strip()
-        valid_choices = ["i", "a", "m"]
+        print("")
+        valid_choices = ["i", "a", "m", "d"]
         if choice in valid_choices:
             return choice
         else:

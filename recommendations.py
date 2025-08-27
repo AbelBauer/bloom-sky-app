@@ -10,7 +10,7 @@ def get_recommendation(is_daytime, temp, rain_prob, humidity, grass_pollen_risk,
     weed = weed_pollen_risk.lower()
 
     high = ["high", "very high"]
-    moderate = ["moderate"]
+    moderate = "moderate"
     #low = ["low", "very low"]
 
 
@@ -60,7 +60,7 @@ def get_recommendation(is_daytime, temp, rain_prob, humidity, grass_pollen_risk,
     # Analyze grass pollen
     if grass in high:
         recommendation += "\n🔴 ➜ 🌾 Grass pollen is high today. Mask up or stay indoors!\n"
-    elif grass in moderate:
+    elif grass == "moderate":
         recommendation += "\n🟠 ➜ 🌾 Moderate grass pollen levels. Keep allergy meds handy.\n"
     else:
         recommendation += "\n🟢 ➜ 🌾 Grass pollen levels are low right now. If you're super sensitive, there's a good chance you'll feel it today.\n"
@@ -68,7 +68,7 @@ def get_recommendation(is_daytime, temp, rain_prob, humidity, grass_pollen_risk,
     # Analyze tree pollen
     if tree in high:
         recommendation += "🔴 ➜ 🌳 Tree pollen is spiking. Avoid parks or wooded areas if you're sensitive.\n"
-    elif tree in moderate:
+    elif tree == "moderate":
         recommendation += "🟠 ➜ 🌳 Moderate tree pollen. Check symptoms and avoid peak hours.\n"
     else:
         recommendation += "🟢 ➜ 🌳 Trees pollen levels are low right now. If you're super sensitive, there's a good chance you'll feel it today.\n"
@@ -76,7 +76,7 @@ def get_recommendation(is_daytime, temp, rain_prob, humidity, grass_pollen_risk,
     # Analyze weed pollen
     if weed in high:
         recommendation += "🔴 ➜ 🌿 Weed pollen levels are high. Keep windows closed and limit outdoor exposure."
-    elif weed in moderate:
+    elif weed == "moderate":
         recommendation += "🟠 ➜ 🌿 Moderate weed pollen. Some discomfort possible if you're allergic."
     else:
         recommendation += "🟢 ➜ 🌿 Weed pollen levels are low right now. If you're super sensitive, there's a good chance you'll feel it today."
