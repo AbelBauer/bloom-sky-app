@@ -1,7 +1,7 @@
 from difflib import get_close_matches
 import requests
 
-API_KEY = "sk-194o68a8aecdc9f6411611"
+API_KEY = "perenual"
 
 def get_fuzzy_plant_id(name, data, cutoff=0.7):
     name = name.lower()

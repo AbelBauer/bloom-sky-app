@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 # Constants
 CACHE_FILE = "plants_cache.json"
 CACHE_FILE_DESCRIP = "plant_care_description.json"
-API_KEY = os.getenv("perenual.env") #"sk-194o68a8aecdc9f6411611"
+API_KEY = os.getenv("perenual.env")
 
 # Plant list
 plants_list = [
