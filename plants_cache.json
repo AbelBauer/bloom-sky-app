@@ -25088,5 +25088,402 @@
     "xSunlightDuration": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
     "xTemperatureTolence": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
     "xPlantSpacingRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry"
+  },
+  "armstrong maple": {
+    "id": 170,
+    "common_name": "Armstrong Maple",
+    "scientific_name": [
+      "Acer x freemanii 'Armstrong'"
+    ],
+    "other_name": [],
+    "family": null,
+    "hybrid": "freemanii",
+    "authority": null,
+    "subspecies": null,
+    "cultivar": "Armstrong",
+    "variety": null,
+    "species_epithet": null,
+    "genus": "Acer",
+    "origin": [
+      "United States"
+    ],
+    "type": "tree",
+    "dimensions": [
+      {
+        "type": "Height",
+        "min_value": 50,
+        "max_value": 50,
+        "unit": "feet"
+      }
+    ],
+    "cycle": "Perennial",
+    "attracts": [],
+    "propagation": [
+      "Cutting",
+      "Grafting Propagation",
+      "Layering Propagation",
+      "Air Layering Propagation",
+      "Tissue Culture"
+    ],
+    "hardiness": {
+      "min": "4",
+      "max": "4"
+    },
+    "hardiness_location": {
+      "full_url": "https://perenual.com/api/hardiness-map?species_id=170&size=og&key=sk-194o68a8aecdc9f6411611",
+      "full_iframe": "<iframe frameborder=0 scrolling=yes seamless=seamless width=1000 height=550 style='margin:auto;' src='https://perenual.com/api/hardiness-map?species_id=170&size=og&key=sk-194o68a8aecdc9f6411611'></iframe>"
+    },
+    "watering": "Average",
+    "watering_general_benchmark": {
+      "value": "\"7-10\"",
+      "unit": "days"
+    },
+    "plant_anatomy": [
+      {
+        "part": "trunk",
+        "color": [
+          "brown-gray"
+        ]
+      },
+      {
+        "part": "branches",
+        "color": [
+          "brown"
+        ]
+      },
+      {
+        "part": "leaves",
+        "color": [
+          "yellow-green"
+        ]
+      }
+    ],
+    "sunlight": [
+      "full sun"
+    ],
+    "pruning_month": [
+      "February",
+      "March",
+      "April",
+      "June",
+      "July"
+    ],
+    "pruning_count": {
+      "amount": 1,
+      "interval": "yearly"
+    },
+    "seeds": false,
+    "maintenance": null,
+    "care_guides": "http://perenual.com/api/species-care-guide-list?species_id=170&key=sk-194o68a8aecdc9f6411611",
+    "soil": [],
+    "growth_rate": "High",
+    "drought_tolerant": true,
+    "salt_tolerant": true,
+    "thorny": false,
+    "invasive": false,
+    "tropical": false,
+    "indoor": false,
+    "care_level": "Medium",
+    "pest_susceptibility": [],
+    "flowers": false,
+    "flowering_season": null,
+    "cones": true,
+    "fruits": false,
+    "edible_fruit": false,
+    "harvest_season": null,
+    "leaf": true,
+    "edible_leaf": false,
+    "cuisine": false,
+    "medicinal": false,
+    "poisonous_to_humans": false,
+    "poisonous_to_pets": false,
+    "description": "The Armstrong Maple (Acer x freemanii 'Armstrong') is an extremely hardy and resilient tree, able to thrive and adapt in most soil conditions. It produces unique green foliage with yellow-orange tips throughout summer before turning a stunning orange-red hue in the fall. The Armstrong Maple is an excellent choice for homeowners looking to add beauty to their property as it grows quickly, reaching heights of up to 30 feet and with a wide, rounded canopy. To top it off, this type of maple is also resistant to most diseases, making it an ideal choice for those wanting a long-lasting and healthy tree in their yard.",
+    "default_image": {
+      "license": 5,
+      "license_name": "Attribution-ShareAlike License",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "original_url": "https://perenual.com/storage/species_image/170_acer_x_freemanii_armstrong/og/10482927313_0306d993c3_b.jpg",
+      "regular_url": "https://perenual.com/storage/species_image/170_acer_x_freemanii_armstrong/regular/10482927313_0306d993c3_b.jpg",
+      "medium_url": "https://perenual.com/storage/species_image/170_acer_x_freemanii_armstrong/medium/10482927313_0306d993c3_b.jpg",
+      "small_url": "https://perenual.com/storage/species_image/170_acer_x_freemanii_armstrong/small/10482927313_0306d993c3_b.jpg",
+      "thumbnail": "https://perenual.com/storage/species_image/170_acer_x_freemanii_armstrong/thumbnail/10482927313_0306d993c3_b.jpg"
+    },
+    "other_images": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringQuality": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringPeriod": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringAvgVolumeRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringDepthRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringBasedTemperature": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringPhLevel": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xSunlightDuration": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xTemperatureTolence": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xPlantSpacingRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry"
+  },
+  "kobus magnolia": {
+    "id": 344,
+    "common_name": "Kobus Magnolia",
+    "scientific_name": [
+      "Magnolia kobus"
+    ],
+    "other_name": [],
+    "family": "Magnoliaceae",
+    "hybrid": null,
+    "authority": null,
+    "subspecies": null,
+    "cultivar": null,
+    "variety": null,
+    "species_epithet": "kobus",
+    "genus": "Magnolia",
+    "origin": [
+      "Japan"
+    ],
+    "type": "tree",
+    "dimensions": [
+      {
+        "type": "Height",
+        "min_value": 25,
+        "max_value": 25,
+        "unit": "feet"
+      }
+    ],
+    "cycle": "Perennial",
+    "attracts": [],
+    "propagation": [
+      "Seed Propagation",
+      "Cutting"
+    ],
+    "hardiness": {
+      "min": "5",
+      "max": "5"
+    },
+    "hardiness_location": {
+      "full_url": "https://perenual.com/api/hardiness-map?species_id=344&size=og&key=sk-194o68a8aecdc9f6411611",
+      "full_iframe": "<iframe frameborder=0 scrolling=yes seamless=seamless width=1000 height=550 style='margin:auto;' src='https://perenual.com/api/hardiness-map?species_id=344&size=og&key=sk-194o68a8aecdc9f6411611'></iframe>"
+    },
+    "watering": "Average",
+    "watering_general_benchmark": {
+      "value": "\"7-10\"",
+      "unit": "days"
+    },
+    "plant_anatomy": [
+      {
+        "part": "twigs",
+        "color": [
+          "gray-brown",
+          "gray"
+        ]
+      },
+      {
+        "part": "branch",
+        "color": [
+          "gray-brown"
+        ]
+      },
+      {
+        "part": "leaves",
+        "color": [
+          "green"
+        ]
+      },
+      {
+        "part": "flowers",
+        "color": [
+          "white-pink",
+          "white-yellow"
+        ]
+      }
+    ],
+    "sunlight": [
+      "full sun",
+      "part sun/part shade"
+    ],
+    "pruning_month": [
+      "February",
+      "March",
+      "April"
+    ],
+    "pruning_count": [],
+    "seeds": false,
+    "maintenance": "Moderate",
+    "care_guides": "http://perenual.com/api/species-care-guide-list?species_id=344&key=sk-194o68a8aecdc9f6411611",
+    "soil": [
+      "Humus rich",
+      " Well-drained"
+    ],
+    "growth_rate": "Low",
+    "drought_tolerant": false,
+    "salt_tolerant": false,
+    "thorny": false,
+    "invasive": false,
+    "tropical": false,
+    "indoor": false,
+    "care_level": null,
+    "pest_susceptibility": [
+      "Scale insects",
+      "  Pest resistant",
+      " Disease resistant "
+    ],
+    "flowers": true,
+    "flowering_season": "Spring",
+    "cones": true,
+    "fruits": false,
+    "edible_fruit": false,
+    "harvest_season": null,
+    "leaf": true,
+    "edible_leaf": false,
+    "cuisine": false,
+    "medicinal": false,
+    "poisonous_to_humans": false,
+    "poisonous_to_pets": false,
+    "description": "Kobus Magnolia (Magnolia kobus) is an amazing plant species for many reasons. A true winter bloomer, it is popular for its large showy flowers. The flowers are white with pink edges, and reach about seven inches in diameter, appearing in March and April. The plant is hardy and drought tolerant and its leaves are dark green and glossy. It is a deciduous tree, so adds spectacular color to a winter landscape with its foot-long buds and beautiful flowers. Its large, attractively shaped fruits are a pleasant addition to any garden. The Kobus Magnolia is a gorgeous addition to any garden and is sure to attract attention and admiration.",
+    "default_image": {
+      "license": 5,
+      "license_name": "Attribution-ShareAlike License",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "original_url": "https://perenual.com/storage/species_image/344_magnolia_kobus/og/17143034688_9b3104719b_b.jpg",
+      "regular_url": "https://perenual.com/storage/species_image/344_magnolia_kobus/regular/17143034688_9b3104719b_b.jpg",
+      "medium_url": "https://perenual.com/storage/species_image/344_magnolia_kobus/medium/17143034688_9b3104719b_b.jpg",
+      "small_url": "https://perenual.com/storage/species_image/344_magnolia_kobus/small/17143034688_9b3104719b_b.jpg",
+      "thumbnail": "https://perenual.com/storage/species_image/344_magnolia_kobus/thumbnail/17143034688_9b3104719b_b.jpg"
+    },
+    "other_images": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringQuality": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringPeriod": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringAvgVolumeRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringDepthRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringBasedTemperature": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringPhLevel": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xSunlightDuration": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xTemperatureTolence": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xPlantSpacingRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry"
+  },
+  "glossy abelia": {
+    "id": 400,
+    "common_name": "glossy abelia",
+    "scientific_name": [
+      "Abelia grandiflora"
+    ],
+    "other_name": [],
+    "family": "Caprifoliaceae",
+    "hybrid": null,
+    "authority": null,
+    "subspecies": null,
+    "cultivar": null,
+    "variety": null,
+    "species_epithet": "grandiflora",
+    "genus": "Abelia",
+    "origin": [],
+    "type": "Deciduous shrub",
+    "dimensions": [
+      {
+        "type": null,
+        "min_value": 3,
+        "max_value": 6,
+        "unit": "feet"
+      }
+    ],
+    "cycle": "Perennial",
+    "attracts": [],
+    "propagation": [
+      "Cutting",
+      "Layering Propagation",
+      "Grafting Propagation",
+      "Division",
+      "Seed Propagation"
+    ],
+    "hardiness": {
+      "min": "5",
+      "max": "9"
+    },
+    "hardiness_location": {
+      "full_url": "https://perenual.com/api/hardiness-map?species_id=400&size=og&key=sk-194o68a8aecdc9f6411611",
+      "full_iframe": "<iframe frameborder=0 scrolling=yes seamless=seamless width=1000 height=550 style='margin:auto;' src='https://perenual.com/api/hardiness-map?species_id=400&size=og&key=sk-194o68a8aecdc9f6411611'></iframe>"
+    },
+    "watering": "Average",
+    "watering_general_benchmark": {
+      "value": "\"3-4\"",
+      "unit": "days"
+    },
+    "plant_anatomy": [
+      {
+        "part": "stems",
+        "color": [
+          "red"
+        ]
+      },
+      {
+        "part": "leaves",
+        "color": [
+          "red-green",
+          "green",
+          "dark-green"
+        ]
+      },
+      {
+        "part": "flowers",
+        "color": [
+          "pink-white"
+        ]
+      }
+    ],
+    "sunlight": [
+      "full sun",
+      "part shade"
+    ],
+    "pruning_month": [
+      "March",
+      "April",
+      "May"
+    ],
+    "pruning_count": {
+      "amount": 1,
+      "interval": "yearly"
+    },
+    "seeds": false,
+    "maintenance": "Low",
+    "care_guides": "http://perenual.com/api/species-care-guide-list?species_id=400&key=sk-194o68a8aecdc9f6411611",
+    "soil": [],
+    "growth_rate": "Low",
+    "drought_tolerant": true,
+    "salt_tolerant": false,
+    "thorny": false,
+    "invasive": false,
+    "tropical": false,
+    "indoor": false,
+    "care_level": "Medium",
+    "pest_susceptibility": [],
+    "flowers": true,
+    "flowering_season": null,
+    "cones": false,
+    "fruits": false,
+    "edible_fruit": false,
+    "harvest_season": null,
+    "leaf": true,
+    "edible_leaf": false,
+    "cuisine": false,
+    "medicinal": false,
+    "poisonous_to_humans": false,
+    "poisonous_to_pets": false,
+    "description": "The Glossy Abelia is an amazing ornamental shrub, ideal for adding beauty and structure to your garden. With glossy, deep-green oval leaves, it is fast-growing and has showy, fragrant flowers in shades of pink from late spring to mid-summer. Its tough, durable and drought tolerant evergreen foliage provides a colourful backdrop for beds and borders all year round. The blooms also attract bees and other beneficial pollinators. Growing between 3-6 feet tall and wide, it makes an ideal low-maintenance addition to any landscape. This easy-care and versatile shrub also makes a stunning addition to containers and a beautiful border or hedge.",
+    "default_image": {
+      "license": 4,
+      "license_name": "Attribution License",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "original_url": "https://perenual.com/storage/species_image/400_abelia_grandiflora/og/52152430649_8d9ddd2cf5_b.jpg",
+      "regular_url": "https://perenual.com/storage/species_image/400_abelia_grandiflora/regular/52152430649_8d9ddd2cf5_b.jpg",
+      "medium_url": "https://perenual.com/storage/species_image/400_abelia_grandiflora/medium/52152430649_8d9ddd2cf5_b.jpg",
+      "small_url": "https://perenual.com/storage/species_image/400_abelia_grandiflora/small/52152430649_8d9ddd2cf5_b.jpg",
+      "thumbnail": "https://perenual.com/storage/species_image/400_abelia_grandiflora/thumbnail/52152430649_8d9ddd2cf5_b.jpg"
+    },
+    "other_images": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringQuality": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringPeriod": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringAvgVolumeRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringDepthRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringBasedTemperature": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xWateringPhLevel": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xSunlightDuration": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xTemperatureTolence": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry",
+    "xPlantSpacingRequirement": "Upgrade Plan To Supreme For Access https://perenual.com/subscription-api-pricing. Im sorry"
   }
 }

@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 # Constants
 CACHE_FILE = "plants_cache.json"
 CACHE_FILE_DESCRIP = "plant_care_description.json"
-API_KEY = os.getenv("perenual_api")
+API_KEY = os.getenv("perenual.env") #"sk-194o68a8aecdc9f6411611"
 
 # Plant list
 plants_list = [
@@ -53,7 +53,7 @@ def extract_care_info(data):
             data.get('common_name', 'Unknown'),
             data.get('scientific_name', ['Unknown'])[0],
             data.get('watering', 'Unknown').lower(),
-            data.get('watering_general_benchmark', {}).get("value", "Unknown").strip('"').strip("'"),
+            data.get('watering_general_benchmark', {}).get("value", "Unknown"),   #.strip('"').strip("'"),
             ', '.join(data.get('sunlight', ['Unknown']))
         )
     except Exception as e:
@@ -64,11 +64,17 @@ def extract_care_info(data):
 def extract_care_descriptions(data):
     try:
         sections = data["data"][0]["section"]
-        guide = {s["type"]: s["description"].strip() for s in sections if s.get("type") and s.get("description")}
-        return guide.get("watering", ""), guide.get("sunlight", ""), guide.get("pruning", "")
+        guide = {}
+        for s in sections:
+            if s.get("type") and s.get("description"):
+                key = s["type"]
+                value = s["description"]
+                guide[key] = value
+
+        return guide.get("watering", "Unavailable data."), guide.get("sunlight", "Unavailable data."), guide.get("pruning", "Unavailable data.")
     except Exception as e:
         print(f"⚠️ Error extracting care descriptions: {e}")
-        return "", "", ""
+        return "Unavailable data.", "Unavailable data.", "Unavailable data."
 
 # Fuzzy matching
 def fuzzy_plant_name(name, data, cutoff=0.75):
@@ -90,10 +96,11 @@ def fuzzy_plant_name(name, data, cutoff=0.75):
     return None
 
 # Fetch plant ID
-def fetch_plant_id(name: str, cache: json) -> tuple:
+def fetch_plant_id(name: str, cache) -> tuple:
     normalized = name.lower()
     if normalized in cache:
         return cache[normalized]["id"], normalized
+    
     fuzzy_name = fuzzy_plant_name(name, {"data": list(cache.values())})
     if fuzzy_name:
         for key, plant in cache.items():
@@ -102,6 +109,7 @@ def fetch_plant_id(name: str, cache: json) -> tuple:
                     [o.lower() for o in plant.get("other_name", [])]
             if fuzzy_name in names:
                 return plant["id"], key.lower()
+            
     # Fallback to API
     url = f"https://perenual.com/api/v2/species-list?q={name}&key={API_KEY}"
     try:
@@ -116,12 +124,13 @@ def fetch_plant_id(name: str, cache: json) -> tuple:
                         [o.lower() for o in plant.get("other_name", [])]
                 if fuzzy_name_api in names:
                     return plant["id"], fuzzy_name_api.lower()
+                
     except Exception as e:
         print(f"Error fetching plant ID: {e}")
-    return None, None
+    return "Unknown", "Unknown" # Debugging i change it to "unknown" when previously None.
 
 # Fetch care info
-def fetch_care_info(plant_id: int, plant_name: str, cache: json) -> tuple:
+def fetch_care_info(plant_id: int, plant_name: str, cache) -> tuple:
     normalized = plant_name.lower()
     if normalized in cache:
         print("✴️  Care data from cache.")
@@ -139,11 +148,12 @@ def fetch_care_info(plant_id: int, plant_name: str, cache: json) -> tuple:
         return "Unknown", "Unknown", "Unknown", "Unknown", "Unknown"
 
 # Fetch description
-def fetch_description(plant_id: int, plant_name: str, cache: json) -> tuple:
+def fetch_description(plant_id: int, plant_name: str, cache) -> tuple:
     normalized = plant_name.lower()
     if normalized in cache:
         print("✴️  Description from cache.")
         return extract_care_descriptions(cache[normalized])
+
     url = f"https://perenual.com/api/species-care-guide-list?species_id={plant_id}&key={API_KEY}"
     try:
         response = requests.get(url)
@@ -152,13 +162,18 @@ def fetch_description(plant_id: int, plant_name: str, cache: json) -> tuple:
         save_description_cache({normalized: content})
         print("❇️  Description from Perenual API.")
         return extract_care_descriptions(content)
-    except requests.exceptions.HTTPError:
-        if response.status_code == 429:
-            print(f"API rate limit reached! Please, try again tomorrow.")
-            return "Unavailable", "Unavailable", "Unavailable"
+
+    except requests.exceptions.HTTPError as e:
+        if e.response and e.response.status_code == 429:
+            print("🚫 API rate limit reached! Please, try again tomorrow.")
+        else:
+            print(f"🚫 HTTP error: {e}")
     except requests.RequestException as e:
-         print(f"Error fetching description: {e}")
-         return "Unavailable", "Unavailable", "Unavailable"
+        print(f"🚫 Network error: {e}")
+
+    # Fallback return to avoid None
+    return "Unavailable data.", "Unavailable data.", "Unavailable data."
+
 
 # Display panels
 def display_plants_description(water: str, sun: str, prun: str) -> str:

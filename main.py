@@ -58,5 +58,5 @@ while True:
         print("")
         console.rule("[bold red]WELCOME TO YOUR VIRTUAL GARDEN", align="left")
         print("Your garden is more than decoration, it's a living ecosystem. Every plant and tree you care for contributes to cleaner air, biodiversity, and a sense of peace and beauty. Taking good care of them is great responsability and lots of fun, too!\n")
-        plants = prompt_plants() #WIP...implement what to do with plants list
+        plants = prompt_plants()
             

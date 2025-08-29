@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 def get_pollen(lat, long): # Set up a lat/lon cache in the geocode function. Load it up here.
     #cache = Cache("gmaps_pollen_cache")
-    API_key = os.getenv("gmaps_api")
+    API_key = os.getenv("gmaps.env")
     url = f"https://pollen.googleapis.com/v1/forecast:lookup?key={API_key}&location.longitude={long}&location.latitude={lat}&days=1"
 
     #key = (lat, long)

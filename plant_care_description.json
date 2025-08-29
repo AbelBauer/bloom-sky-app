@@ -731,5 +731,145 @@
     "from": 1,
     "last_page": 1,
     "total": 1
+  },
+  "mimosa": {
+    "data": [
+      {
+        "id": 861,
+        "species_id": 172,
+        "common_name": "Mimosa",
+        "scientific_name": [
+          "Albizia julibrissin"
+        ],
+        "section": [
+          {
+            "id": 2585,
+            "type": "watering",
+            "description": "Mimosa should be watered thoroughly but infrequently. Water when the soil is dry to a depth of 1 inch and provide enough water to moisten the soil to a depth of at least 8 inches. Avoid overwatering as this can waterlog the soil and drown the roots. A general rule of thumb is to provide around 1-2 inches of water per week. In hotter, drier climates plants may need more frequent watering than those in cooler climates."
+          },
+          {
+            "id": 2586,
+            "type": "sunlight",
+            "description": "Mimosa plants thrive in direct sunlight for a minimum of 6 to 8 hours a day to ensure they stay healthy and produce flowers. Ideally, this species should receive sun in the early morning or late afternoon as the direct sunlight during mid-day could scorch the leaves. During the summer months, Mimosa should receive full sun each day."
+          },
+          {
+            "id": 2587,
+            "type": "pruning",
+            "description": "Mimosa (Albizia julibrissin) should be pruned in early spring, before new growth appears. The amount of pruning varies based on the age and size of the plant, but generally about 1/3 to 1/2 of the older stems can be safely removed without harming the plant. If it\u2019s an older plant, more aggressive pruning may be required but should only be done with the advice of a horticultural expert. Other thinning maintenance pruning can be done throughout the year to help maintain the shape and size of the plant."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "armstrong maple": {
+    "data": [
+      {
+        "id": 1696,
+        "species_id": 170,
+        "common_name": "Armstrong Maple",
+        "scientific_name": [
+          "Acer x freemanii 'Armstrong'"
+        ],
+        "section": [
+          {
+            "id": 5293,
+            "type": "watering",
+            "description": "Armstrong Maple is a moderately drought-tolerant tree, so it should be watered deeply and regularly for the first 2 years after planting. Beyond that, water as the soil begins to dry, or when during periods of drought. A good rule of thumb is to provide about 1 inch of water per week in the summer months. It's also important to avoid over-watering. In rainy seasons, check the soil first to make sure it isn't already saturated before watering."
+          },
+          {
+            "id": 5294,
+            "type": "sunlight",
+            "description": "Armstrong Maple trees require full sunlight to thrive. They prefer at least 6 hours of direct, unfiltered sunlight each day. The best time of day for Armstrong Maple trees to get direct sunlight is in the morning, when the sun is at its strongest. To ensure optimal results, ensure that the tree receives at least 6 hours of direct sunlight each day, either in the morning or from both the morning and late afternoon."
+          },
+          {
+            "id": 5295,
+            "type": "pruning",
+            "description": "Acer x freemanii \u2018Armstrong\u2019 is a popular maple hybrid known for its hardiness and attractive fall foliage. To maintain its shape and promote healthy new growth, this maple species should be pruned every year in late winter or early spring. Pruning should focus on cutting away any dead, diseased or damaged branches, and thinning the canopy to encourage full growth and minimize the chances of disease. If shaping and size control is desired, light pruning can be done in early summer, but no more than 20% of the branch should be removed at once."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "kobus magnolia": {
+    "data": [
+      {
+        "id": 1835,
+        "species_id": 344,
+        "common_name": "Kobus Magnolia",
+        "scientific_name": [
+          "Magnolia kobus"
+        ],
+        "section": [
+          {
+            "id": 5710,
+            "type": "watering",
+            "description": "The Kobus Magnolia (Magnolia kobus) is a hardy, evergreen tree that requires regular watering during the growing season to ensure optimum health. During the spring and summer months, it is important to water regularly, keeping the soil moist but not soggy. Water once a week, ensuring that the soil is thoroughly soaked. During the fall and winter months, the soil should remain slightly dry, allowing the plant to rest and prepare for the spring growth. Water the plant only when the top 1 to 2 inches of soil feel dry. "
+          },
+          {
+            "id": 5711,
+            "type": "sunlight",
+            "description": "Kobus Magnolia (Magnolia kobus) grows best with full sun to partial shade, meaning they should receive at least 6 to 8 hours of sunlight per day. Morning sunlight is the preferred option for this species, as the afternoon sun may produce heat stress and cause scorching damage to the leaves. In regions with strong midday sunlight, providing an umbrella of sorts to block direct rays may be beneficial. "
+          },
+          {
+            "id": 5712,
+            "type": "pruning",
+            "description": "Kobus magnolia should be pruned in late winter or early spring to maintain its shape, remove dead or crossing branches, and promote vigorous flowering. The amount of pruning will depend on the desired shape of the tree and the overall health of the tree. Generally, the tree should not be pruned too aggressively, as this can reduce its flowering potential. To start, remove dead, diseased, or damaged branches, and any crowding or rubbing branches. Then, thin out the canopy by removing smaller branches, as well as branches that are growing straight up or in a V shape. Finally, shape the tree into the desired form you wish, making sure to retain a more natural shape. In order to retain the tree's natural form, it is important not to prune too severely or remove too many branches."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "glossy abelia": {
+    "data": [
+      {
+        "id": 1858,
+        "species_id": 400,
+        "common_name": "glossy abelia",
+        "scientific_name": [
+          "Abelia grandiflora"
+        ],
+        "section": [
+          {
+            "id": 5779,
+            "type": "watering",
+            "description": "Water your glossy abelia plant deeply approximately once per week during the growing season (late spring through early fall). In the summer months, the plant may need more frequent watering if the soil seems dry. If the top 2-3 inches of soil feels dry, then it's time to give your plant a drink. Abelia grandiflora does not tolerate wet feet or waterlogged soil, so be sure to never over water. In the winter, you can reduce the watering frequency to 1-2 times per month."
+          },
+          {
+            "id": 5780,
+            "type": "sunlight",
+            "description": "Glossy abelia (Abelia grandiflora) grows best in full sun to partial shade. It should receive 6 to 8 hours of direct sunlight daily for optimal growth, with the ideal time of day being early morning sun. In warmer climates, full sun is recommended, while in colder climates, partial shade is recommended. For optimal growth, it should receive sunlight from late morning until early afternoon, with no direct sunlight in the late afternoon."
+          },
+          {
+            "id": 5781,
+            "type": "pruning",
+            "description": "Glossy Abelia (Abelia grandiflora) is a fast-growing shrub with small glossy foliage. Pruning should be done at least once a year to encourage thick, bushy growth and to help promote more blooms. Prune in the spring, just after the last frost, and before the plant begins to put on new growth. Prune the stems back by about 1-third their length to keep the shrub's shape neat and small. Cut away any dead or damaged branches. In addition, prune out any spindly growth to help produce more blooms. Finally, thin out the center branches to encourage air flow throughout the shrub and give it a more attractive shape."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
   }
 }

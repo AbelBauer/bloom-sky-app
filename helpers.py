@@ -14,8 +14,23 @@ from garden_care_guide import display_care_info, display_care_description
 # HELPERS
 
 def ask_retry():
-    choice = input("\nWould you like to try again? ➤ yes [Y], or no [N]?  ➤  ").lower()
+    choice = input("\nWould you like to try again? yes [Y], or no [N]?  ➤  ").lower()
     return choice == "y"
+
+def add_more_plants():
+    choice  = input("\nWould you like to list more plants? yes [Y], or no [N]?  ➤ ").lower().strip()
+    return choice == "y"
+
+def ask_retry_careInfo():
+    while True:
+        user_choice = input("\nWould you like to see detailed care information?: yes [Y], no [N], exit the garden [E]?  ➤  ").lower().strip()
+        valid_choices = ["y", "n", "e"]
+        if user_choice in valid_choices:
+            return user_choice
+        else:
+            print("Invalid choice. Please, try again.")
+            continue
+       
 
 def display_custom_forecast(location, latitude, longitude):
         
@@ -102,54 +117,53 @@ def location_subMenu():
             continue
 
 def prompt_plants():
-    console= Console()
-    
-    soil_choice = prompt_soilType() # Prompt user for soil type. This is a global garden parameter.
-
-    intro_plantGrowth() # Introduce soil choice to user.
-    
+    soil_choice = prompt_soilType() # Prompt user for soil type. This is a global garden parameter.  
     while True:
-        user_plant= input("\nType in here the name of a plant and/or tree in your garden. Use vernacular, common or scientific name: ➤  ").lower().strip() # Ask the user for plant name.
+        user_plant= input("\nType in here the name of a plant and/or tree in your garden. Use vernacular, common or scientific name: ➤  ").lower().strip() # Ask the user for plant name.         
+        intro_plantGrowth() # Introduce soil choice to user.
         growth_stage = prompt_growthStage() # Ask the user for the plant growth stage.
         plant_data, plant_name = display_care_info(user_plant, soil_choice, growth_stage) # Display table and recommendations.
-        i = input("\nWould you like to see detailed care information?: yes [Y], no [N] exit the program [E]?  ➤  ").lower().strip()
+        choice = ask_retry_careInfo()
         print("")
-        if i == "y":
+        if choice == "y":
             display_care_description(plant_data, plant_name) # Display detailed care information from perenual.com.
+            while True:
+                if add_more_plants(): # Ask if the user wants to add more plants or not.
+                    continue
+                elif add_more_plants() == False:
+                    break 
+                else:
+                    print("Invalid choice. Please, try again.")
+                    continue
+        elif choice == "n":
             continue
-        elif i == "n":
-            continue
-        elif i == "e":
-            sys.exit()
-        else:
-            print("Invalid option\n")
-            continue
+        elif choice == "e":
+            break
 
 def prompt_soilType() -> str: # Prompt the user for soil type. Return soil type.
-    #Find a way to optionally return soil without consequences to get_recommendations() function.
     console = Console()
     while True:
-        console.print("\n[bold white]Knowing whether your soil type is [bold red]CLAY[/bold red], [bold red]SAND[/bold red], [bold red]SILT[/bold red], [bold red]LOAM[/bold red], [bold red]PEAT[/bold red] or [bold red]CHALK[/bold red] " \
+        console.print("\nKnowing whether your soil type is [bold green]CLAY[/bold green], [bold green]SAND[/bold green], [bold green]SILT[/bold green], [bold green]LOAM[/bold green], [bold green]PEAT[/bold green] or [bold green]CHALK[/bold green] " \
         "will help you choose the right plants for your garden and maintain them in good health. (Source: https://www.rhs.org.uk/)")
         console.print("\nType in your garden's soil type here. Press [bold cyan][S][/bold cyan] to skip or [bold cyan][E][/bold cyan] to exit the program:  ")
         soil_choice = input(" ➤ ").lower().strip()
         valid_choices= ["clay", "sand", "silt", "loam", "peat", "chalk"]
         if soil_choice in valid_choices:
             return soil_choice
-        elif soil_choice == "e":
-            sys.exit()
         elif soil_choice == "s":
             return None
+        elif soil_choice == "e":
+            sys.exit()
         else:
-            print("Invalid option. Please try again.")
+            print("Invalid option. Please, try again.")
             continue
 
 def intro_plantGrowth(): # Intro to plants growth stages
     console = Console()
-    console.print("\n[bold white]There are many ways that the grower can influence the life cycle of a plant; " \
+    console.print("\nThere are many ways that the grower can influence the life cycle of a plant; " \
     "forcing it to live longer, look younger or more attractive. The growth stages of plants can be define in seven stages: " \
-    "[bold red]SEED[/bold red], [bold red]JUVENILE[/bold red], [bold red]ADULT[/bold red], [bold red]FLOWERING[/bold red], " \
-    "[bold red]FRUITING[/bold red], [bold red]SENESCENCE[/bold red] and [bold white]DEATH[/bold white]. (Source: https://leafylearning.co.uk/)")
+    "[bold green]SEED[/bold green], [bold green]JUVENILE[/bold green], [bold green]ADULT[/bold green], [bold green]FLOWERING[/bold green], " \
+    "[bold green]FRUITING[/bold green], [bold green]SENESCENCE[/bold green] and [bold white]DEATH[/bold white]. (Source: https://leafylearning.co.uk/)")
     
 def prompt_growthStage(): # Prompt the user for plant growth stage. Return growth stage. 
     #Find a way to optionally return growth without consequences to get_recommendations() function.
@@ -160,8 +174,6 @@ def prompt_growthStage(): # Prompt the user for plant growth stage. Return growt
         valid_choices= ["seed", "juvenile", "adult", "flowering", "fruiting", "senescence"]
         if growth_choice in valid_choices:
             return growth_choice
-        elif growth_choice == "e":
-            sys.exit()
         elif growth_choice == "s":
             return None
         else:
@@ -183,7 +195,7 @@ def plants_subMenu():
         if choice in valid_choices:
             return choice
         else:
-            print("\nInvalid option")
+            print("\nInvalid option. Please, try again.")
             time.sleep(0.5)
             continue
         
