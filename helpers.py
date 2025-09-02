@@ -18,17 +18,27 @@ def ask_retry():
     return choice == "y"
 
 def add_more_plants():
-    choice  = input("\nWould you like to list more plants? yes [Y], or no [N]?  ➤ ").lower().strip()
-    return choice == "y"
+    while True:
+        user_choice = input("\nWould you like to add more plants?: yes [Y] or no [N] to exit the garden?  ➤  ").lower().strip()
+        valid_choices = ["y", "n", "e"] 
+        if user_choice in valid_choices:
+                return user_choice
+        else:
+            time.sleep(0.5)
+            print("Invalid choice. Please, try again.")
+            time.sleep(0.5)
+            continue
 
-def ask_retry_careInfo():
+def ask_careInfo():
     while True:
         user_choice = input("\nWould you like to see detailed care information?: yes [Y], no [N], exit the garden [E]?  ➤  ").lower().strip()
         valid_choices = ["y", "n", "e"]
         if user_choice in valid_choices:
             return user_choice
         else:
+            time.sleep(0.5)
             print("Invalid choice. Please, try again.")
+            time.sleep(0.5)
             continue
        
 
@@ -91,9 +101,11 @@ def main_menu():
         if choice in valid_choices:
             return choice
         else:
+            time.sleep(0.5)
             print("\nInvalid option")
             time.sleep(0.5)
             continue
+    
 
 def not_supported_locations(regions):
     message = f"⚠️  [red]Heads-up: Weather and pollen data isn't currently available for a few regions, including: {regions.title()}."
@@ -120,30 +132,27 @@ def location_subMenu():
             continue
 
 def prompt_plants():
-    soil_choice = prompt_soilType() # Prompt user for soil type. This is a global garden parameter.  
+    console = Console()
     while True:
+        soil_choice = prompt_soilType() # Prompt user for soil type. This is a global garden parameter.  
         user_plant= input("\nType in here the name of a plant and/or tree in your garden. Use vernacular, common or scientific name: ➤  ").lower().strip() # Ask the user for plant name.         
         intro_plantGrowth() # Introduce soil choice to user.
         growth_stage = prompt_growthStage() # Ask the user for the plant growth stage.
         plant_name, plant_id = display_care_info(user_plant, growth_stage, soil_choice) # Display table and recommendations.
-        choice = ask_retry_careInfo()
+        retry_choice = ask_careInfo()
         print("")
-        if choice == "y":
-            display_care_description(plant_id, plant_name) # Display detailed care information from perenual.com.
-            while True:
-                if add_more_plants(): # Ask if the user wants to add more plants or not.
-                    break
-                elif add_more_plants() == False:
-                    print("")
-                    time.sleep(1)
-                    sys.exit("Good bye!") 
-                else:
-                    print("Invalid choice. Please, try again.")
-                    continue
-        elif choice == "n":
+        if retry_choice == "y":
+            display_care_description(plant_id, plant_name) # Display detailed care information from perenual.com.            
+            add_plants_choice = add_more_plants() # Ask the user for more plants.
+            if add_plants_choice == "y":
+                continue
+            elif add_plants_choice == "n":
+                break
+        elif retry_choice == "n":
             continue
-        elif choice == "e":
-            break
+        else:
+            break 
+        
 
 def prompt_soilType() -> str: # Prompt the user for soil type. Return soil type.
     console = Console()
@@ -160,7 +169,10 @@ def prompt_soilType() -> str: # Prompt the user for soil type. Return soil type.
         elif soil_choice == "e":
             sys.exit()
         else:
+            time.sleep(0.5)
+            print("")
             print("Invalid option. Please, try again.")
+            time.sleep(1)
             continue
 
 def intro_plantGrowth(): # Intro to plants growth stages
@@ -182,7 +194,10 @@ def prompt_growthStage(): # Prompt the user for plant growth stage. Return growt
         elif growth_choice == "s":
             return None
         else:
+            print("")
+            time.sleep(0.5)
             print("Invalid option. Please, try again.")
+            time.sleep(1)
             continue
 
 
@@ -200,6 +215,8 @@ def plants_subMenu():
         if choice in valid_choices:
             return choice
         else:
+            print("")
+            time.sleep(0.5)
             print("\nInvalid option. Please, try again.")
             time.sleep(0.5)
             continue
@@ -235,48 +252,6 @@ def readable_datetime(ts):
 def valid_coordinates(lat, lon):
     return lat is not None and lon is not None
 
-RESTRICTED_LOCATIONS = {
-    # Countries
-    "China", "Cuba", "Iran", "Japan", "North Korea", "Korea", "South Korea", "Syria", "Vietnam",
-    # China: 34 Divisions
-    "Anhui", "Fujian", "Gansu", "Guangdong", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", 
-    "Hubei", "Hunan", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Qinghai", "Shaanxi", "Shandong", 
-    "Shanxi", "Sichuan", "Yunnan", "Zhejiang", "Beijing", "Chongqing", "Shanghai", "Tianjin", "Guangxi", 
-    "Inner Mongolia", "Ningxia", "Tibet", "Xinjiang",
-    # Cuba: 15 Provinces + 1 Special Municipality
-    "Pinar del Río", "Artemisa", "Mayabeque", "Havana", "Habana", "Matanzas", "Cienfuegos", "Villa Clara", 
-    "Sancti Spíritus", "Ciego de Ávila", "Camagüey", "Las Tunas", "Granma", "Holguín", "Santiago de Cuba", 
-    "Guantánamo", "Isla de la Juventud",
-    # Iran — 31 Provinces 
-    "Alborz", "Ardabil", "Bushehr", "Chaharmahal and Bakhtiari", "East Azerbaijan", "Fars", "Gilan", "Golestan", 
-    "Hamadan", "Hormozgan", "Ilam", "Isfahan", "Kerman", "Kermanshah", "Khuzestan", "Kohgiluyeh and Boyer-Ahmad", 
-    "Kurdistan", "Lorestan", "Markazi", "Mazandaran", "North Khorasan", "Qazvin", "Qom", "Razavi Khorasan", 
-    "Semnan", "Sistan and Baluchestan", "South Khorasan", "Tehran", "West Azerbaijan", "Yazd", "Zanjan",
-    # Japan: 47 Prefectures
-    "Aichi", "Akita", "Aomori", "Chiba", "Ehime", "Fukui", "Fukuoka", "Fukushima", "Gifu", "Gunma", "Hiroshima", 
-    "Hokkaido", "Hyogo", "Ibaraki", "Ishikawa", "Iwate", "Kagawa", "Kagoshima", "Kanagawa", "Kochi", "Kumamoto", 
-    "Kyoto", "Mie", "Miyagi", "Miyazaki", "Nagano", "Nagasaki", "Nara", "Niigata", "Oita", "Okayama", "Okinawa", 
-    "Osaka", "Saga", "Saitama", "Shiga", "Shimane", "Shizuoka", "Tochigi", "Tokushima", "Tokyo", "Tottori", "Toyama", 
-    "Wakayama", "Yamagata", "Yamaguchi", "Yamanashi",
-    # North Korea: 9 Provinces + 3 Cities
-    "Chagang", "North Hamgyong", "South Hamgyong", "North Hwanghae", "South Hwanghae", "Kangwon", "North Pyongan", 
-    "South Pyongan", "Ryanggang", "Pyongyang", "Nampo", "Rason",
-    # South Korea: 9 Provinces + 7 Cities
-    "Gyeonggi", "Gangwon", "North Chungcheong", "South Chungcheong", "North Jeolla", "South Jeolla", "North Gyeongsang", 
-    "South Gyeongsang", "Jeju", "Seoul", "Busan", "Daegu", "Incheon", "Gwangju", "Daejeon", "Ulsan",
-    # Syria: 14 Governorates
-    "Aleppo", "Damascus", "Daraa", "Deir ez-Zor", "Hama", "Al-Hasakah", "Homs", "Idlib", "Latakia", "Quneitra", "Raqqa", 
-    "Rif Dimashq", "As-Suwayda", "Tartus",
-    # Vietnam: 58 Provinces + 5 Municipalities
-    "Hanoi", "Ho Chi Minh City", "Da Nang", "Hai Phong", "Can Tho", "An Giang", "Bac Giang", "Bac Kan", "Bac Lieu", 
-    "Bac Ninh", "Ben Tre", "Binh Dinh", "Binh Duong", "Binh Phuoc", "Binh Thuan", "Ca Mau", "Cao Bang", "Dak Lak", 
-    "Dak Nong", "Dien Bien", "Dong Nai", "Dong Thap", "Gia Lai", "Ha Giang", "Ha Nam", "Ha Tinh", "Hai Duong", 
-    "Hau Giang", "Hoa Binh", "Hung Yen", "Khanh Hoa", "Kien Giang", "Kon Tum", "Lai Chau", "Lam Dong", "Lang Son", 
-    "Lao Cai", "Long An", "Nam Dinh", "Nghe An", "Ninh Binh", "Ninh Thuan", "Phu Tho", "Phu Yen", "Quang Binh", 
-    "Quang Nam", "Quang Ngai", "Quang Ninh", "Quang Tri", "Soc Trang", "Son La", "Tay Ninh", "Thai Binh", "Thai Nguyen", 
-    "Thanh Hoa", "Thua Thien-Hue", "Tien Giang", "Tra Vinh", "Tuyen Quang", "Vinh Long", "Vinh Phuc", "Yen Bai",
-}
-
 # Load the restricted locations (9 Countries, China: 34 Divisions, Cuba: 15 Provinces + 1 Special Municipality, Iran: 31 Provinces,
 # Japan: 47 Prefectures, North Korea: 9 Provinces + 3 Cities, South Korea: 9 Provinces + 7 Cities, 
 # Syria: 14 Governorates and Vietnam: 58 Provinces + 5 Municipalities ) from .txt in local disk.
@@ -308,4 +283,4 @@ def welcome(description):
     print("")
     console.rule("[bold red]WELCOME TO BLOOM & SKY APP", align="left")
     print(description)
-    time.sleep(1)
+    time.sleep(0.6)

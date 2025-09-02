@@ -59,11 +59,14 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 from plants_recomm_templates import generate_plant_recommendation
+from dotenv import load_dotenv
 
 CARE_CACHE_FILE = "plants_main_info_DATABASE.json"
 FILE_DESCRIP_CACHE = "plants_care_description_DATABASE.json"
 SPECIES_CACHE = "plants_Dataset_cache.json"
-API_KEY = "sk-mqLn68b595f6038cd11611" # Secure this data!
+
+load_dotenv()
+API_KEY = os.getenv("PERENUAL_API_KEY") # Secure this data!
 
 def load_cache(path): # 1. OK
     if os.path.exists(path):

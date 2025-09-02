@@ -24,6 +24,7 @@ while True:
 
     if main_choice == "q":
         print("")
+        time.sleep(0.5)
         console.rule("[bold red]GOOD BYE!", align="left")
         sys.exit()
 

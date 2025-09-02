@@ -14,8 +14,8 @@ cache = Cache("gmaps_module_cache")
 def get_geocode(location: str) -> tuple[float, float]:
     if location in cache:
         return cache[location]
-
-    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU" #os.getenv("gmaps.env")
+    load_dotenv()
+    API_key = os.getenv("GMAPS_API_KEY")
     gmaps = googlemaps.Client(key=API_key)
 
     try:

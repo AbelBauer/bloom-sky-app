@@ -134,7 +134,7 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
 
     # Combined template variants
     templates = [
-        f"{plant_name} {sunlight_phrase} Give it {watering_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is living her best leaf life. {sunlight_phrase} Give it {watering_phrase} {growth_description} {soil_type}",
         f"{plant_name} {sunlight_phrase} Also, {watering_phrase} {growth_description} {soil_type}",
         f"{plant_name} needs {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
         f"For {plant_name}, aim for {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
@@ -142,12 +142,12 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
         f"{plant_name} likes {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"Give {plant_name} {watering_phrase} and let it chill. It {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} is about needing {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
-        f"{plant_name} is currently in its prime era, think diva. It demands {watering_phrase} {sunlight_phrase.capitalize()} {growth_description} {soil_type}",
-        f"{plant_name} {sunlight_phrase} And since it's thriving, it's time to step up your watering game: {watering_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is photosynthesizing like a diva. It demands {watering_phrase} {sunlight_phrase.capitalize()} {growth_description} {soil_type}",
+        f"Ups...{plant_name} is low-key judging your watering technique. {sunlight_phrase} Okay, It's time to step up your watering game: {watering_phrase} {growth_description} {soil_type}",
         f"{plant_name} expects {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} is not just a plant. It's your garden star! It needs {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
-        f"{plant_name} is soaking up the vibes. Just remember: {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
-        f"{plant_name} is vibing. Give it {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is chilling in chlorophyll serenity. Just remember: {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is vibing with your garden rhythm. Give it {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"Give {plant_name} {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}"
     ]
 

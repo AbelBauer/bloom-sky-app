@@ -27616,5 +27616,145 @@
     "from": 1,
     "last_page": 1,
     "total": 1
+  },
+  "blue spanish fir": {
+    "data": [
+      {
+        "id": 50,
+        "species_id": 8,
+        "common_name": "Blue Spanish Fir",
+        "scientific_name": [
+          "Abies pinsapo 'Glauca'"
+        ],
+        "section": [
+          {
+            "id": 1208,
+            "type": "watering",
+            "description": "Blue Spanish Fir should be watered once a week during the growing season (April - October in most locations). During this time, the plant should be watered deeply with about 1-2 inches of water each time. During the winter months (November - March), water whenever the soil feels dry to the touch. For maximum success, water your Blue Spanish Fir with filtered or rainwater whenever possible."
+          },
+          {
+            "id": 1209,
+            "type": "sunlight",
+            "description": "Blue Spanish Fir trees prefer full sun, although they can tolerate light shade. For optimal growth, your Blue Spanish Fir should receive about 5 to 6 hours of direct sunlight per day as a minimum. The best time to provide sunlight for your Blue Spanish Fir is during the morning and afternoon, so it can benefit from the sun's warmth and intense light. Avoid exposing your Blue Spanish Fir to direct sunlight during the peak of the day from 10am to 2pm, as this can cause sunburn or heat stress to the tree."
+          },
+          {
+            "id": 1210,
+            "type": "pruning",
+            "description": "Blue Spanish Fir plants should be pruned twice per year, once in early spring and once in mid-summer. Pruning in early spring should focus on removing diseased or damaged branches, as well as any crossing branches that may interfere with the plant's growth or shape. In mid-summer, pruning should focus on thinning out the canopy in order to promote new growth and encourage a full, symmetrical shape. When pruning, make sure to make cuts just above a healthy bud, angled away from the bud, and be sure to prune no more than a third of the total branch or foliage."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "spider plant": {
+    "data": [
+      {
+        "id": 696,
+        "species_id": 1848,
+        "common_name": "spider plant",
+        "scientific_name": [
+          "Chlorophytum 'Fire Flash'"
+        ],
+        "section": [
+          {
+            "id": 2087,
+            "type": "watering",
+            "description": "Spider plants should be watered on a weekly basis, depending on the time of year and the level of humidity in the air. The soil should remain slightly moist but not soggy. In the spring and summer, when the plant is in full growth, you should water it when the top inch of soil is dry. In the winter, it should be watered more sparingly--just when the top 2 inches of soil is dry. In either season, the amount of water should be significant but not too much. The goal is to keep the soil evenly moist, not soggy."
+          },
+          {
+            "id": 2093,
+            "type": "sunlight",
+            "description": "A Spider Plant will thrive in bright, indirect sunlight for several hours a day. Keep your Spider Plant in a north or east-facing window, or about 5 feet away from a south-facing window. Depending on how intense the sunlight is in your location, your Spider Plant can handle anywhere from 3 to 6 hours of indirect sunlight each day. Avoid direct sunlight, as this can lead to leaf discoloration and scorching. If your Spider Plant is not receiving enough sunlight, its leaves will become pale, and its stems will become longer and leggy."
+          },
+          {
+            "id": 2102,
+            "type": "pruning",
+            "description": "When pruning a Spider Plant (Chlorophytum 'Fire Flash'), it should happen every few months. Pruning should involve cutting off at least a few of the long stems near the base of the plant to encourage bushier growth. In addition to pruning stems, you should also trim any yellowed or dead leaves. Spider plants respond very well to pruning, and it is important to keep them tidy and well groomed when grown indoors. Since this particular cultivar is a fast-growing variety, it may require more frequent pruning than other varieties."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "tomato": {
+    "data": [
+      {
+        "id": 1054,
+        "species_id": 8759,
+        "common_name": "tomato",
+        "scientific_name": [
+          "Solanum lycopersicum"
+        ],
+        "section": [
+          {
+            "id": 3163,
+            "type": "watering",
+            "description": "Water needs will vary based on factors such as temperature, soil composition, pot size and plant size. For young plants, it is best to water deeply, once or twice a week. As the plants mature, their watering needs will increase. During the warmer months, when they are actively growing, they should be watered deeply 2 to 3 times a week. In hotter conditions, they may need more, up to every other day. During the cooler months, water needs are reduced and the plants can be watered less frequently, ideally around once a week.\n\nBe careful not to over-water tomatoes, as they are prone to root rot and may develop fungal diseases. During the winter you may be able to water less often. Always check the soil before watering to make sure it is dry and only water when needed."
+          },
+          {
+            "id": 3164,
+            "type": "sunlight",
+            "description": "Tomatoes need at least 6-8 hours of sunlight per day and they thrive best in direct sunlight, preferably the sunniest part of the day. However, it\u2019s best to avoid direct sunlight during the hottest part of the afternoon as they can suffer scorch and sunburn if the sun is too harsh."
+          },
+          {
+            "id": 3165,
+            "type": "pruning",
+            "description": "Tomato plants should be pruned when they are 12 to 18 inches tall and when their branches have 6 to 8 trusses of tomatoes. Prune out any additional shoots that are developing at the base of the tomato plant, and any suckers that are emerging in the joint between the main stem and its side branches. It is best to prune away no more than 2/3 of the above growth at any 1 time. For large indeterminate varieties, you should prune the first fruits when they reach about 3 inches. Leave some large leaves in place for the plant to have adequate shade and to keep the branches from breaking under the weight of the tomatoes. To maintain a tidy appearance, you can also prune away any yellowing leaves or stems."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "bay laurel": {
+    "data": [
+      {
+        "id": 92,
+        "species_id": 318,
+        "common_name": "Bay Laurel",
+        "scientific_name": [
+          "Laurus nobilis"
+        ],
+        "section": [
+          {
+            "id": 1064,
+            "type": "watering",
+            "description": "Watering for bay laurel should be done every other week and should be deep, but not overly wet. During each watering, it is best to give the plant between 1 and 2 inches of water, depending on the size of the plant. If the plant is completely dry to the touch and showing signs of wilting, then it is time to water. During the summer and hotter months, watering may be needed more frequently, while in the winter and cooler months, watering can possibly be reduced."
+          },
+          {
+            "id": 1065,
+            "type": "sunlight",
+            "description": "Bay Laurels prefer full to partial sun and will grow best in locations that provide at least 6 hours of sunlight per day. It is best to plant them in an area that gets some shade during hot summer afternoons, as too much direct sunlight can scorch their leaves. Bay Laurels are evergreen, so they will need a good amount of sun throughout most of the year in order to thrive. In colder climates, they should be planted in areas that get at least 4-6 hours of direct sunlight each day."
+          },
+          {
+            "id": 1066,
+            "type": "pruning",
+            "description": "Bay Laurel can generally be pruned throughout the growing season, from late spring through autumn. Late spring and early summer are the best times for major pruning. However, light pruning can be done throughout the growing season as necessary. Prune off any dead, damaged, or diseased limbs and any crossing limbs. You can also prune any limbs that are too close together or competing for the same space. Pruning should be done with sharp clean shears and always make sure to cut just above a bud or node. Depending on the size and shape of the plant, you can prune lightly throughout the summer to maintain its form. After the main pruning season, you can do a light shaping as needed in autumn."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
   }
 }
