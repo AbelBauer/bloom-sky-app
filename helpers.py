@@ -14,7 +14,7 @@ from garden_care_guide import display_care_info, display_care_description
 # HELPERS
 
 def ask_retry():
-    choice = input("\nWould you like to try again? yes [Y], or no [N]?  ➤  ").lower()
+    choice = input("\nWould you like to try again? yes [Y], or no [N]?  ➤  ").lower().strip()
     return choice == "y"
 
 def add_more_plants():
@@ -77,9 +77,6 @@ def get_location():
             else:
                 break
 
-def is_plants(choice):
-    return choice == "p"
-
 def main_menu():
     while True:
         console = Console()
@@ -102,6 +99,12 @@ def not_supported_locations(regions):
     message = f"⚠️  [red]Heads-up: Weather and pollen data isn't currently available for a few regions, including: {regions.title()}."
     return Panel.fit(message)
 
+def load_restr_locations(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+        # split by comma, strip quotes and whitespace
+        return sorted([name.strip().strip('"') for name in content.split(",") if name.strip()])
+
 def location_subMenu():
     console = Console()
     while True:
@@ -122,16 +125,18 @@ def prompt_plants():
         user_plant= input("\nType in here the name of a plant and/or tree in your garden. Use vernacular, common or scientific name: ➤  ").lower().strip() # Ask the user for plant name.         
         intro_plantGrowth() # Introduce soil choice to user.
         growth_stage = prompt_growthStage() # Ask the user for the plant growth stage.
-        plant_data, plant_name = display_care_info(user_plant, soil_choice, growth_stage) # Display table and recommendations.
+        plant_name, plant_id = display_care_info(user_plant, growth_stage, soil_choice) # Display table and recommendations.
         choice = ask_retry_careInfo()
         print("")
         if choice == "y":
-            display_care_description(plant_data, plant_name) # Display detailed care information from perenual.com.
+            display_care_description(plant_id, plant_name) # Display detailed care information from perenual.com.
             while True:
                 if add_more_plants(): # Ask if the user wants to add more plants or not.
-                    continue
+                    break
                 elif add_more_plants() == False:
-                    break 
+                    print("")
+                    time.sleep(1)
+                    sys.exit("Good bye!") 
                 else:
                     print("Invalid choice. Please, try again.")
                     continue
@@ -186,9 +191,9 @@ def plants_subMenu():
         console = Console()
         print("")
         console.rule("[bold red]GARDEN MENU", align="left")
-        console.print("\n [bold cyan][I][/bold cyan] - Display care information")
+        console.print("\n [bold cyan][I][/bold cyan] - Display [red]Plant Care Information[/red]")
         console.print(" [bold cyan][A][/bold cyan] - Add more plants")
-        console.print(" [bold cyan][M][/bold cyan] - Main Menu")
+        console.print(" [bold cyan][M][/bold cyan] - [bold green]Main Menu[/bold green]")
         choice = input("➤ ").lower().strip()
         print("")
         valid_choices = ["i", "a", "m", "d"]
@@ -216,7 +221,7 @@ def prompt_location():
         return
 
 
-# Helper to format datetime like "July 30th, 12 AM"
+# Helper to format datetime like "July 30th, 12 AM". Currently not in use.
 def readable_datetime(ts):
     dt = datetime.fromtimestamp(ts)
     day = dt.day
@@ -272,8 +277,10 @@ RESTRICTED_LOCATIONS = {
     "Thanh Hoa", "Thua Thien-Hue", "Tien Giang", "Tra Vinh", "Tuyen Quang", "Vinh Long", "Vinh Phuc", "Yen Bai",
 }
 
-# Future-proofing title case for effective comparison
-RESTRICTED_SET = {location.title() for location in RESTRICTED_LOCATIONS}
+# Load the restricted locations (9 Countries, China: 34 Divisions, Cuba: 15 Provinces + 1 Special Municipality, Iran: 31 Provinces,
+# Japan: 47 Prefectures, North Korea: 9 Provinces + 3 Cities, South Korea: 9 Provinces + 7 Cities, 
+# Syria: 14 Governorates and Vietnam: 58 Provinces + 5 Municipalities ) from .txt in local disk.
+RESTRICTED_SET = load_restr_locations("gmaps_restricted_locations.txt") #----{location.title() for location in RESTRICTED_LOCATIONS}---- for when i used to have the locations list inside Helpers. Dont remove in case the last modifications break the program.
 
 # Regex for "City, Country" format
 LOCATION_PATTERN = re.compile(r"^([A-Za-zÀ-ÿ\s\-']+),\s*([A-Za-zÀ-ÿ\s\-']+)$", re.IGNORECASE)
@@ -294,6 +301,7 @@ def validate_input(location: str) -> str:
 
     return location
 
+# Display welcome message to start the app.
 def welcome(description):
     console = Console()
     print("")

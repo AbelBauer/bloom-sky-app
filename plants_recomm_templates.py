@@ -1,21 +1,58 @@
-import random # mention in README. 
-'''Watering Level Fallback: If a plant's watering level is unknown or missing, the app uses a default phrase 
-to maintain recommendation flow and avoid errors. This ensures graceful degradation and keeps the tone consistent.'''
+"""
+generate_plant_recommendation snippet
+
+Generates a personalized care recommendation for a given plant based on its watering needs,
+sunlight exposure, growth stage, and soil type. Designed to produce engaging, human-readable
+guidance using a mix of structured data and playful phrasing.
+
+Parameters:
+-----------
+- plant_name (str): The name of the plant to personalize the recommendation for.
+- watering_level (str): One of "frequent", "average", "minimum", "unknown", or None.
+- watering_frequency (str): A text formed by a range of numbers mentioning watering frequency (e.g., "7-10" or in some cases None).
+- sunlight_level (str, optional): Describes light preference (e.g., "full sun", "shade"). If a plant has more than one light preference (according to perenual.com) default message is triggered.
+- growth_stage (str, optional): One of "seed", "juvenile", "adult", "flowering", "fruiting", "senescence".
+- soil_type (str, optional): One of "clay", "sand", "loam", "peat", "chalk", "silt".
+
+Returns:
+--------
+- str: A randomly selected care recommendation string combining all inputs into a cohesive,
+  friendly, and sometimes humorous message.
+
+Behavior:
+---------
+- Pulls phrases from predefined banks for watering, sunlight, soil, and growth stage.
+- Falls back to default messages if any input is missing or unrecognized.
+- Randomly selects from multiple template formats to keep output varied and engaging.
+
+Example:
+--------
+>> generate_plant_recommendation("sea lavender", "minimum", "10", "full sun", "flowering", "sand")
+"Sea Lavender thrives in full sun, give it a front-row seat to the sky show. Give it low-maintenance (every 10 days), a splash now and then will do. 
+Lavender is flowering with flair. Pollinators are welcome and admiration is encouraged. Sandy soil drains fast, so keep the hydration coming."
+
+Notes:
+------
+- This function is designed for conversational interfaces and garden apps.
+- Output is randomized for variety; repeated calls may yield different phrasing.
+"""
 
 
-def generate_plant_recommendation(plant_name, watering_level, watering_frequency, sunlight_level, growth_stage=None, soil_type=None):
+import random
+
+def generate_plant_recommendation(plant_name, watering_level, watering_frequency, sunlight_level=None, growth_stage=None, soil_type=None):
     
     # Phrase banks
     water_frequency_phrases = {
-        "frequent": f"thirsty ({watering_frequency}), keep the watering can close!",
-        "average": f"balanced ({watering_frequency}), not too wet, not too dry",
+        "frequent": f"thirsty ({watering_frequency}), keep an eye on the watering can!",
+        "average": f"balanced ({watering_frequency}), not too wet, not too dry watering.",
         "minimum": f"low-maintenance ({watering_frequency}), a splash now and then will do.",
-        "none": f"independent ({watering_frequency}), no watering needed, like a cactus on vacation.",
-        "unknown": f"somewhat mysterious ({watering_frequency}), so observe and adjust as needed"
+        None : f"independent ({watering_frequency}), no watering needed, like a cactus on vacation.",
+        "unknown": f"somewhat ({watering_frequency}), so observe and adjust as needed."
     }
 
     soil_types = {
-        "clay": "clay soil holds water like a clingy ex, go easy on the watering.",
+        "clay": "Clay soil holds water like a clingy ex, go easy on the watering.",
         "sand": "Sandy soil drains fast, so keep the hydration coming.",
         "loam": "Loamy soil is the Goldilocks of dirt — just right for most plants.",
         "peat": "Peaty soil is moisture-loving, so your plant's basically living in a mud spa.",
@@ -24,13 +61,13 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
     }
 
     sunlight_notes = {
-        "full sun": "thrives in full sun. Give it a front-row seat to the sky show",
+        "full sun": "thrives in full sun, give it a front-row seat to the sky show.",
         "part sun": "enjoys a mix: a few hours of direct sun, then some shade to chill.",
-        "part shade": "prefers gentle light, like sipping tea under a leafy pergola",
-        "partial shade": "does best with dappled light. Think woodland vibes, not desert heat.",
+        "part shade": "prefers gentle light, like sipping tea under a leafy pergola.",
+        "partial shade": "does best with dappled light: think woodland vibes, not desert heat.",
         "shade": "is a shade seeker, it flourishes where the sun barely peeks in.",
-        "full shade": "avoids direct sunlight altogether. Low light is its comfort zone.",
-        "indirect light": "loves bright but filtered light. Cozy near a window, not center stage."
+        "full shade": "avoids direct sunlight altogether; low light is its comfort zone.",
+        "indirect light": "loves bright but filtered light; cozy near a window, not center stage."
     }
 
     growth_stages = {
@@ -72,13 +109,16 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
     # Fallback for watering level
     watering_phrase = str(water_frequency_phrases.get(
         watering_level,
-        f"unpredictable ({watering_frequency}), so keep an eye out and adjust as needed"
+        f"unpredictable ({watering_frequency}), so keep an eye out and adjust as needed."
     ))
+
+    if watering_level == None:
+        watering_level = "unknown " 
 
     # Fallback for sunlight level
     sunlight_phrase = str(sunlight_notes.get(
         sunlight_level,
-        "has unique light needs. Observe its behavior and adjust placement accordingly"
+        "has diverse light needs depending on season and climate. Observe its behavior and adjust placement accordingly (Check 'Plant Care Information' for detailed guidance)."
     ))
 
     # Fallback for growth stage
@@ -94,21 +134,21 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
 
     # Combined template variants
     templates = [
-        f"{plant_name} {sunlight_phrase}. Water it {watering_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} {sunlight_phrase}. Also, water it {watering_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} needs watering that's {watering_phrase}. It also {sunlight_phrase}. {growth_description} {soil_type}",
-        f"For {plant_name}, aim for {watering_phrase} watering. It {sunlight_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} thrives with {watering_phrase} hydration. It {sunlight_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} likes its water {watering_phrase}. It {sunlight_phrase}. {growth_description} {soil_type}",
-        f"Give {plant_name} {watering_phrase} drinks and let it chill — it {sunlight_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} is about needing {watering_phrase} watering. It {sunlight_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} is currently in its prime era, think diva. It demands {watering_phrase} hydration. {sunlight_phrase.capitalize()} {growth_description} {soil_type}",
-        f"{plant_name} {sunlight_phrase}. And since it's thriving, it's time to step up your watering game: {watering_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} expects {watering_phrase} watering. It also {sunlight_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} is not just a plant. It's your garden rockstar. It needs {watering_phrase} hydration. {sunlight_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} is soaking up the vibes. Just remember: {watering_phrase} watering is key. It also {sunlight_phrase}. {growth_description} {soil_type}",
-        f"{plant_name} is vibing. Give it {watering_phrase} water and let it bask — it {sunlight_phrase}. {growth_description} {soil_type}",
-        f"Hydrate {plant_name} {watering_phrase}. It {sunlight_phrase}. {growth_description} {soil_type}"
+        f"{plant_name} {sunlight_phrase} Give it {watering_phrase} {growth_description} {soil_type}",
+        f"{plant_name} {sunlight_phrase} Also, {watering_phrase} {growth_description} {soil_type}",
+        f"{plant_name} needs {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
+        f"For {plant_name}, aim for {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} thrives with {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} likes {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
+        f"Give {plant_name} {watering_phrase} and let it chill. It {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is about needing {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is currently in its prime era, think diva. It demands {watering_phrase} {sunlight_phrase.capitalize()} {growth_description} {soil_type}",
+        f"{plant_name} {sunlight_phrase} And since it's thriving, it's time to step up your watering game: {watering_phrase} {growth_description} {soil_type}",
+        f"{plant_name} expects {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is not just a plant. It's your garden star! It needs {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is soaking up the vibes. Just remember: {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is vibing. Give it {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
+        f"Give {plant_name} {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}"
     ]
 
     # Final return with safety check

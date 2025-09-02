@@ -15,7 +15,7 @@ def get_geocode(location: str) -> tuple[float, float]:
     if location in cache:
         return cache[location]
 
-    API_key = os.getenv("gmaps.env")
+    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU" #os.getenv("gmaps.env")
     gmaps = googlemaps.Client(key=API_key)
 
     try:
@@ -45,7 +45,7 @@ def extract_forecast(api_data):
 
 # Get current weather conditions
 def get_current_weather(lat: float, long: float) -> tuple[bool, int, str, int, int]:
-    API_key = os.getenv("gmaps.env") #"AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
+    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
     url = f"https://weather.googleapis.com/v1/currentConditions:lookup?key={API_key}&location.latitude={lat}&location.longitude={long}"
     key = (lat, long)
     if key in cache:
@@ -71,7 +71,7 @@ def get_current_weather(lat: float, long: float) -> tuple[bool, int, str, int, i
 
 # Get extended forecast (today and tomorrow)
 def get_extended_forecast(location: str, lat: float, long: float):
-    API_key = os.getenv("gmaps.env") #"AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
+    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
     url = f"https://weather.googleapis.com/v1/forecast/days:lookup?key={API_key}&location.latitude={lat}&location.longitude={long}&days=2"
 
     try:
