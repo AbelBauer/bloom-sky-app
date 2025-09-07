@@ -7,13 +7,15 @@ from difflib import get_close_matches
 from dotenv import load_dotenv
 import os
 
-# Initialize persistent cache for geocoding
+# Initialize local cache for geocoding
 cache = Cache("gmaps_module_cache")
 
 # Get geocode (lat, long) for a location, with persistent caching
-def get_geocode(location: str) -> tuple[float, float]:
+def get_geocode(location: str):
     if location in cache:
-        return cache[location]
+        lat, long = cache[location]
+        return lat, long
+    
     load_dotenv()
     API_key = os.getenv("GMAPS_API_KEY")
     gmaps = googlemaps.Client(key=API_key)
@@ -25,10 +27,6 @@ def get_geocode(location: str) -> tuple[float, float]:
         return lat, long
     except (IndexError, HTTPError):
         raise
-
-# Shortcut for default "Home" location
-def get_home_geocode() -> tuple[float, float]:
-    return get_geocode("Statenkwartier, Zuid Holland")
 
 # Extract forecast data from API response
 def extract_forecast(api_data):
@@ -45,7 +43,8 @@ def extract_forecast(api_data):
 
 # Get current weather conditions
 def get_current_weather(lat: float, long: float) -> tuple[bool, int, str, int, int]:
-    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
+    load_dotenv()
+    API_key = os.getenv("GMAPS_API_KEY")
     url = f"https://weather.googleapis.com/v1/currentConditions:lookup?key={API_key}&location.latitude={lat}&location.longitude={long}"
     key = (lat, long)
     if key in cache:
@@ -71,7 +70,8 @@ def get_current_weather(lat: float, long: float) -> tuple[bool, int, str, int, i
 
 # Get extended forecast (today and tomorrow)
 def get_extended_forecast(location: str, lat: float, long: float):
-    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU"
+    load_dotenv()
+    API_key = os.getenv("GMAPS_API_KEY")
     url = f"https://weather.googleapis.com/v1/forecast/days:lookup?key={API_key}&location.latitude={lat}&location.longitude={long}&days=2"
 
     try:

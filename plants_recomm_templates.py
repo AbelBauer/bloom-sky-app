@@ -42,22 +42,23 @@ import random
 
 def generate_plant_recommendation(plant_name, watering_level, watering_frequency, sunlight_level=None, growth_stage=None, soil_type=None):
     
+
     # Phrase banks
     water_frequency_phrases = {
         "frequent": f"thirsty ({watering_frequency}), keep an eye on the watering can!",
         "average": f"balanced ({watering_frequency}), not too wet, not too dry watering.",
-        "minimum": f"low-maintenance ({watering_frequency}), a splash now and then will do.",
+        "minimum": f"low-maintenance watering ({watering_frequency}). A splash now and then will do.",
         None : f"independent ({watering_frequency}), no watering needed, like a cactus on vacation.",
         "unknown": f"somewhat ({watering_frequency}), so observe and adjust as needed."
     }
 
     soil_types = {
-        "clay": "Clay soil holds water like a clingy ex, go easy on the watering.",
-        "sand": "Sandy soil drains fast, so keep the hydration coming.",
-        "loam": "Loamy soil is the Goldilocks of dirt — just right for most plants.",
-        "peat": "Peaty soil is moisture-loving, so your plant's basically living in a mud spa.",
-        "chalk": "Chalky soil can be picky, so keep an eye on nutrient levels.",
-        "silt": "Silty soil is smooth and fertile. Your plant's living the good life."
+        "clay": "Clay soil holds water like a clingy ex, go easy on the watering. Your plant deserves more than mud; check 'Best Soil' to ensure you are giving it the right one.",
+        "sand": "Sandy soil drains fast, so keep the hydration coming. Your plant will thank you for the right soil. Check 'Best Soil' to make sure it's getting what it needs.",
+        "loam": "Loamy soil is the Goldilocks of dirt — just right for most plants. Want to give your plant the best care? Check 'Best Soil'. It can help you choose the right foundation.",
+        "peat": "Peaty soil is moisture-loving, so your plant's basically living in a mud spa. Healthy roots begin with the right soil. Check 'Best Soil' for guidance.",
+        "chalk": "Chalky soil can be picky, so keep an eye on nutrient levels. Not sure if your soil's a good match? Check 'Best Soil' to find out.",
+        "silt": "Silty soil is smooth and fertile. Your plant's living the good life. A little soil check can go a long way. Check 'Best Soil' to help your plant thrive."
     }
 
     sunlight_notes = {
@@ -107,13 +108,11 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
     soil_type = soil_types.get(soil_type, "") if soil_type else ""
 
     # Fallback for watering level
+
     watering_phrase = str(water_frequency_phrases.get(
         watering_level,
-        f"unpredictable ({watering_frequency}), so keep an eye out and adjust as needed."
+        f"unpredictable ({watering_level}), so keep an eye out and adjust as needed."
     ))
-
-    if watering_level == None:
-        watering_level = "unknown " 
 
     # Fallback for sunlight level
     sunlight_phrase = str(sunlight_notes.get(
@@ -134,7 +133,7 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
 
     # Combined template variants
     templates = [
-        f"{plant_name} is living her best leaf life. {sunlight_phrase} Give it {watering_phrase} {growth_description} {soil_type}",
+        f"{plant_name} is living her best leaf life. It {sunlight_phrase} Give it {watering_phrase} {growth_description} {soil_type}",
         f"{plant_name} {sunlight_phrase} Also, {watering_phrase} {growth_description} {soil_type}",
         f"{plant_name} needs {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
         f"For {plant_name}, aim for {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
@@ -143,7 +142,7 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
         f"Give {plant_name} {watering_phrase} and let it chill. It {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} is about needing {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} is photosynthesizing like a diva. It demands {watering_phrase} {sunlight_phrase.capitalize()} {growth_description} {soil_type}",
-        f"Ups...{plant_name} is low-key judging your watering technique. {sunlight_phrase} Okay, It's time to step up your watering game: {watering_phrase} {growth_description} {soil_type}",
+        f"Ups...{plant_name} is low-key judging your watering technique. It {sunlight_phrase} Okay, It's time to step up your watering game: {watering_phrase} {growth_description} {soil_type}",
         f"{plant_name} expects {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} is not just a plant. It's your garden star! It needs {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} is chilling in chlorophyll serenity. Just remember: {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",

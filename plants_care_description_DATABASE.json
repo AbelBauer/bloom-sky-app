@@ -27756,5 +27756,1195 @@
     "from": 1,
     "last_page": 1,
     "total": 1
+  },
+  "moosewood": {
+    "data": [
+      {
+        "id": 91,
+        "species_id": 144,
+        "common_name": "Moosewood",
+        "scientific_name": [
+          "Acer pensylvanicum"
+        ],
+        "section": [
+          {
+            "id": 1061,
+            "type": "watering",
+            "description": "Moosewood plants prefer to have regular, moderate amounts of water. Water the plant every 5-7 days with about 10-15 gallons of water per plant. Depending on the soil moisture level, you may not need to water as much. Make sure to keep an eye on the soil moisture and adjust the watering schedule accordingly."
+          },
+          {
+            "id": 1062,
+            "type": "sunlight",
+            "description": "Moosewood is a deciduous species that prefers full sun exposure. Its ideal range of sunlight is 6-8 hours of direct sunlight per day when it is actively in growth. Moosewood responds best to full sunlight in early summer when it is beginning to come out of dormancy, and then less in the afternoon shade during the hotter parts of the season. Late summer and early fall should be spent in partial or filtered sun, so as to avoid any sunburn."
+          },
+          {
+            "id": 1063,
+            "type": "pruning",
+            "description": "Moosewood (Acer pensylvanicum) is a species of maple tree native to the eastern United States. Pruning should be done sparingly; it should not be done more than once per year and only when necessary. If the tree is healthy and growing, it may not need to be pruned at all. When pruning, it is important to remove only dead or damaged branches, as well as those that cross over or rub against each other. As a rule of thumb, do not remove more than 1/3 of the tree's total foliage during any annual pruning. Pruning should take place in late winter or early spring, before the tree begins to grow new leaves."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "avocado": {
+    "data": [
+      {
+        "id": 1170,
+        "species_id": 5821,
+        "common_name": "avocado",
+        "scientific_name": [
+          "Persea americana"
+        ],
+        "section": [
+          {
+            "id": 3499,
+            "type": "watering",
+            "description": "Avocados should be watered deeply and infrequently. During the summer they should be watered every 1 to 2 weeks, and during the winter they should be watered about every 3 to 4 weeks. You should allow the soil to dry out between waterings. The amount of water that you should use will depend on the size of the plant, soil type, ambient temperature, and other factors. In general a good rule of thumb is to water the plant until water comes out of the bottom of the pot. An extra soaking when it is dry out may be beneficial, but it is best to check the soil before watering to ensure the plants needs are being met."
+          },
+          {
+            "id": 3508,
+            "type": "sunlight",
+            "description": "Avocados need between 4-6 hours of direct sunlight per day and should be planted in a spot that receives full sun in the morning and some shade in the afternoon."
+          },
+          {
+            "id": 3517,
+            "type": "pruning",
+            "description": "Avocados should be lightly pruned throughout the growing season to maintain a desirable shape and to remove dead and damaged growth. The most significant pruning for avocados should take place in late winter to early spring. Start by removing any dead or damaged branches, then prune back any shoots or selective branches that are either too tall, too dense, or unproductive. When pruning, always maintain a slightly rounded crown on the tree to encourage good airflow. Cutting the main trunk or branches too severely can limit future growth and development of the avocado tree."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "monstera deliciosa": {
+    "data": [
+      {
+        "id": 80,
+        "species_id": 5257,
+        "common_name": "Swiss cheese plant",
+        "scientific_name": [
+          "Monstera deliciosa"
+        ],
+        "section": [
+          {
+            "id": 250,
+            "type": "watering",
+            "description": "Swiss cheese plants should be watered thoroughly, approximately every 7-10 days. During the growing season from spring through fall, water the soil so that it is damp but not soggy. Let the soil surface dry out between waterings.\n\nDuring the winter months, water less frequently so that the soil is slightly damp. If the leaves start to droop, it is an indication that your plant needs water."
+          },
+          {
+            "id": 251,
+            "type": "sunlight",
+            "description": "The Swiss cheese plant (Monstera deliciosa) needs bright but indirect sunlight. It should receive 4 to 6 hours of sunlight each day, ideally between 10am and 4pm. Place the plant near a window that receives direct sunlight, but avoid placing it in a direct line of the sun\u2019s rays otherwise it will be scorched. Rotate the plant frequently to ensure all sides of the leaves receive equal sunlight. "
+          },
+          {
+            "id": 252,
+            "type": "pruning",
+            "description": "Swiss cheese plants should be pruned when they become too large and/or start to outgrow their space. A reasonable amount of pruning can be beneficial; however, too much can be damaging and inhibit the plant\u2019s growth. To ensure that the plant stays relatively small and manageable, it is suggested to prune when the plant has reached the desired size, usually every 3-4 months. To prune, start by removing any dead leaves and branches then snip off any foliage that\u2019s growing beyond the desired size. Swiss cheese plants should never be cut back too much, as this can stunt its growth and development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "geranium": {
+    "data": [
+      {
+        "id": 918,
+        "species_id": 8588,
+        "common_name": "geranium",
+        "scientific_name": [
+          "Geranium spp. and/ or cvs."
+        ],
+        "section": [
+          {
+            "id": 2756,
+            "type": "watering",
+            "description": "Geranium plants should be watered when the top inch of soil is dry to the touch. Watering frequency will depend on the specific species and climate, but they generally need to be watered 1-2 times per week. Water until it drains out of the bottom of the pot, and then allow the soil to dry out somewhat before watering again. Make sure to avoid overwatering by letting the water drain out of the bottom and never leaving the pot sitting in water."
+          },
+          {
+            "id": 2766,
+            "type": "sunlight",
+            "description": "Geraniums, a diverse group of plants, generally need 4 to 6 hours of full sun exposure per day. During the hottest summer months, it\u2019s best to provide morning sun and some protection from afternoon sun to help conserve water and keep plants from getting scorched. If your climate allows, a south- or west-facing window is ideal for providing plenty of light. "
+          },
+          {
+            "id": 2776,
+            "type": "pruning",
+            "description": "Most geraniums are pruned back in late winter or early spring to encourage healthy new growth and blooming. Pruning should generally involve removing a few of the oldest, largest stems at the base of the plant, cutting them back to a few inches above the soil line. Deadheading the wilted blooms as they fade throughout the season can also promote new blooms."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "lavender": {
+    "data": [
+      {
+        "id": 777,
+        "species_id": 4722,
+        "common_name": "lavender",
+        "scientific_name": [
+          "Lavandula 'Silver Frost'"
+        ],
+        "section": [
+          {
+            "id": 2329,
+            "type": "watering",
+            "description": "Lavender (Lavandula 'Silver Frost') should be watered when the top inch of soil feels dry. Water the plant deeply, but be sure not to soak the soil as it does not do well with too much moisture. Water the plant about once a week during the active growing season, and only water as needed during the winter."
+          },
+          {
+            "id": 2338,
+            "type": "sunlight",
+            "description": "Lavender (Lavandula 'Silver Frost') thrives best in full sun with at least 6 hours of direct sunlight each day. For optimal flower and herb production, this plant species should receive 7 to 8 hours of direct sun each day. Since Silver Frost Lavender is a Mediterranean plant, it will do best when exposed to sunlight during the early morning hours and hot, direct sunlight during the afternoon. It's important to note that too much direct sunlight and heat can cause stressed out or wilted plants, so be sure to give your Lavender plants some relief from the sun's harsh rays if it is too intense."
+          },
+          {
+            "id": 2345,
+            "type": "pruning",
+            "description": "Lavender (Lavandula 'Silver Frost') should be pruned in the early spring before new growth appears. To keep the plants healthy, prune back about 2/3 of last year's growth. Remove any dead or diseased foliage as you prune. Cutting the plants right above a set of leaves will ensure that the plant produces new, strong growth. Doing this will also help to keep the shape of the plant full and will encourage more blooms."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "sunflower": {
+    "data": [
+      {
+        "id": 8945,
+        "species_id": 8604,
+        "common_name": "sunflower",
+        "scientific_name": [
+          "Helianthus annuus cvs."
+        ],
+        "section": [
+          {
+            "id": 27065,
+            "type": "watering",
+            "description": "Sunflowers require a lot of water to thrive. Water your sunflower deeply and thoroughly once a week during periods of active growth, typically between spring and fall. Make sure to keep the soil around the plant moist but not waterlogged. If it\u2019s particularly hot and sunny, you may need to water your sunflower more frequently. Additionally, give your sunflower a good drenching of water when the flower buds appear, as this will help them fully bloom. When watering, avoid the flower and water at the base of the plant."
+          },
+          {
+            "id": 27066,
+            "type": "sunlight",
+            "description": "Sunflowers (Helianthus annuus cvs.) require 8 to 10 hours of direct sunlight per day during the spring and summer in order to thrive. During the late summer and early fall, sunflowers need slightly less direct sunlight, about 6 to 8 hours per day. Too much direct sunlight can burn the leaves of the plant, causing them to become discolored and eventually die. For optimum health, sunflowers should be planted in a sunny location where they will receive the required amount of sunlight."
+          },
+          {
+            "id": 27067,
+            "type": "pruning",
+            "description": "Sunflower (Helianthus annuus cvs.) should be pruned in late winter or very early spring. Pruning should not be performed until stems are at least 12 inches long. Major pruning should be done back to a height between 1 and 2 feet. This will encourage new stems and encourage new flowers and promote bushier growth. Deadheading flowers is recommended to continue to promote bushy growth, and to remove spent flowers that are no longer attractive. Pruning should also be used to reduce the overall size of the sunflower plant if necessary."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "zamioculcas zamiifolia": {
+    "data": [
+      {
+        "id": 907,
+        "species_id": 8386,
+        "common_name": "ZZ plant",
+        "scientific_name": [
+          "Zamioculcas zamiifolia"
+        ],
+        "section": [
+          {
+            "id": 2721,
+            "type": "watering",
+            "description": "Watering the ZZ plant is essential for its health and longevity. It is best to give it an occasional deep watering when the top inch or 2 of soil feels dry to the touch. Be careful not to overwater, as this can cause the plant to suffer from root rot. During the growing season, which typically occurs from spring to fall, it should be watered once every 2 to 3 weeks. During the winter months, it can be watered less frequently, only when the soil is dry. It is important to let the soil dry out completely in-between waterings."
+          },
+          {
+            "id": 2725,
+            "type": "sunlight",
+            "description": "The ZZ plant (Zamioculcas zamiifolia) requires bright, indirect sunlight for optimal growth. With this species in particular, direct sunlight should be avoided as it can cause leaves to burn or become discolored. The amount of light needed and the duration for optimal growth can differ depending on the situation and location. Generally, it is best to place a ZZ plant in a bright, sunny spot for 6 to 8 hours of good indirect sunlight each day, such as in a south- or east-facing window. In lower-light positions, the amount of light needed can be decreased to 4 to 6 hours each day, or less for less frequently watered plants."
+          },
+          {
+            "id": 2733,
+            "type": "pruning",
+            "description": "Pruning ZZ plants is not typically necessary as these plants are slow-growing and produce few lateral leaves. However, if the leaves become too long or the plant is starting to spread out, trimming the leading tips of the stems can help the plant maintain its shape. To do this, use sharp, clean scissors and snip just above a set of leaves. Pruning should be done at any time during the growing season, preferably in the spring or summer. Be aware that frequent pruning can weaken the plant, so use only when needed."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "apple": {
+    "data": [
+      {
+        "id": 5940,
+        "species_id": 5136,
+        "common_name": "apple",
+        "scientific_name": [
+          "Malus 'Mary Potter'"
+        ],
+        "section": [
+          {
+            "id": 18029,
+            "type": "watering",
+            "description": "Apple (Malus 'Mary Potter') should be watered once a week, using approximately 1 gallon of tap water per plant. The frequency of watering can be adjusted, depending on your soil type and the temperature, as apples prefer to stay evenly moist and never let the soil get completely dry. The tree's root system is generally shallow, so make sure the water is reaching down deep enough to cover the entire root mass. If possible, water the tree in the morning or early afternoon, and avoid overhead watering to prevent fungal diseases. Be sure to increase the frequency and total amount of water if you experience extended periods of drought in the local climate."
+          },
+          {
+            "id": 18030,
+            "type": "sunlight",
+            "description": "Apple trees (Malus 'Mary Potter') need at least 8 hours of sunlight a day for optimal health. They grow best when exposed to full sun most of the day, although they can tolerate some shade during the afternoon hours. Apple trees thrive in warm climates with temperatures between 65-75 degrees Fahrenheit (18-24 degrees Celsius). They should be planted in planting areas that provide good drainage, and the soil should be rich in nutrients, such as nitrogen and phosphorus. Apple trees should be watered regularly to keep the soil moist but not waterlogged."
+          },
+          {
+            "id": 18031,
+            "type": "pruning",
+            "description": "Apple (Malus 'Mary Potter') trees should be pruned in late winter or early spring, before the buds swell and start to open. For young apple trees, the main goal of pruning is to create a strong, open structure with a single leader and evenly spaced branches. For mature trees, pruning should focus on thinning out overcrowded branches and eliminating any dead, diseased, or damaged branches. Generally, apple trees require minimal pruning \u2014 no more than 1/3 of the tree's overall growth \u2014 and each cut should be made at a 45-degree angle, just above a bud. If a major pruning is necessary, such as reducing the height of the tree or lowering limbs, be sure to spread the cuts out over a few years to prevent excessive stress."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "blackberry": {
+    "data": [
+      {
+        "id": 7552,
+        "species_id": 6973,
+        "common_name": "blackberry",
+        "scientific_name": [
+          "Rubus 'Triple Crown'"
+        ],
+        "section": [
+          {
+            "id": 22883,
+            "type": "watering",
+            "description": "Blackberry (Rubus 'Triple Crown') should be watered deeply 1-2 times a week to ensure the soil around the roots remains moist. When watering, make sure to get the root system of the blackberry plant wet, avoiding water directly on the foliage as this may damage the plants. Allow the top half-inch of soil to dry out between waterings. During the growing season (late spring to early fall), the blackberry plant should receive 1 inch of water per week. During periods of drought, an additional 0.5 inches or more of water should be added per week. During the dormant season (late fall to early spring), reduce watering to as little as once or twice a month, ensuring there is no standing water in the soil."
+          },
+          {
+            "id": 22884,
+            "type": "sunlight",
+            "description": "Blackberry (Rubus 'Triple Crown') plants prefer full sun, meaning they need at least 6 to 8 hours of direct sunlight per day. This is best achieved during the late spring and summer months when days are the longest. Avoid growing this plant in areas that receive less than 6 hours of sunlight a day or in shady areas like on the north side of a building, as blackberries need bright sunlight to thrive. During the winter months, it\u2019s important to find a location that gets the maximum amount of sunlight as possible to maintain healthy growth."
+          },
+          {
+            "id": 22885,
+            "type": "pruning",
+            "description": "Blackberry (Rubus 'Triple Crown') should be given a light pruning once a year in late winter or early spring.\n\nFocus on removing any dead, diseased or crossing branches, and any long canes that do not look healthy or productive. If there are a large number of dead canes present in the crown or at the base of the plant, you can completely remove them at this time.\n\nThe fruiting canes of the blackberry plant can be pruned back to 2-4 feet in height during the pruning season. This can help encourage branching for the upcoming season. Also, you should remove any older canes that have already fruited, as they will most likely not fruit again.\n\nFinally, you should check for suckers that may have emerged from the crown and cut them out. Suckers can be identified as thin shoots that grow from the base of the bush and can quickly take over the plant if they are left unchecked."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "kiwifruit": {
+    "data": [
+      {
+        "id": 24,
+        "species_id": 536,
+        "common_name": "kiwifruit",
+        "scientific_name": [
+          "Actinidia deliciosa"
+        ],
+        "section": [
+          {
+            "id": 69,
+            "type": "watering",
+            "description": "Kiwifruit (Actinidia deliciosa) should be watered regularly in order to keep the soil moist. Water the plant deeply at least once or twice per week. If the soil is dry to the touch, water the kiwifruit plant more frequently. During the warm summer months, you may need to water the kiwifruit plant every day or 2. However, it is important not to over-water the plant, so it is best to check the moisture of the soil before watering. In the winter months, reduce watering to once every 2 weeks. Decrease watering further if the plant is growing in a cool, dark place with reduced light."
+          },
+          {
+            "id": 70,
+            "type": "sunlight",
+            "description": "In order to ensure that the plant is receiving adequate sunlight, it should be planted in a sunny spot that receives at least 6 to 8 hours of direct sunlight each day. If planted in a shady area, it is important to provide the plant with supplemental lighting such as grow lights."
+          },
+          {
+            "id": 71,
+            "type": "pruning",
+            "description": "Kiwifruit is a commonly grown species of climbing vine, and as such requires regular pruning in order to promote thick, healthy growth. Proper timing can help with pest control and harvesting yields. Pruning should begin in the late winter, before bud break, and should continue through the flowering period in early summer. During these times, selectively remove dead, diseased, and crossed branches. "
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "elm": {
+    "data": [
+      {
+        "id": 8449,
+        "species_id": 8028,
+        "common_name": "elm",
+        "scientific_name": [
+          "Ulmus 'New Horizon'"
+        ],
+        "section": [
+          {
+            "id": 25574,
+            "type": "watering",
+            "description": "Elm (Ulmus 'New Horizon') plants should be watered 1 to 2 times per week. The frequency and amount of watering depends on the conditions of the plant's environment. During the growing season, water the plant until the soil is moist but not saturated. During the winter months, the soil should be kept slightly dry. If the plant is in a container, check the soil for moisture before adding water. When watering, avoid getting water on the leaves or stems as this may cause leaf spot or other diseases."
+          },
+          {
+            "id": 25575,
+            "type": "sunlight",
+            "description": "Elm (Ulmus 'New Horizon') prefer partial to full sun exposure. To keep them healthy, this particular species thrive in 6 hours of direct sunlight a day. During the warmer months the optimal sunlight exposure would be early morning sun and early evening sun, avoiding the heat of the midday sun. In more temperate climates, they would benefit from full sun exposure. In the colder months, when temperatures drop, the needed sunlight exposure can decrease."
+          },
+          {
+            "id": 25576,
+            "type": "pruning",
+            "description": "Elm (Ulmus 'New Horizon') should be pruned twice a year- once in late winter and once in mid summer. It is important to prune the elm during its dormant season, which is in late winter, to promote strong, healthy growth and a neat, compact shape. Cuts should be made no more than 1/3 of the total branch length and should immediately below an outward facing bud. During the summer months, remove any dead branches that have developed and any suckers growing from the ground. More significantly, try to remove crossing branches, as these can cause strain on the trunk and can weaken the overall tree."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "ulmus americana 'jefferson'": {
+    "data": [
+      {
+        "id": 8442,
+        "species_id": 8020,
+        "common_name": "American elm",
+        "scientific_name": [
+          "Ulmus americana 'Jefferson'"
+        ],
+        "section": [
+          {
+            "id": 25553,
+            "type": "watering",
+            "description": "American Elm can generally be watered deeply every week to 10 days, depending on the amount of rainfall and temperature. In periods of high heat and dryness it may need to be watered more often. When watering, make sure to deeply soak the soil until water runs out of the drainage holes in the pot. To know if the soil is adequately saturated, wait until the surface of the soil appears dry before irrigating again."
+          },
+          {
+            "id": 25554,
+            "type": "sunlight",
+            "description": "American elm (Ulmus americana 'Jefferson') does best with direct sunlight for 6-8 hours per day, usually in the morning hours. It grows best in full sun, so it is important to place it in an area that gets sunlight for most of the day. This species of elm tree has a high tolerance for drought and heat, so its exposure to direct sunlight is beneficial to its health.  For optimal growth, it\u2019s best to provide direct sunlight for American elm during the warmest part of the day, when the temperatures are between 60-85 degrees Fahrenheit."
+          },
+          {
+            "id": 25555,
+            "type": "pruning",
+            "description": "American elm (Ulmus americana 'Jefferson') trees should generally be pruned in late winter, when the tree is still dormant. Begin pruning the elm by removing any crossing branches, dead wood, and suckers. If the tree has multiple trunks, be sure to select the strongest and healthiest as the leader. Once this is done, proceed to thin the tree\u2019s canopy by light pruning. Take out any branches that are competing with each other, as well as any that interfere with the structure\u2019s integrity. This will help the tree to become stronger and healthier. Finally, prune away any dead or damaged branches, and shorten excess growth. Be sure to keep all pruning cuts clean and sharp. Pruned trees should be supported with stakes or cables to prevent them from breaking or splitting."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "american elm": {
+    "data": [
+      {
+        "id": 8445,
+        "species_id": 8023,
+        "common_name": "American elm",
+        "scientific_name": [
+          "Ulmus americana 'Valley Forge'"
+        ],
+        "section": [
+          {
+            "id": 25562,
+            "type": "watering",
+            "description": "The American elm (Ulmus americana 'Valley Forge') should be watered deeply once or twice a week. When watering, water at the base of the tree and make sure to saturate the root system. Do not water the leaves directly or allow standing water as this can cause problems such as leaf burn and fungal diseases. During warmer, dry spells, you may need to increase the amount of water to ensure that the soil remains moist. It's always best to test the soil around the root zone to make sure that it is damp before adding more water. In the winter, water less frequently but still make sure that the soil is not completely dry."
+          },
+          {
+            "id": 25563,
+            "type": "sunlight",
+            "description": "American elm (Ulmus americana 'Valley Forge') prefers to grow in full to partial sun. It should receive 5 to 8 hours of direct sunlight a day. In hot climates, the tree should have partial shade in the afternoon to avoid sunburn. If grown in partial shade, the tree will need to have more frequent irrigation to keep the soil moist."
+          },
+          {
+            "id": 25564,
+            "type": "pruning",
+            "description": "For a healthy American elm (Ulmus americana 'Valley Forge'), pruning should be done once a year in late winter or early spring. Prune for size, shape and safety. Care should be taken to remove damaged, diseased or dead branches. Depending on the size of the tree, proper pruning may require cutting branches as tall as the first scaffold branch. Large scaffold branches should be removed no more than 25% of their size, and no more than 25% of the tree should be pruned in any single growing season. After each pruning, remove any small twigs and suckers that are not part of the desired design. This will ensure a healthy, well-shaped tree."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "ulmus alata": {
+    "data": [
+      {
+        "id": 8440,
+        "species_id": 8018,
+        "common_name": "winged elm",
+        "scientific_name": [
+          "Ulmus alata"
+        ],
+        "section": [
+          {
+            "id": 25547,
+            "type": "watering",
+            "description": "Winged elm should be watered thoroughly once or twice a week, depending on the season and individual plant's needs. However, they should only be watered when the top inch of soil feels dry. During the hottest summer months, they may need to be watered 3 or 4 times a week. Be sure to check for dryness before watering again. Water the base of the plant and not the leaves, and always water deeply, so the water reaches the roots."
+          },
+          {
+            "id": 25548,
+            "type": "sunlight",
+            "description": "Winged elm plants need to receive plenty of sunlight throughout the day. They require at least 6 hours of full sun for optimal growth and will thrive best when they receive 8 to 10 hours of consistent sunlight each day.\n\nWhen it comes to the time of day for the sun to hit the plant, it is best if it receives direct sunlight during the middle of the day when the sun is the strongest. Early morning or late afternoon sunlight will work but will not be as beneficial to the plant."
+          },
+          {
+            "id": 25549,
+            "type": "pruning",
+            "description": "Winged elm (Ulmus alata) should be pruned to shape and reduce potential storm damage. Pruning is best done when the tree is dormant in late winter or early spring before leaf development. This will help to reduce shock and stress on the tree. When pruning, the best amount to take off is no more than 1-third of the canopy at 1 time. Removing more can place undue stress on the tree and can cause it to die back or become diseased. Dead, diseased and broken branches should be removed, as well as suckers rising from the base of trunk. Smaller branches can be removed to reduce density, but only as they rub against each other or distort the crown of the tree."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "ulmus americana 'valley forge'": {
+    "data": [
+      {
+        "id": 8445,
+        "species_id": 8023,
+        "common_name": "American elm",
+        "scientific_name": [
+          "Ulmus americana 'Valley Forge'"
+        ],
+        "section": [
+          {
+            "id": 25562,
+            "type": "watering",
+            "description": "The American elm (Ulmus americana 'Valley Forge') should be watered deeply once or twice a week. When watering, water at the base of the tree and make sure to saturate the root system. Do not water the leaves directly or allow standing water as this can cause problems such as leaf burn and fungal diseases. During warmer, dry spells, you may need to increase the amount of water to ensure that the soil remains moist. It's always best to test the soil around the root zone to make sure that it is damp before adding more water. In the winter, water less frequently but still make sure that the soil is not completely dry."
+          },
+          {
+            "id": 25563,
+            "type": "sunlight",
+            "description": "American elm (Ulmus americana 'Valley Forge') prefers to grow in full to partial sun. It should receive 5 to 8 hours of direct sunlight a day. In hot climates, the tree should have partial shade in the afternoon to avoid sunburn. If grown in partial shade, the tree will need to have more frequent irrigation to keep the soil moist."
+          },
+          {
+            "id": 25564,
+            "type": "pruning",
+            "description": "For a healthy American elm (Ulmus americana 'Valley Forge'), pruning should be done once a year in late winter or early spring. Prune for size, shape and safety. Care should be taken to remove damaged, diseased or dead branches. Depending on the size of the tree, proper pruning may require cutting branches as tall as the first scaffold branch. Large scaffold branches should be removed no more than 25% of their size, and no more than 25% of the tree should be pruned in any single growing season. After each pruning, remove any small twigs and suckers that are not part of the desired design. This will ensure a healthy, well-shaped tree."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "ulmus americana": {
+    "data": [
+      {
+        "id": 8441,
+        "species_id": 8019,
+        "common_name": "American elm",
+        "scientific_name": [
+          "Ulmus americana"
+        ],
+        "section": [
+          {
+            "id": 25550,
+            "type": "watering",
+            "description": "American elm trees should be watered once per week, or at least every 5 to 7 days. Water deeply so that the roots receive a thorough soaking. Water in the morning hours, when temperatures are still relatively cool and the sun is not as strong; this helps reduce water evaporation. Depending on the size of the tree, use at least 10 to 20 gallons of water every time it is watered. Allow the water to penetrate the soil around the tree's roots as this will encourage deep and healthy root growth. If the soil is dry, increase watering slightly to ensure adequate hydration. Overly saturated soil can lead to issues like root rot, so be sure to monitor the soil moisture levels."
+          },
+          {
+            "id": 25551,
+            "type": "sunlight",
+            "description": "American elm trees prefer full sun for optimal growth. For healthy growth, they should receive at least 6 to 8 hours of direct sunlight a day. During the summer, a partially shaded spot is also suitable as long as the tree receives at least 4 to 6 hours of direct sunlight daily. During the winter, American elms should receive full sun to remain healthiest."
+          },
+          {
+            "id": 25552,
+            "type": "pruning",
+            "description": "The American elm (Ulmus americana) should be pruned during the winter when the plant is in its dormant season. Pruning should be done carefully and the removal of dead or diseased branches is necessary to avoid the spread of disease in the tree. Pruning should be limited to removing no more than 1-third of the plant\u2019s total foliage to ensure the desired shape and size of the tree. Additionally, crown thinning should be done to promote the density of foliage and improve air circulation between branches. This will create more space for better light penetration, resulting in healthier growth."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "rosa pisocarpa": {
+    "data": [
+      {
+        "id": 123,
+        "species_id": 8445,
+        "common_name": "Clustered Wild Rose",
+        "scientific_name": [
+          "Rosa pisocarpa"
+        ],
+        "section": [
+          {
+            "id": 1157,
+            "type": "watering",
+            "description": "Generally, it is recommended to water this plant once every 7 to 10 days during the growing season and less often during the colder months. It is important to keep the soil consistently moist, but not soggy, to ensure that the roots of the plant do not rot. If possible, water the plant deeply at each watering to help promote deep, strong root growth. During dry spells, water the plant more frequently to keep the soil moist. However, it is important to avoid overwatering, because too much water can lead to rot and other plant diseases."
+          },
+          {
+            "id": 1158,
+            "type": "sunlight",
+            "description": "Clustered Wild Rose (Rosa pisocarpa) plants prefer full sunlight to partial shade, which means they need 6-8 hours of direct sunlight per day. They will thrive if they receive direct sunlight in the morning, with a little indirect light in the afternoon. Too much direct sunlight in the afternoon may cause scorching of the leaves and inhibit flowering. When growing in partial shade, roses will require a more even light distribution throughout the day. During the spring and summer months, it\u2019s important to provide your clustered wild rose with at least 6 hours of sunlight per day, which will encourage the most flower production."
+          },
+          {
+            "id": 1159,
+            "type": "pruning",
+            "description": "Pruning for Clustered Wild Rose should be done in the early spring before new growth begins. The best time to prune is after the last frost. Prune your Clustered Wild Rose to maintain its shape and promote new growth. Remove any dead, diseased, or damaged branches first, then shape the remainder of the bush. Remove any branches that are growing too close together, or crossing over each other, as well as any that are too weak to support the plant. Make cuts at the base of the branch. Lightly prune the bush to a rounded shape. Prune off about 1 third to 1 half of the length of the shoots to promote new growth and maintain the desired shape."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "spanish fir": {
+    "data": [
+      {
+        "id": 1880,
+        "species_id": 424,
+        "common_name": "Spanish fir",
+        "scientific_name": [
+          "Abies pinsapo 'Horstmann'"
+        ],
+        "section": [
+          {
+            "id": 5845,
+            "type": "watering",
+            "description": "Water Spanish fir regularly throughout the growing season to ensure the soil remains moist, but not soggy. A good rule of thumb is to water when the soil has dried out, approximately once a week when there are no periods of significant rain. During periods of extreme heat, such as the summertime months, water frequency may need to increase to up to twice a week. It is important to not over-water the tree, as this can lead to root rot. During the winter months when the tree is dormant, water it more sparingly, allowing the soil to dry out between waterings."
+          },
+          {
+            "id": 5846,
+            "type": "sunlight",
+            "description": "Spanish fir (Abies pinsapo 'Horstmann') prefers full sun exposure in order to thrive and reach its full potential. This plant species should be placed in an area where it can receive at least 6 hours of direct sunlight each day throughout the growing season. It is best to avoid any excessive shade, as this can limit the growth rate of the Spanish fir and lead to stunted foliage. "
+          },
+          {
+            "id": 5847,
+            "type": "pruning",
+            "description": "Spanish fir, or Abies pinsapo 'Horstmann', should be pruned twice a year during its dormant season. Prune lightly in late winter to early spring before the new growth begins, removing broken, diseased or dead branches as well as crossing branches. You can also prune live branches if needed, such as to reduce the size of the plant, thin out growth or create a more natural form. \n \nGreat care should be taken when pruning because Spanish fir can have thin bark that can be easily damaged. Completely remove the branches by cutting the stem right at the collar and never leave a stub, as this can lead to rot."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "european silver fir": {
+    "data": [
+      {
+        "id": 34,
+        "species_id": 1,
+        "common_name": "European Silver Fir",
+        "scientific_name": [
+          "Abies alba"
+        ],
+        "section": [
+          {
+            "id": 109,
+            "type": "watering",
+            "description": "European Silver Fir 'Abies Alba' should be watered about once a week, depending on the season and weather conditions. During the growing season (spring to mid-summer), water deeply and thoroughly. For the rest of the year, water only when the soil is dry. When watering, ensure that the root system is saturated. Do not over-water, as this can lead to root rot."
+          },
+          {
+            "id": 110,
+            "type": "sunlight",
+            "description": "European Silver Fir 'Abies Alba' is a species of coniferous tree that grows best in sunny areas. This species of plant requires a minimum of 6 hours of sunlight per day throughout the growing season. Ideally, it should receive up to 8 hours of direct sunlight in the summer months, and 4-5 hours of sunlight in the winter. It is important to note that European Silver Fir 'Abies Alba' is not tolerant of shade and may be damaged if exposed to too much shade."
+          },
+          {
+            "id": 111,
+            "type": "pruning",
+            "description": "European Silver Fir should be pruned in the late winter to early spring months. This species should be pruned lightly and selectively, removing any dead, diseased, or broken branches. Foliage and branches that cross over 1 another should also be removed. Generally, pruning should not exceed 1/3 of the total height and width of the tree. When pruning, begin from the bottom of the tree and steadily move upwards."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "blueberry": {
+    "data": [
+      {
+        "id": 18,
+        "species_id": 8065,
+        "common_name": "blueberry",
+        "scientific_name": [
+          "Vaccinium 'Pink Lemonade'"
+        ],
+        "section": [
+          {
+            "id": 57,
+            "type": "watering",
+            "description": "This plant species should be watered regularly to keep the soil moist but not saturated. During the summer months when the plant is actively growing, it should be watered about twice a week, allowing the soil to dry slightly between waterings. During the winter months, waterings should be reduced and only done when the top inch of soil is dry."
+          },
+          {
+            "id": 58,
+            "type": "sunlight",
+            "description": "Vaccinium 'Pink Lemonade' is a plant species that thrives in full sun to partial shade. It does best with 6-8 hours of direct sunlight each day, but can tolerate some dappled shade. When grown in full sun, this plant can produce more and larger fruit. It is also more tolerant of heat and drought. In shadier conditions, the fruit will be smaller and the plant will be less drought tolerant."
+          },
+          {
+            "id": 59,
+            "type": "pruning",
+            "description": "Pruning helps to maintain the shape of the shrub, encourage new growth and flowering, as well as reduce the chances of disease and pest infestations. Prune Vaccinium 'Pink Lemonade' in late winter by removing any dead, damaged or diseased branches. You can also selectively prune to reduce the overall size of the shrub and to encourage bushy growth. Prune lightly, as this species is slow to recover from heavy pruning."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "balsam fir": {
+    "data": [
+      {
+        "id": 1872,
+        "species_id": 416,
+        "common_name": "balsam fir",
+        "scientific_name": [
+          "Abies balsamea 'Nana'"
+        ],
+        "section": [
+          {
+            "id": 5821,
+            "type": "watering",
+            "description": "Balsam Fir (Abies balsamea 'Nana') should be watered once a week while actively growing. Water until the soil is moist and evenly saturated throughout. Make sure not to overwater and avoid allowing the plant to sit in water as this can lead to root rot. During the hotter months, they may need to be watered twice a week, or more if the soil dries out quickly. During cooler months, reduce watering to once a month or less."
+          },
+          {
+            "id": 5822,
+            "type": "sunlight",
+            "description": "Balsam fir (Abies balsamea 'Nana') requires full sun or partial shade. Partial shade is preferable in locations with hot summers. The plant should get 5 to 7 hours of full sun daily to thrive. To ensure that it gets enough light, it should be planted in an area with a southern or western aspect, or at the edge of a wooded area. This species can also tolerate full shade for short periods of time, but if kept in a fully shaded area over a long period of time, it may not thrive."
+          },
+          {
+            "id": 5823,
+            "type": "pruning",
+            "description": "Balsam fir (Abies balsamea 'Nana') should be pruned in the spring season. Pruning should be light in order to minimize stress to the plant. Remove only dead, broken or diseased branches. Try to maintain the natural, conical form, and make sure not to prune off the terminal buds at the apex of the plant. If specific shaping is desired, it can be done at this time, but the plant should not be sheared. Pruning should be done soon after the days become consistently warm and the dormant season's new growth begins."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "lettuce": {
+    "data": [
+      {
+        "id": 161,
+        "species_id": 4627,
+        "common_name": "lettuce",
+        "scientific_name": [
+          "Lactuca sativa 'Merlot'"
+        ],
+        "section": [
+          {
+            "id": 890,
+            "type": "watering",
+            "description": "Lettuce should be watered frequently and lightly. It should be watered every day, or every other day, using 1/4 to 1/2 cup of water per plant. Make sure to avoid over-watering, as wet soil can lead to root rot. For lettuce grown outdoors, it is best to water it in the morning so the leaves can dry before nightfall and minimize disease."
+          },
+          {
+            "id": 891,
+            "type": "sunlight",
+            "description": "Lettuce (Lactuca sativa 'Merlot') grows best in full sunlight, so it needs to be planted in an area that gets 6-8 hours of sunlight every day. It should ideally be placed in a spot that is not too hot, as prolonged exposure to extreme heat can damage this species. Additionally, adequate air circulation is important for the overall health of the lettuce plants."
+          },
+          {
+            "id": 892,
+            "type": "pruning",
+            "description": "Pruning lettuce can help promote healthy growth.  Pruning should be done when the plant is 6-8 inches high, or when the lettuce has passed the rosette stage. Pruning should include removing any yellow, wilted, or damaged leaves, as well as removing the center leaves to promote new growth. It is best to only prune 1/3 of the plant at a time, so that the plant has enough foliage left to continue photosynthesizing."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "rosinweed": {
+    "data": [
+      {
+        "id": 180,
+        "species_id": 7378,
+        "common_name": "rosinweed",
+        "scientific_name": [
+          "Silphium integrifolium"
+        ],
+        "section": [
+          {
+            "id": 947,
+            "type": "watering",
+            "description": "Water rosinweed plants every 5-7 days in the spring and summer and every 10-14 days in the fall and winter. When watering, make sure to provide 1-2 inches of water to the soil around each plant, as rosinweeds prefer moist but not soggy soil conditions. Rosinweed plants should not be overwatered and should always be allowed to dry out between watering."
+          },
+          {
+            "id": 948,
+            "type": "sunlight",
+            "description": "Rosinweed (Silphium integrifolium) is a native wildflower which grows best in a sunny location. It should have at least 3 to 4 hours of direct sunlight per day, preferably during the early morning hours. This sun exposure will help this plant reach its full flower potential, with an array of bright yellow blossoms indicating it's flourishing health. Too much sunlight can be harmful, so avoiding peak sun hours (10 am to 2 pm) is recommended. Additionally, Rosinweed should be well-watered in the spring and fall for optimal growth."
+          },
+          {
+            "id": 949,
+            "type": "pruning",
+            "description": "Pruning rosinweed (Silphium integrifolium) should be done annually in the late winter or early spring. It is important to prune the plant before it begins to burst into new growth. As with all pruning, it is good to remove any dead, damaged or diseased branches. When pruning rosinweed, it's best to remove no more than 1/3 of the total stem mass. This will ensure the plant has plenty of nutrients and energy for the new growth, while still leaving enough of the structure to support the entire canopy. Taking too much will weaken the plant and reduce its ability to repel pests and disease."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "summer chocolate mimosa": {
+    "data": [
+      {
+        "id": 1698,
+        "species_id": 174,
+        "common_name": "Summer Chocolate Mimosa",
+        "scientific_name": [
+          "Albizia julibrissin 'Summer Chocolate'"
+        ],
+        "section": [
+          {
+            "id": 5299,
+            "type": "watering",
+            "description": "Summer Chocolate Mimosa plants need to be watered on a regular basis, with a frequency of approximately 2-3 times per week. To prevent overwatering, it is important to check the soil before each watering to make sure that it is not already moist or saturated. In periods of hot and dry weather, the plants may require more water than normal. During the summer months, it may be necessary to water the plant more frequently. During the winter, the amount of water should be reduced significantly, especially if the soil is already on the dry side."
+          },
+          {
+            "id": 5300,
+            "type": "sunlight",
+            "description": "Summer Chocolate Mimosa prefers full sun and can tolerate some partial shade but does best with 6-8 hours of direct sunlight a day. The hours of direct sunlight may decrease to 4-6 in hot and dry climates."
+          },
+          {
+            "id": 5301,
+            "type": "pruning",
+            "description": "Summer Chocolate Mimosa should be pruned during the winter months, from late fall to early spring. Pruning should be done in moderation only, as it is not necessary to prune heavily. This species should only be pruned to remove dead and broken branches, and to keep its overall shape. If the Summer Chocolate Mimosa is overgrown, it can be pruned a bit more heavily, but be sure to remove the largest branches last. Removing too much foliage can cause shock to the plant, so be conservative as you prune."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "banana": {
+    "data": [
+      {
+        "id": 1250,
+        "species_id": 8667,
+        "common_name": "banana",
+        "scientific_name": [
+          "Musa sp."
+        ],
+        "section": [
+          {
+            "id": 3743,
+            "type": "watering",
+            "description": "Watering for a banana plant (Musa sp.) should depend on the amount of light and heat the plant is exposed to and the type of soil it is planted in. Generally, during its active growing season (spring to fall), banana plants need to be watered 1-2 times per week, with each watering session delivering enough water to thoroughly moisten the soil. Ensure that there is no standing water leftover after watering, as the banana plant can become overly water stressed due to root rot. During the plants dormant season (winter), it should be watered much less frequently, about once every 2 weeks or so, depending on the soil and climate."
+          },
+          {
+            "id": 3749,
+            "type": "sunlight",
+            "description": "Bananas require a lot of sunlight and thrive in sunny, warm environments. In optimal conditions, banana plants need 8-10 hours of sunlight per day. In cold climates, banana plants may need to be brought indoors to maintain a favorable temperature."
+          },
+          {
+            "id": 3758,
+            "type": "pruning",
+            "description": "Banana plants should be pruned at least once a year, preferably during the winter season when the plant is dormant. Pruning should be done to remove dead and diseased leaves, stems, and suckers, as well as any fruits that have already been produced. In addition, any sprouting plants should be pruned back to the soil line to prevent overcrowding. The amount of pruning should be kept to a minimum, as too much pruning may negatively affect the banana plant\u2019s health and growth. If the plant is becoming overcrowded and more vigorous pruning is needed, it is best to remove the larger and more mature leaves first to encourage more vigorous growth in the plants."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "bog laurel": {
+    "data": [
+      {
+        "id": 191,
+        "species_id": 8435,
+        "common_name": "Bog Laurel",
+        "scientific_name": [
+          "Kalmia polifolia"
+        ],
+        "section": [
+          {
+            "id": 989,
+            "type": "watering",
+            "description": "When it comes to caring for a Bog Laurel (Kalmia polifolia), watering is a key factor for its health and vigor. Generally, this shrub requires relatively frequent, light watering throughout the growing season. During periods of dry weather, you should water the Bog Laurel once or twice a week, depending on the weather and your soil type. Water until the soil is thoroughly soaked and water is running out the bottom of the pot or container. To encourage growth and blooms, give the Bog Laurel an additional deep soaking every 3-4 weeks. During the winter months, the Bog Laurel should only be watered if the soil has dried out completely."
+          },
+          {
+            "id": 990,
+            "type": "sunlight",
+            "description": "Bog Laurel thrives best in partial shade, meaning it should receive no more than 4\u20136 hours of direct sunlight each day. The best time to expose it to this much sunlight is when the sun rises and sets, as the levels are at their lowest and less likely to damage the plant. Avoid exposing the plant to intense afternoon sunlight, as this can easily burn it. When possible, shield the plant from intense afternoon sun using structures like trees, walls and fences."
+          },
+          {
+            "id": 991,
+            "type": "pruning",
+            "description": "Bog Laurel is generally considered to be a low-maintenance shrub. However, regular pruning can help to encourage a bushy, robust plant with an abundance of beautiful blooms. Pruning should be done in late winter or early spring before new growth begins. Be sure to remove any dead or damaged branches as you trim, and thin out branches in areas where there are too many crowded together. Pruning should be light, removing just a small amount of growth at a time (no more than 15-20% at once). Avoid extreme pruning, as this can damage the health of the plant."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "spider flower": {
+    "data": [
+      {
+        "id": 197,
+        "species_id": 8528,
+        "common_name": "spider flower",
+        "scientific_name": [
+          "Cleome hassleriana"
+        ],
+        "section": [
+          {
+            "id": 833,
+            "type": "watering",
+            "description": "Spider flower should be watered about once a week, using approximately 1 inch of water. During the summer months the plant should receive more frequent watering, about 2 to 3 times a week, to ensure the soil does not dry out. When watering, the soil should be thoroughly moistened. When watering in the winter months, it is best to reduce watering frequency and allow the soil to become somewhat dry before giving it another drink."
+          },
+          {
+            "id": 834,
+            "type": "sunlight",
+            "description": "Spider flower plants need full sun to partial shade to grow and bloom. They should be in a spot that gets 6-8 hours of direct sunlight per day. For the best blooms and healthiest plants, it is best to plant spider flower in a location that receives full sun all day long. If the location does not get full sun all day, it is recommended that the plant gets morning sun and afternoon shade."
+          },
+          {
+            "id": 835,
+            "type": "pruning",
+            "description": "Spider flower (Cleome hassleriana) should be pruned as soon as its flowering season has finished and should be pruned back to 8 to 10 inches from the ground. It\u2019s best to do a light pruning of the stems, removing any dead or weak stalks and seed pods, while ensuring not to cut off healthy buds or blooms that are still growing. Doing this kind of pruning will encourage healthier and bushier growth for the following season."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "common bugle": {
+    "data": [
+      {
+        "id": 216,
+        "species_id": 634,
+        "common_name": "common bugle",
+        "scientific_name": [
+          "Ajuga reptans"
+        ],
+        "section": [
+          {
+            "id": 776,
+            "type": "watering",
+            "description": "Common bugle (Ajuga reptans) should be watered regularly and evenly. It is best to water these plants deeply and thoroughly once a week, providing about 1 to 1.5 inches of water at a time. The frequency of watering may need to be increased, especially during times of hot summer heat or excessive wind. If the soil feels dry, give the plant a deeper soak. Watering in the early morning or evening hours is recommended to limit evaporation."
+          },
+          {
+            "id": 777,
+            "type": "sunlight",
+            "description": "Common bugle (Ajuga reptans) is an evergreen groundcover plant that prefers partial shade to full sun. It grows best in an environment that offers 3 to 5 hours of sunlight a day, usually during the morning or late afternoon hours. It is important to note that too much sun exposure may result in wilting or scorching of the foliage. When planting common bugle, it is important to find an area of the garden that receives the right amount of sunlight and shade to give it its best chance at thriving."
+          },
+          {
+            "id": 778,
+            "type": "pruning",
+            "description": "Common bugle (Ajuga reptans) should be pruned back once a year in early spring, around late March or April. Most of the plant\u2019s stems can be cut back by up to \u00bd their height or roughly 3-4 inches above the soil level. This will encourage new growth and keep the plant looking its best. Dead or damaged stems should also be removed as needed throughout the growing season."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "betula nigra 'little king' fox valley": {
+    "data": [
+      {
+        "id": 2549,
+        "species_id": 1285,
+        "common_name": "river birch",
+        "scientific_name": [
+          "Betula nigra 'Little King' FOX VALLEY"
+        ],
+        "section": [
+          {
+            "id": 7853,
+            "type": "watering",
+            "description": "River Birch should be watered regularly and deeply. It is best to give the tree a thorough watering once or twice a week during its first growing season in the ground, slowly decreasing to once a week during the second and third season. During hot, dry spells, additional watering may be necessary. Once mature, the tree can tolerate drier conditions, but should still be watered once a month to help it maintain its full potential."
+          },
+          {
+            "id": 7854,
+            "type": "sunlight",
+            "description": "River Birch (Betula nigra 'Little King' FOX VALLEY) will need 6-8 hours of direct sunlight each day for optimal growth. Sunlight in the morning will help the plant establish its photosynthesis and boost the growth of leaf buds, and the time in the late afternoon provides enough warmth for the tree to complete its metabolic processes. The ideal spot is somewhere that gets good sunlight all the way throughout the day, such as an open field, or a spot that has some shade in the late afternoon, such as near a fence. In shady, moist areas the plant may not experience proper growth. Keep in mind, however, that River Birch plants can also tolerate some light dappling shade throughout the day, or a semi-shaded area."
+          },
+          {
+            "id": 7855,
+            "type": "pruning",
+            "description": "River Birch should be pruned in early spring before new growth begins. Pruning should be minimal, so as not to stress the plant or damage delicate new growth. If pruning is required to maintain a desired shape or size, focus on thinning the canopy rather than severe pruning. Remove the thin, small branches that cross and rub against each other. You can also prune branches of any size that are growing away from the main trunk or start to crowd other branches in the canopy. If you need to reduce the size of a River Birch, make sure the pruning cuts are small and done over the course of a few seasons, as drastic pruning can cause the plant undue stress."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "carrot": {
+    "data": [
+      {
+        "id": 8901,
+        "species_id": 8546,
+        "common_name": "carrot",
+        "scientific_name": [
+          "Daucus carota ssp. sativus"
+        ],
+        "section": [
+          {
+            "id": 26933,
+            "type": "watering",
+            "description": "Carrots should be watered regularly to ensure continuous growth. Water the carrots deeply once per week, allowing the soil to dry out in between waterings. During hot and dry weather, water twice a week to keep the soil evenly moist. Make sure to check the soil before watering; if it feels dry to the touch, it's time to water. Water near the base of the plant and avoid wetting the foliage as much as possible, as wet foliage can promote disease."
+          },
+          {
+            "id": 26934,
+            "type": "sunlight",
+            "description": "Carrots (Daucus carota ssp. sativus) need at least 6 hours of sunlight a day in order to grow and thrive. In general, the more sunlight they get, the better. Ideally, carrots should receive full sun throughout the spring and summer growing season in order to produce the highest quality and quantity of carrots. During the heat of the summer, the carrots may need to be shaded to prevent sun scald and dehydration. In the fall and winter, they can tolerate some shade as the temperatures become cooler."
+          },
+          {
+            "id": 26935,
+            "type": "pruning",
+            "description": "Carrot plants should be pruned 3 or 4 times during their growing season. Pruning should be done when the plant is about 8-10 inches tall. Pruning involves cutting off the top third of the plant with a pair of clean, sharp shears. This encourages more bushy growth and helps to maintain an overall healthy and attractive appearance. Additionally, pruning off any weak and woody stems helps to open more room for new stems and leaves to grow, providing more nutrition for the plant. When performing pruning, it's important to make precise cuts so as to not damage the stem or leaves. Always disinfect the shears with a solution of rubbing alcohol and water before and after each use."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "amelanchier x grandiflora 'autumn brilliance (tree form)'": {
+    "data": [
+      {
+        "id": 1700,
+        "species_id": 176,
+        "common_name": "Autumn Brilliance Serviceberry",
+        "scientific_name": [
+          "Amelanchier x grandiflora 'Autumn Brilliance (tree form)'"
+        ],
+        "section": [
+          {
+            "id": 5305,
+            "type": "watering",
+            "description": "The Mature and tree form of Autumn Briliance Serviceberry requires regular watering to keep it healthy and bring out the best of its autumn brilliance. Depending on your particular climate and the time of year, you should water your tree every 7 to 10 days in a warm, dry season, or every 4 to 7 days in a cooler, wetter season. \n\nTo water your Autumn Brilliance Serviceberry correctly, use a routine watering system that provides enough water for the roots to absorb, but not too much. Use a hose, watering can, or other container to deliver the water, and water deeply and evenly. Make sure the water reaches at least 8 to 10 inches (20 to 25 cm) below the surface, and avoid wetting the foliage as much as possible. In hot, dry weather, water the tree more often. During winter, reduce the amount of water needed."
+          },
+          {
+            "id": 5306,
+            "type": "sunlight",
+            "description": "Autumn Brilliance Serviceberry trees need 6 to 8 hours of sunlight per day in order to thrive. The ideal amount would be about 6 to 7 hours of direct sunlight in the morning until mid- to late afternoon with the remaining hours of natural sunlight either filtered by trees or other plants, or indirect. This species also has good tolerance to shade, so it can handle up to 8 hours of indirect or filtered light."
+          },
+          {
+            "id": 5307,
+            "type": "pruning",
+            "description": "Autumn Brilliance Serviceberry should be pruned between late winter and early spring before the new growth starts to emerge. Pruning should be based on the size and shape desired. Light pruning can be done to remove wild shoots, dead branches, or any branches growing in an undesirable direction. Pruning should be done in moderation, as over-pruning can harm the tree's health by reducing the number of blossoms. It is best to cut no more than a fourth of the total branch length, and to avoid cutting the branches down to the main trunk."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "sugar cane": {
+    "data": [
+      {
+        "id": 177,
+        "species_id": 7025,
+        "common_name": "sugar cane",
+        "scientific_name": [
+          "Saccharum officinarum"
+        ],
+        "section": [
+          {
+            "id": 938,
+            "type": "watering",
+            "description": "Sugar cane should be watered on a regular basis, approximately 2 to 3 times per week. Depending on the plant's pot size and the temperature and humidity in the area, it may be necessary to adjust the amount and frequency of watering. Generally, when the top 1-2 inches of soil become dry, it is time to water your sugar cane. When watering, it is important to thoroughly moisten the soil to ensure that water is reaching the entire root system. Allow the water to drain completely, then empty any excess water that has collected in the pot or saucer."
+          },
+          {
+            "id": 939,
+            "type": "sunlight",
+            "description": "Sugar cane (Saccharum officinarum) plants need a great deal of direct sunlight, 6 to 8 hours daily, in order to grow and produce crop. Direct morning sun and evening light is a requirement and shade at midday is beneficial. Partial shade during very hot periods (like midday in the summer) may be necessary if temperatures are too high. The plant should also be far away from walls and other tall structures, as this will limit the amount of direct light they receive."
+          },
+          {
+            "id": 940,
+            "type": "pruning",
+            "description": "When it comes to pruning sugar cane, it is usually done during the winter season. Pruning is done to stimulate the production of new shoots and encourage the growth of a denser crop. The amount of pruning needed depends on the variety of sugar cane and the climate. Generally, the shoots should be pruned when they reach the length of 8-10 feet (2.4-3 m). The main stems should be cut back far enough to allow for new shoots to emerge, but not so far as to set back the growth of the cane."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "coconut palm": {
+    "data": [
+      {
+        "id": 3145,
+        "species_id": 1998,
+        "common_name": "coconut palm",
+        "scientific_name": [
+          "Cocos nucifera"
+        ],
+        "section": [
+          {
+            "id": 9641,
+            "type": "watering",
+            "description": "Coconut palms need about an inch of water every week. Water should be applied in the morning and allowed to penetrate the soil slowly. Withhold water if the tree's leaves are drooping. In areas with a moderate climate, allow the soil to dry out between watering. During the warm summer months, the tree may need to be watered more frequently. Protect from overwatering by checking the soil to see if it is moist or dry before adding water. In areas prone to cold winter temperatures, add mulch around the tree to help retain some of the moisture."
+          },
+          {
+            "id": 9642,
+            "type": "sunlight",
+            "description": "Coconut palms require full sun in order to thrive. They prefer full sun for 8-10 hours per day, but can tolerate partial shade for part of the day. The coconut palm thrives in hot, tropical climates with abundant sunlight and humidity. In areas with cooler climates, the coconut palm can still grow, but may need more shade and shelter from the wind. In other temperate climates, the coconut palm must be kept in a greenhouse environment that provides full sunlight and adequate warmth and humidity for growth."
+          },
+          {
+            "id": 9643,
+            "type": "pruning",
+            "description": "For coconut palms, pruning should be done twice a year to keep the tree healthy and promote new growth. Pruning should be done in early spring and late fall. For young trees, it is recommended to prune every year for a few years.\n\nWhen pruning, remove any dead, diseased, or broken branches as well as any that are crossing other branches and growing towards the center of the tree. Additionally, remove any branches that are growing too far out from the main trunk. Doing so will promote stronger growth and will support a more symmetrical and uniform shape for the tree.\n\nIn addition to regular pruning, coconut palms may require corrective pruning when the tree is young to shape it and when it is more mature to keep its shape."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "alpine fir": {
+    "data": [
+      {
+        "id": 49,
+        "species_id": 7,
+        "common_name": "Alpine Fir",
+        "scientific_name": [
+          "Abies lasiocarpa"
+        ],
+        "section": [
+          {
+            "id": 1205,
+            "type": "watering",
+            "description": "Alpine Fir requires moderate to deep watering and should be watered around once a week during the growing season--generally from late Spring until the end of Summer. Water the pot deeply until water comes out of the pot's bottom drainage holes to ensure the entire root system has been adequately soaked. Do not water again until the soil feels dry to the touch, about an inch below the surface. During Fall and Winter, allow the soil to dry out completely before watering."
+          },
+          {
+            "id": 1206,
+            "type": "sunlight",
+            "description": "The Alpine Fir likes the full sun. For optimal growth, it is recommended to receive approximately 6 to 8 hours of direct sunlight a day. Sunlight should be spread out evenly throughout the day, as too much sun during some parts of the day can cause sunburn and other damages. In more northern climates, it is more tolerant of lower light levels, but may not achieve ideal growth with less than 4 to 6 hours of direct sunlight."
+          },
+          {
+            "id": 1207,
+            "type": "pruning",
+            "description": "Pruning an alpine fir is best done in the late winter or early spring just before new growth begins. Prune away dead and crossing branches as needed and selectively thin out crowded areas. Avoid removing more than 1-third of the foliage as this can stress the tree and reduce health. Doing light pruning over a number of years is the best practice as this allows for a gradual movement of the desired new shape."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
   }
 }

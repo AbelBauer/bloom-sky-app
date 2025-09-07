@@ -14,31 +14,31 @@ Core Features:
 4. **Care Info Retrieval**: Fetches watering, sunlight, and scientific details from cache or API.
 5. **Care Description Display**: Retrieves and formats pruning, watering, and sunlight guidance.
 6. **Rich Console Output**: Displays care tables and recommendations using `rich` formatting.
-7. **Recommendation Engine**: Integrates with `generate_plant_recommendation()` to suggest simple care routines.
+7. **Recommendation Engine**: Integrates with a template module to suggest care routines.
 
 Functions:
 ----------
 - load_cache(path): Loads JSON data from a given cache file.
 - save_cache(path, data): Updates and saves data to a cache file.
-- get_fuzzy_plant(name, data, threshold=70): Performs fuzzy matching on cached plant names.
-- api_live_query(name): Queries the Perenual API for species data.
-- get_name_and_id(name): Resolves a plant name using cache, fuzzy match, or API.
-- fetch_care_info(plant_id, plant_name): Retrieves watering and sunlight info.
-- fetch_description(plant_id, plant_name): Retrieves pruning, watering, and sunlight descriptions.
-- display_care_info(plant, growth, soil): Displays care table and generates recommendations.
+- extract_care_info(data): Safely extracts common and scientific names, watering, sunlight, and soil data from a plant's API response.
+- extract_care_descriptions(data): Retrieves care descriptions (watering, sunlight, pruning) from the API.
+- get_fuzzy_plant(name, data, threshold=70): Performs fuzzy matching on cached plant names, returning a list of unique matches.
+- api_live_query(name): Queries the Perenual API for a specific species.
+- get_name_and_id(name): Resolves a plant name using cache, fuzzy matching, or a live API query.
+- fetch_care_info(plant_id, plant_name): Retrieves basic care information from cache or API.
+- fetch_description(plant_id, plant_name): Retrieves detailed care descriptions from cache or API.
+- display_care_info(plant_name, growth, soil): Displays a care table and generates a recommendation for a given plant.
 - display_care_description(plant_id, plant_name): Displays formatted care descriptions.
-- run_garden_guide(plant_name): Main entry point to run the guide for a given plant name.
+- run_garden_guide(plant_name): Main entry point to run the full guide for a given plant name.
 
 Dependencies:
 -------------
-- fuzzywuzzy (for fuzzy string matching)
-- requests (for API calls)
-- rich (for styled console output)
-- plants_recomm_templates (for care recommendation generation)
-- Local cache files:
-    - CARE_CACHE_FILE
-    - FILE_DESCRIP_CACHE
-    - SPECIES_CACHE
+- fuzzywuzzy: For fuzzy string matching.
+- requests: For making API calls.
+- rich: For styled console output.
+- plants_recomm_templates: For care recommendation generation.
+- dotenv: To load the API key from a .env file.
+- Local cache files (defined by constants): CARE_CACHE_FILE, FILE_DESCRIP_CACHE, SPECIES_CACHE
 
 Usage:
 ------
@@ -47,10 +47,9 @@ Call `run_garden_guide("white fir")` to resolve a plant name, display care info,
 Notes:
 ------
 - Ensure all cache files are present and properly formatted.
-- Define a valid `API_KEY` for live queries to the Perenual API.
-- Console output is styled using the `rich` library for enhanced readability.
+- The PERENUAL_API_KEY must be set in a `.env` file for live queries.
+- The `rich` library is used for enhanced console readability.
 """
-
 
 
 import os, json, time, requests
@@ -66,34 +65,35 @@ FILE_DESCRIP_CACHE = "plants_care_description_DATABASE.json"
 SPECIES_CACHE = "plants_Dataset_cache.json"
 
 load_dotenv()
-API_KEY = os.getenv("PERENUAL_API_KEY") # Secure this data!
+API_KEY = os.getenv("PERENUAL_API_KEY")
 
-def load_cache(path): # 1. OK
+def load_cache(path):
     if os.path.exists(path):
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
 
-def save_cache(path, data): # OK too
+def save_cache(path, data):
     cache = load_cache(path)
     cache.update(data)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=True, indent=2)
 
-def extract_care_info(data):
+def extract_care_info(data) -> tuple:
     try:
         return (
             data.get('common_name', 'Unknown'),
             data.get('scientific_name', ['Unknown'])[0],
             data.get('watering', 'Unknown').lower(),
             data.get('watering_general_benchmark', {}).get("value", "Unknown"),
-            ', '.join(data.get('sunlight', ['Unknown']))
+            ', '.join(data.get('sunlight', ['Unknown'])),
+            data.get('soil', 'Unknown'), # New addition! 'Best Soil' variable to show on table and to pass on.
         )
     except Exception as e:
         print(f"⚠️ Error extracting care info: {e}")
         return "Unknown", "Unknown", "Unknown", "Unknown", "Unknown"
 
-def extract_care_descriptions(data):
+def extract_care_descriptions(data) -> tuple:
     try:
         sections = data["data"][0]["section"]
         guide = {s["type"]: s["description"] for s in sections if s.get("type") and s.get("description")}
@@ -106,12 +106,17 @@ def extract_care_descriptions(data):
         print(f"⚠️ Error extracting care descriptions: {e}")
         return "Unavailable data.", "Unavailable data.", "Unavailable data."
 
-def get_fuzzy_plant(name, data, threshold=70):
+def get_fuzzy_plant(name, data, threshold=80):
+    console = Console()
+    time.sleep(0.3)
+    console.print(f"\nSearching for ➜ [bold red]'{name}'...[/bold red]")
+    time.sleep(0.3)
     name = name.strip().lower()
     candidates, plant_map = [], {}
 
     for plant in data.get("data", []):
         names = [plant.get("common_name", "")] + plant.get("scientific_name", []) + plant.get("other_name", [])
+        
         for n in names:
             if n:
                 normalized = n.strip().lower()
@@ -122,16 +127,37 @@ def get_fuzzy_plant(name, data, threshold=70):
         print("⚠️ No candidates available for fuzzy matching.")
         return None, None, None
 
-    result = process.extractOne(name, candidates)
-    if result is None:
-        print("⚠️ No fuzzy match found.")
+    best_result = process.extractOne(name, candidates)
+    total_matches = process.extract(name, candidates, limit=20)
+
+    total_plants = set()
+
+    console.print(f"\n[bold green]Related species found: ")
+    index = 1
+    for match, score in total_matches:
+        plant = plant_map.get(match)
+        if plant:
+            common_name = plant.get("common_name", "N/A")
+            scientific_name = plant.get("scientific_name", [""])[0]
+            plant_tuple = (common_name, scientific_name)
+            if plant_tuple not in total_plants:
+                console.print(f"{index}. 🌱 [red]{common_name.title()}[/red] [bold yellow]({scientific_name.title()})[/bold yellow]") # - Match Score: {score}
+                time.sleep(0.2)
+                total_plants.add(plant_tuple)
+                index += 1
+
+    print("")
+    time.sleep(1)
+
+    if best_result is None:
+        print(f"\n ⚠️ No fuzzy match found.")
         return None, None, None
 
-    match, score = result
+    match, score = best_result
     if score >= threshold:
         return "fuzzy", match, plant_map[match]["id"]
 
-    print(f"⚠️ Match score too low: {score}")
+    print(f"\n ⚠️ Match score too low: {score}")
     return None, None, None
 
 
@@ -150,28 +176,28 @@ def api_live_query(name):
         print(f"🚫 API error: {e}")
     return None, None, None
 
-def get_name_and_id(name): # 2. OK
+def get_name_and_id(name):
     normalized = name.strip().lower()
     species_cache = load_cache(SPECIES_CACHE)
 
     if normalized in species_cache: # Name located in cache
         plant = species_cache[normalized]
-        print("✴️  Name resolved from care cache.")
+        print("✴️  Name found in cache.")
         return "cached", plant.get("common_name", name), plant.get("id")
     
     match_type, plant_name, plant_id = get_fuzzy_plant(name, species_cache) # Fuzzy match to resolve user's typo.
     if match_type:
-        print(f"✴️  Resolved from care cache. Found '{plant_name}' via {match_type} match.")
+        print(f"✴️  Resolved from cache. Found '{plant_name}' via {match_type} match.")
         return match_type, plant_name, plant_id
 
     return api_live_query(name) # Otherwise call API and try to find a match.
 
-def fetch_care_info(plant_id, plant_name): # 3. OK
+def fetch_care_info(plant_id, plant_name): 
     normalized = plant_name.lower()
     cache = load_cache(CARE_CACHE_FILE)
 
     if normalized in cache:
-        print("✴️  Care data from cache.")
+        print(f"✴️  Care data from cache.\n")
         return extract_care_info(cache[normalized])
     
     url = f"https://perenual.com/api/v2/species/details/{plant_id}?key={API_KEY}"
@@ -180,13 +206,13 @@ def fetch_care_info(plant_id, plant_name): # 3. OK
         response.raise_for_status()
         content = response.json()
         save_cache(CARE_CACHE_FILE, {normalized: content})
-        print("❇️  Care data from API.")
+        print(f"❇️  Care data from API.\n")
         return extract_care_info(content)
     except Exception as e:
         print(f"🚫 Error fetching care info: {e}")
-        return "Unknown", "Unknown", "Unknown", "Unknown", "Unknown"
+        return "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown"
 
-def fetch_description(plant_id, plant_name): # 6. OK
+def fetch_description(plant_id, plant_name):
     normalized = plant_name.lower()
     cache = load_cache(FILE_DESCRIP_CACHE)
     if normalized in cache:
@@ -205,11 +231,10 @@ def fetch_description(plant_id, plant_name): # 6. OK
         print(f"🚫 Error fetching description: {e}")
         return "Unavailable data.", "Unavailable data.", "Unavailable data."
 
-def display_plants_description(water, sun, prun): # 7. OK
-    return Panel.fit(water.strip()), Panel.fit(sun.strip()), Panel.fit(prun.strip())
+def display_plants_description(water, sun, prun):
+    return Panel.fit(water.strip(), title="[bold yellow]Watering[/bold yellow]", title_align="left"), Panel.fit(sun.strip(), title="[bold yellow]Sunlight[/bold yellow]", title_align="left"), Panel.fit(prun.strip(), title="[bold yellow]Pruning[/bold yellow]", title_align="left")
 
-def display_care_info(plant, growth, soil): # 4. OK. Fixed typo-ed names passed onto generate_plant_recommendation() function. 
-    # Next up: Fix phrases in recommendations template. Some job already done, though. Keep going and focus on the watering phrases.
+def display_care_info(plant, growth, soil): 
     console = Console()
     plant_data = {}
 
@@ -219,24 +244,42 @@ def display_care_info(plant, growth, soil): # 4. OK. Fixed typo-ed names passed 
         print("❌ Could not identify plant.")
         return plant_data, None
     
-    vernacular, scientific, watering, frequency, sunlight = fetch_care_info(plant_id, plant_name)
+    vernacular, scientific, watering, frequency, sunlight, plant_soil = fetch_care_info(plant_id, plant_name)
+
+    if frequency:
+        frequency = f"{frequency.strip('"')} days"
+    else:
+        frequency = "N/A"
+
+    best_soil_cleaned_list = []
+    for s in plant_soil:
+        cleaned_s = s.strip().strip("'").strip('"')
+        best_soil_cleaned_list.append(cleaned_s)
+
+    best_soil = str(best_soil_cleaned_list).strip("[]")
+    if best_soil == "":
+        best_soil = "N/A"
 
     table = Table(title="🌿 Virtual Garden Care Guide", show_lines=True, header_style="bold", title_style="bold on white")
-    table.add_column("Vernacular Name", style="green")
+    table.add_column("Vernacular Name", style="red")
     table.add_column("Scientific Name", style="cyan")
     table.add_column("Watering", style="magenta")
     table.add_column("Sunlight", style="yellow")
-    table.add_row(vernacular.title(), scientific.title(), watering.title(), sunlight.title())
+    table.add_column("Best Soil", style="green")
+    table.add_row(vernacular.title(), scientific.title(), watering.title(), sunlight.title(), best_soil.title())
     console.print(table)
 
-    recommendations = (generate_plant_recommendation(plant_name=plant_name.title(), watering_level=watering, watering_frequency=f"{frequency} days", sunlight_level=sunlight.lower(), growth_stage=growth, soil_type=soil))
+    recommendations = (generate_plant_recommendation(plant_name=plant_name.title(), watering_level=watering, watering_frequency=frequency, sunlight_level=sunlight.lower(), growth_stage=growth, soil_type=soil))
     console.print(Panel.fit(recommendations))
 
-    return plant_name, plant_id # Enable/Disable for isolated-test this module.
+    if "," in sunlight:
+        sunlight_care = sunlight.split(", ")
+        sunlight = sunlight_care[0] # Decide what to do with the second [1] sunlight need parameter from perenual. 
+
+    return plant_name, plant_id, watering.lower(), sunlight.lower()
 
 def display_care_description(plant_id, plant_name): # 5. OK
     console = Console()
-
     water, sun, prun = fetch_description(plant_id, plant_name)
     w, s, p = display_plants_description(water, sun, prun)
     console.rule(f"[bold yellow]{plant_name.upper()}", align="left")
@@ -250,8 +293,12 @@ def display_care_description(plant_id, plant_name): # 5. OK
 def run_garden_guide(plant_name):
     plant_name = plant_name.lower()
     print("")
-    name, id = display_care_info(plant=plant_name, growth="adult", soil="loam")
+    name, id, watering, sunlight = display_care_info(plant=plant_name, growth="adult", soil="loam")
     display_care_description(id, name)
 
-# Example usage
-#run_garden_guide("tree heath") # Enable/Disable. For module test only.
+def main():
+    # Example usage
+    run_garden_guide("coconut palm")
+
+if __name__ == "__main__":
+    main()

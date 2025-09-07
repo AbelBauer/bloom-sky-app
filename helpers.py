@@ -10,17 +10,17 @@ from display_weather_table import print_table
 from gmaps_package import get_geocode, get_current_weather, get_extended_forecast
 from gmaps_pollen import get_pollen
 from garden_care_guide import display_care_info, display_care_description
+from plant_vs_weather import weather_plant
 
 # HELPERS
-
 def ask_retry():
     choice = input("\nWould you like to try again? yes [Y], or no [N]?  ➤  ").lower().strip()
     return choice == "y"
 
 def add_more_plants():
     while True:
-        user_choice = input("\nWould you like to add more plants?: yes [Y] or no [N] to exit the garden?  ➤  ").lower().strip()
-        valid_choices = ["y", "n", "e"] 
+        user_choice = input("\nWould you like to see more plants?: yes [Y] or no [N] to exit the garden?  ➤  ").lower().strip()
+        valid_choices = ["y", "n"] 
         if user_choice in valid_choices:
                 return user_choice
         else:
@@ -72,16 +72,16 @@ def get_location():
             location = prompt_location()
             latitude, longitude = get_geocode(location)
             if valid_coordinates(latitude, longitude):
-                return location, latitude, longitude
+                return location.upper(), latitude, longitude
             else:
-                time.sleep(1)
-                print(f"Error: Could not resolve geocoding coordinates for provided location.\n")
+                time.sleep(0.5)
+                print(f"Error: Invalid geocoding coordinates for provided location.\n")
                 if ask_retry():
                     continue
                 else:
                     raise IndexError #return get_location(location)
-        except (IndexError, ValueError, HTTPError):
-            print(f"Error: Could not resolve geocoding coordinates for provided location.\n")
+        except (IndexError, ValueError, HTTPError) as e:
+            print(f"Error: Could not resolve geocoding coordinates for provided location. {e}\n")
             if ask_retry():
                 continue
             else:
@@ -102,7 +102,7 @@ def main_menu():
             return choice
         else:
             time.sleep(0.5)
-            print("\nInvalid option")
+            print("\nInvalid choice. Please, try again.")
             time.sleep(0.5)
             continue
     
@@ -127,22 +127,42 @@ def location_subMenu():
         if choice in valid_choice:
             return choice
         else:
-            print("\nInvalid option")
+            time.sleep(0.5)
+            print("\nInvalid choice. Please, try again.")
             time.sleep(0.5)
             continue
 
-def prompt_plants():
+def confirm_location(location):
+    console = Console()
+    while True:
+        console.print(f"\nIs your garden located in [bold red]{location.upper()}[/bold red]?")
+        choice = input(f"Press [Y] to continue or [E] to enter a new location: ➤ ").lower().strip()
+        if choice == "y":
+           return location
+        elif choice == "e":
+            custom_location = prompt_location()
+            return custom_location
+        else:
+            time.sleep(1)
+            print("\nInvalid choice. Please, try again.\n")
+            time.sleep(1)
+            continue
+
+def prompt_plants(location):
     console = Console()
     while True:
         soil_choice = prompt_soilType() # Prompt user for soil type. This is a global garden parameter.  
         user_plant= input("\nType in here the name of a plant and/or tree in your garden. Use vernacular, common or scientific name: ➤  ").lower().strip() # Ask the user for plant name.         
         intro_plantGrowth() # Introduce soil choice to user.
         growth_stage = prompt_growthStage() # Ask the user for the plant growth stage.
-        plant_name, plant_id = display_care_info(user_plant, growth_stage, soil_choice) # Display table and recommendations.
+        plant_name, plant_id, watering, sunlight = display_care_info(user_plant, growth_stage, soil_choice) # Display table and recommendations.
+        #today_forecast, tomorrow_forecast = get_forecast(location)
+        console.print(Panel.fit(weather_plant(location=location, watering=watering, sunlight=sunlight)))
+
         retry_choice = ask_careInfo()
         print("")
         if retry_choice == "y":
-            display_care_description(plant_id, plant_name) # Display detailed care information from perenual.com.            
+            display_care_description(plant_id, plant_name) # Display detailed care information from perenual.com.
             add_plants_choice = add_more_plants() # Ask the user for more plants.
             if add_plants_choice == "y":
                 continue
@@ -200,7 +220,6 @@ def prompt_growthStage(): # Prompt the user for plant growth stage. Return growt
             time.sleep(1)
             continue
 
-
 def plants_subMenu():
     while True:
         console = Console()
@@ -232,7 +251,7 @@ def prompt_location():
                 print("Input not recognized. Try please format 'City, Country' (e.g., Paris, France).")
                 continue
             except HTTPError:
-                print("Sorry, data for that region isn't available right now.")
+                print(f"Sorry, data for that region isn't available right now.")
                 continue
         print("\nNo worries! Skipping your location forecast for now...")
         return
