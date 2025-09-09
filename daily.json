@@ -2,12 +2,27 @@
     "date": {
         "year": 2025,
         "month": 9,
-        "day": 7
+        "day": 9
     },
     "pollenTypeInfo": [
         {
             "code": "GRASS",
-            "displayName": "Grass"
+            "displayName": "Grass",
+            "inSeason": false,
+            "indexInfo": {
+                "code": "UPI",
+                "displayName": "Universal Pollen Index",
+                "value": 1,
+                "category": "Very Low",
+                "indexDescription": "People with very high allergy to pollen are likely to experience symptoms",
+                "color": {
+                    "green": 0.61960787,
+                    "blue": 0.22745098
+                }
+            },
+            "healthRecommendations": [
+                "Pollen levels are very low right now. It's a great day to enjoy the outdoors!"
+            ]
         },
         {
             "code": "TREE",
@@ -15,7 +30,22 @@
         },
         {
             "code": "WEED",
-            "displayName": "Weed"
+            "displayName": "Weed",
+            "inSeason": true,
+            "indexInfo": {
+                "code": "UPI",
+                "displayName": "Universal Pollen Index",
+                "value": 1,
+                "category": "Very Low",
+                "indexDescription": "People with very high allergy to pollen are likely to experience symptoms",
+                "color": {
+                    "green": 0.61960787,
+                    "blue": 0.22745098
+                }
+            },
+            "healthRecommendations": [
+                "Pollen levels are very low right now. It's a great day to enjoy the outdoors!"
+            ]
         }
     ],
     "plantInfo": [
@@ -49,11 +79,55 @@
         },
         {
             "code": "GRAMINALES",
-            "displayName": "Grasses"
+            "displayName": "Grasses",
+            "inSeason": false,
+            "indexInfo": {
+                "code": "UPI",
+                "displayName": "Universal Pollen Index",
+                "value": 1,
+                "category": "Very Low",
+                "indexDescription": "People with very high allergy to pollen are likely to experience symptoms",
+                "color": {
+                    "green": 0.61960787,
+                    "blue": 0.22745098
+                }
+            },
+            "plantDescription": {
+                "type": "GRASS",
+                "family": "Poaceae",
+                "season": "Late spring, summer",
+                "specialColors": "None",
+                "specialShapes": "The leaves are alternate, long and narrow and the leaf margin is smooth.",
+                "crossReaction": "Plantain (Plantago) pollen. In addition, there may be a higher risk for food allergies like melons, oranges, tomatoes, peanuts, soy, potato, and other legumes.",
+                "picture": "https://storage.googleapis.com/pollen-pictures/graminales_full.jpg",
+                "pictureCloseup": "https://storage.googleapis.com/pollen-pictures/graminales_closeup.jpg"
+            }
         },
         {
             "code": "RAGWEED",
-            "displayName": "Ragweed"
+            "displayName": "Ragweed",
+            "inSeason": true,
+            "indexInfo": {
+                "code": "UPI",
+                "displayName": "Universal Pollen Index",
+                "value": 1,
+                "category": "Very Low",
+                "indexDescription": "People with very high allergy to pollen are likely to experience symptoms",
+                "color": {
+                    "green": 0.61960787,
+                    "blue": 0.22745098
+                }
+            },
+            "plantDescription": {
+                "type": "WEED",
+                "family": "Asteraceae (the daisy family)",
+                "season": "Late summer, fall",
+                "specialColors": "None",
+                "specialShapes": "The leaves are alternate or opposite, divided and lobed. The leaf margin is smooth or serrated.",
+                "crossReaction": "Mugwort and Goldenrod as well as daisies such as Sunflower, Dandelion, and Chamomile.",
+                "picture": "https://storage.googleapis.com/pollen-pictures/ragweed_full.jpg",
+                "pictureCloseup": "https://storage.googleapis.com/pollen-pictures/ragweed_closeup.jpg"
+            }
         },
         {
             "code": "ALDER",
@@ -61,7 +135,29 @@
         },
         {
             "code": "MUGWORT",
-            "displayName": "Mugwort"
+            "displayName": "Mugwort",
+            "inSeason": true,
+            "indexInfo": {
+                "code": "UPI",
+                "displayName": "Universal Pollen Index",
+                "value": 1,
+                "category": "Very Low",
+                "indexDescription": "People with very high allergy to pollen are likely to experience symptoms",
+                "color": {
+                    "green": 0.61960787,
+                    "blue": 0.22745098
+                }
+            },
+            "plantDescription": {
+                "type": "WEED",
+                "family": "Asteraceae (the daisy family)",
+                "season": "Late summer, fall",
+                "specialColors": "The leaves are green on the upper side and gray-green on the lower side.",
+                "specialShapes": "The leaves are alternate, divided and pinnate.",
+                "crossReaction": "Ragweed and Goldenrod pollen as well as daisies such as Sunflower, Dandelion and Chamomile. In addition, there may be a higher risk for food allergies like mustard, peach, celery and various herbs and spices.",
+                "picture": "https://storage.googleapis.com/pollen-pictures/mugwort_full.jpg",
+                "pictureCloseup": "https://storage.googleapis.com/pollen-pictures/mugwort_closeup.jpg"
+            }
         }
     ]
 }

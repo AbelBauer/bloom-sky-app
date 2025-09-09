@@ -176,7 +176,7 @@ def api_live_query(name):
         print(f"🚫 API error: {e}")
     return None, None, None
 
-def get_name_and_id(name):
+def get_best_name_and_id(name):
     normalized = name.strip().lower()
     species_cache = load_cache(SPECIES_CACHE)
 
@@ -231,14 +231,14 @@ def fetch_description(plant_id, plant_name):
         print(f"🚫 Error fetching description: {e}")
         return "Unavailable data.", "Unavailable data.", "Unavailable data."
 
-def display_plants_description(water, sun, prun):
+def care_description_table(water, sun, prun):
     return Panel.fit(water.strip(), title="[bold yellow]Watering[/bold yellow]", title_align="left"), Panel.fit(sun.strip(), title="[bold yellow]Sunlight[/bold yellow]", title_align="left"), Panel.fit(prun.strip(), title="[bold yellow]Pruning[/bold yellow]", title_align="left")
 
 def display_care_info(plant, growth, soil): 
     console = Console()
     plant_data = {}
 
-    match_type, plant_name, plant_id = get_name_and_id(plant)
+    match_type, plant_name, plant_id = get_best_name_and_id(plant)
 
     if not plant_id:
         print("❌ Could not identify plant.")
@@ -274,15 +274,16 @@ def display_care_info(plant, growth, soil):
 
     if "," in sunlight:
         sunlight_care = sunlight.split(", ")
-        sunlight = sunlight_care[0] # Decide what to do with the second [1] sunlight need parameter from perenual. 
+        sunlight = sunlight_care[0] # Decide what to do with the second [1] sunlight need parameter from perenual.com
 
-    return plant_name, plant_id, watering.lower(), sunlight.lower()
+    return plant_name, plant_id, watering.lower().strip(), sunlight.lower().strip()
 
 def display_care_description(plant_id, plant_name): # 5. OK
     console = Console()
     water, sun, prun = fetch_description(plant_id, plant_name)
-    w, s, p = display_plants_description(water, sun, prun)
+    w, s, p = care_description_table(water, sun, prun)
     console.rule(f"[bold yellow]{plant_name.upper()}", align="left")
+    print("")
     console.print(w)
     console.print(s)
     console.print(p)

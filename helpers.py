@@ -40,7 +40,6 @@ def ask_careInfo():
             print("Invalid choice. Please, try again.")
             time.sleep(0.5)
             continue
-       
 
 def display_custom_forecast(location, latitude, longitude):
         
@@ -106,7 +105,6 @@ def main_menu():
             time.sleep(0.5)
             continue
     
-
 def not_supported_locations(regions):
     message = f"⚠️  [red]Heads-up: Weather and pollen data isn't currently available for a few regions, including: {regions.title()}."
     return Panel.fit(message)
@@ -136,10 +134,10 @@ def confirm_location(location):
     console = Console()
     while True:
         console.print(f"\nIs your garden located in [bold red]{location.upper()}[/bold red]?")
-        choice = input(f"Press [Y] to continue or [E] to enter a new location: ➤ ").lower().strip()
-        if choice == "y":
+        choice = input(f"Press [C] to confirm or [L] to enter a new location: ➤ ").lower().strip()
+        if choice == "c":
            return location
-        elif choice == "e":
+        elif choice == "l":
             custom_location = prompt_location()
             return custom_location
         else:
@@ -173,7 +171,6 @@ def prompt_plants(location):
         else:
             break 
         
-
 def prompt_soilType() -> str: # Prompt the user for soil type. Return soil type.
     console = Console()
     while True:
@@ -245,6 +242,7 @@ def prompt_location():
             try:
                 print("")
                 location = input("Please, type your location here (e.g., Paris, France): ").title().strip()
+                print("")
                 location = validate_input(location)
                 return location
             except ValueError:
@@ -255,7 +253,6 @@ def prompt_location():
                 continue
         print("\nNo worries! Skipping your location forecast for now...")
         return
-
 
 # Helper to format datetime like "July 30th, 12 AM". Currently not in use.
 def readable_datetime(ts):

@@ -15,7 +15,7 @@ def get_geocode(location: str):
     if location in cache:
         lat, long = cache[location]
         return lat, long
-    
+
     load_dotenv()
     API_key = os.getenv("GMAPS_API_KEY")
     gmaps = googlemaps.Client(key=API_key)
@@ -75,13 +75,15 @@ def get_extended_forecast(location: str, lat: float, long: float):
     url = f"https://weather.googleapis.com/v1/forecast/days:lookup?key={API_key}&location.latitude={lat}&location.longitude={long}&days=2"
 
     try:
-        key = (location, lat, long)
+        
+        key = (location.lower(), lat, long)
         if key in cache:
             cached = cache[key]
             td_result = cached["today"]
             tm_result = cached["tomorrow"]
         else:
             response = requests.get(url)
+            response.raise_for_status()
             content = response.json()
             forecast = content.get('forecastDays', [])
             if len(forecast) < 2:

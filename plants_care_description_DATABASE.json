@@ -28946,5 +28946,145 @@
     "from": 1,
     "last_page": 1,
     "total": 1
+  },
+  "swiss cheese plant": {
+    "data": [
+      {
+        "id": 80,
+        "species_id": 5257,
+        "common_name": "Swiss cheese plant",
+        "scientific_name": [
+          "Monstera deliciosa"
+        ],
+        "section": [
+          {
+            "id": 250,
+            "type": "watering",
+            "description": "Swiss cheese plants should be watered thoroughly, approximately every 7-10 days. During the growing season from spring through fall, water the soil so that it is damp but not soggy. Let the soil surface dry out between waterings.\n\nDuring the winter months, water less frequently so that the soil is slightly damp. If the leaves start to droop, it is an indication that your plant needs water."
+          },
+          {
+            "id": 251,
+            "type": "sunlight",
+            "description": "The Swiss cheese plant (Monstera deliciosa) needs bright but indirect sunlight. It should receive 4 to 6 hours of sunlight each day, ideally between 10am and 4pm. Place the plant near a window that receives direct sunlight, but avoid placing it in a direct line of the sun\u2019s rays otherwise it will be scorched. Rotate the plant frequently to ensure all sides of the leaves receive equal sunlight. "
+          },
+          {
+            "id": 252,
+            "type": "pruning",
+            "description": "Swiss cheese plants should be pruned when they become too large and/or start to outgrow their space. A reasonable amount of pruning can be beneficial; however, too much can be damaging and inhibit the plant\u2019s growth. To ensure that the plant stays relatively small and manageable, it is suggested to prune when the plant has reached the desired size, usually every 3-4 months. To prune, start by removing any dead leaves and branches then snip off any foliage that\u2019s growing beyond the desired size. Swiss cheese plants should never be cut back too much, as this can stunt its growth and development."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "bigleaf hydrangea": {
+    "data": [
+      {
+        "id": 5026,
+        "species_id": 4114,
+        "common_name": "bigleaf hydrangea",
+        "scientific_name": [
+          "Hydrangea sargentiana"
+        ],
+        "section": [
+          {
+            "id": 15287,
+            "type": "watering",
+            "description": "Bigleaf hydrangeas should be watered moderately, typically no more than 2 inches of water, about once every 2 weeks. However, exact watering needs may vary depending on the season and will need to be adjusted for more specific conditions. During the springtime, when they are actively growing, they need more frequent watering. With temperatures on the rise, their water needs increase, so make sure they receive enough moisture. During the summer, in hot and dry conditions, they will need to be watered slightly more often. Watering should be reduced slightly in the autumn and winter months."
+          },
+          {
+            "id": 15288,
+            "type": "sunlight",
+            "description": "Bigleaf hydrangea (Hydrangea sargentiana) should be placed in a spot with diffused sunlight throughout the day. This can be achieved by putting the plant in an area where the sun is filtered by trees or a sheer curtain. Direct sunlight is not recommended as this can cause the leaves to burn.The morning hours are the best time for Bigleaf hydrangeas to receive sunlight. These flowers can benefit from 1-2 hours of direct sunlight during the morning, with the sunlight exposure gradually decreasing throughout the day.\n\nBigleaf hydrangeas should be well-protected from the hot afternoon sun, so they should be placed in semi-shade during this part of the day. The afternoon sun is too strong for this delicate plant species, so it should be shielded from higher levels of sunlight during this time of day."
+          },
+          {
+            "id": 15289,
+            "type": "pruning",
+            "description": "Bigleaf Hydrangea (Hydrangea sargentiana) should be pruned in late winter or early spring, after the last frost. Pruning should remove dead, diseased, and damaged branches, as well as any overly long or thin branches. To maintain the desired shape of the plant, prune as needed to shape, remove old blooms, and thin out overly crowded areas. Trim back branches that extend beyond the desired shape of the plant. Avoid overly aggressive pruning, as this will reduce flowering for the next season."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "blue elder": {
+    "data": [
+      {
+        "id": 7716,
+        "species_id": 7154,
+        "common_name": "blue elder",
+        "scientific_name": [
+          "Sambucus nigra subsp. cerulea"
+        ],
+        "section": [
+          {
+            "id": 23375,
+            "type": "watering",
+            "description": "Blue Elder requires moderate watering, and should be watered when the soil has a slightly dry texture. Generally, it is best to water the plant once a week, allowing the soil to dry out between waterings. If it is an especially hot or dry season, blue elder may need to be watered slightly more often. For optimal results, use lukewarm water and ensure it is reaching the root system of the plant."
+          },
+          {
+            "id": 23376,
+            "type": "sunlight",
+            "description": "Blue Elder (Sambucus nigra subsp. cerulea) grows best in full sun. This plant prefers a minimum of 8 hours of direct sunlight each day during the growing season. The exposure needs to be consistent in order for the plant to reach its maximum growth potential and ensure its vigorous flowering. During the height of summer, too much exposure to direct sunlight can cause scorching and burning of the elder stems and leaves. In areas with intense, prolonged sunlight, dappled shade throughout the day is beneficial. Blue Elder can tolerate partial shade, although flowering and fruiting may be decreased in areas with less than 8 hours of direct sunlight each day."
+          },
+          {
+            "id": 23377,
+            "type": "pruning",
+            "description": "Blue elder (Sambucus nigra subsp. cerulea) should be pruned in late winter or early spring between February and March. It is important to identify the weak and damaged stems and prune them back to a healthy branching point. Additionally, prune any dead, diseased, or crossed branches, and remove any water sprouts. To ensure healthy growth, prune the branches so they are no longer than twice the length of the strongest stems, and prune any stems back to at least 2 sets of healthy buds. Blue elder should also be trimmed to create a more desirable shape, as it can be susceptible to heavy winds and snow if left untrimmed. Keeping the shrub at a manageable size and ensuring that the canopy is open and allows for air flow can help reduce the risk of pest and disease in the plant."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "dumb cane": {
+    "data": [
+      {
+        "id": 725,
+        "species_id": 2468,
+        "common_name": "dumb cane",
+        "scientific_name": [
+          "Dieffenbachia seguine"
+        ],
+        "section": [
+          {
+            "id": 2169,
+            "type": "watering",
+            "description": "Water Dumb Cane plants lightly, about once per week, providing enough moisture to keep the soil lightly moist. Reduce watering to once every 2 weeks if the leaves start to discolor or feel limp. Avoid overwatering as this can lead to root rot. Water Dumb Cane when the soil becomes dry to the touch. Feel the soil 1 to 2 inches below the surface before deciding whether or not the plant needs water."
+          },
+          {
+            "id": 2189,
+            "type": "sunlight",
+            "description": "Dumb cane (Dieffenbachia seguine) prefers bright, indirect sunlight. The best way to achieve this is for the plant to receive 4\u20136 hours of sunlight each day. It is important to avoid direct sunlight, as the plant may become scorched. For best results, you should move the Dieffenbachia seguine to an area with indirect sunlight in the morning and another area with indirect sunlight in the afternoon. "
+          },
+          {
+            "id": 2206,
+            "type": "pruning",
+            "description": "Dumb cane (Dieffenbachia seguine) should be pruned in late spring or early summer. Generally, pruning should be kept to a minimum. As long as the plant is healthy, you only need to remove dead or damaged foliage. If you want to control the size of your plant, you can prune stems or shoots back by around a third of their length. Always sterilize your pruning tools before use to prevent any bacterial infection of your plant."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
   }
 }

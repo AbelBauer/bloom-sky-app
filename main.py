@@ -10,13 +10,13 @@ from rich.panel import Panel
 import time, sys, requests
 from googlemaps.exceptions import HTTPError
 
-LOCATION = "Statenkwartier, Den Haag"
+LOCATION = "statenkwartier, zuid holland"
 
 welcome(description="A Python application for gardening and health recommendations based on the weather forecast.\n")
 
 # Display 'HOME' info as default
-is_day, temp, description, humidity, rain_prob = get_default_forecast(lat="52.094523",long= "4.279590")
-grass, weed, trees = get_pollen(lat="52.094523",long= "4.279590")
+is_day, temp, description, humidity, rain_prob = get_default_forecast(lat="52.0945228",long="4.2795905") # 52.078663 , 4.288788 / 52.094523 , 4.279590
+grass, weed, trees = get_pollen(lat="52.0945228",long="4.2795905")
 print("")
 print_table(f"{LOCATION.upper()} (HOME)", is_day, temp, description, humidity, rain_prob)
 print(Panel.fit(f"{get_recommendation(is_day, temp, rain_prob, humidity, grass, trees, weed)}"))
@@ -56,7 +56,7 @@ while True:
     elif main_choice == "e":
         print("")
         time.sleep(0.4)
-        get_extended_forecast(location="STATENKWARTIER, ZUID HOLLAND", lat=52.0945228, long=4.279590499999999) # default for 'Home' location
+        get_extended_forecast(location="STATENKWARTIER, ZUID HOLLAND", lat="52.0945228", long="4.2795905") # default for 'Home' location
     elif main_choice == "g":
         time.sleep(0.5)
         console = Console()
