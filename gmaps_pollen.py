@@ -1,30 +1,35 @@
 #Script to request pollen data from Google Maps Pollen API. It returns grass, weed and trees risk levels from a given location.
-import requests, json, os
-from diskcache import Cache
-from dotenv import load_dotenv
+import requests, os
+from garden_care_guide import load_cache, save_cache
+from gmaps_package import get_geocode
+from Api_limiter_class import ApiLimiter
 
-def get_pollen(lat, long): # Set up a lat/lon cache in the geocode function. Load it up here.
-    #cache = Cache("gmaps_pollen_cache")
-    API_key = "AIzaSyDU2kPehR5E6yrOlf1bqTZhBGc7A-mvkrU" #os.getenv("gmaps.env")
-    url = f"https://pollen.googleapis.com/v1/forecast:lookup?key={API_key}&location.longitude={long}&location.latitude={lat}&days=1"
+POLLEN = "pollen_cache.json"
+limiter = ApiLimiter(max_calls=5000, daily_max_calls=100, filepath="pollen_calls.json")
 
-    #key = (lat, long)
-    #if key in cache:
-    #    return cache[key]
-
-    response = requests.get(url)
+@limiter.guard(error_message="Gmaps Pollen API quota reached!")
+def get_pollen(lat, lon):
+    cache = load_cache(POLLEN)
+    key = f"{float(lat):.7f}, {float(lon):.7f}"
+    if key in cache:
+        return tuple(cache[key])
 
     try:
-        data = response.json()       
+        API_key = os.getenv("GMAPS_API_KEY")
+        url = f"https://pollen.googleapis.com/v1/forecast:lookup?key={API_key}&location.longitude={lon}&location.latitude={lat}&days=1"
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
         daily = data.get("dailyInfo", [{}])[0]
-      
+        limiter.record_call()
+
         risk_levels = {
         "GRASS": "Unknown",
         "WEED": "Unknown",
         "TREES": "Unknown"
         }
 
-        # Search in pollenTypeInfo        
+        # Search in pollenTypeInfo
         for item in daily.get("pollenTypeInfo", []):
             code = item.get("code")
             index_info = item.get("indexInfo")
@@ -32,15 +37,25 @@ def get_pollen(lat, long): # Set up a lat/lon cache in the geocode function. Loa
                 risk_levels[code] = index_info.get("category")
 
         result = (risk_levels["GRASS"], risk_levels["WEED"], risk_levels["TREES"])
-        #cache[key] = result
+        save_cache(POLLEN, {key: result})
 
-        with open("daily.json", "w", encoding="utf-8") as f:
-            json.dump(daily, f, indent=4, ensure_ascii=False)
-        
-        return result       
-        
-    except (TypeError, ValueError, requests.RequestException):
+        return result
+
+    except (TypeError, ValueError):
         raise
+    except (requests.RequestException, requests.HTTPError):
+        return "N/A", "N/A", "N/A"
+    
+def default_pollen():
+    return get_pollen(lat="52.0945228",lon="4.2795905")
 
-
-#print(get_pollen(lat=51.5074, long=-0.1278))  # London
+def main():
+    import sys
+    try:
+        lat, lon = get_geocode("caracas, venezuela") # This will trigger 400 Client Error: Bad Request
+        print(get_pollen(lat, lon))  # lat=51.5074, lon=-0.1278 for London
+    except requests.exceptions.HTTPError:
+        print("Google Maps Pollen data currently unavailable for this location.")
+        sys.exit(1)
+if __name__ == "__main__":
+    main()

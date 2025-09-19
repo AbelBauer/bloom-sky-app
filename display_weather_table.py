@@ -6,8 +6,7 @@ from rich.table import Table #type: ignore
 def time_to_emoji(value): # Convert is_day to emoji
     if value == False:
         return "🌘"
-    else:
-        return "🌞"
+    return "🌞"
 
 def print_table(location: str, is_day: bool, temp: float, description: str, rain_prob: int, humidity: int):
 
@@ -16,7 +15,7 @@ def print_table(location: str, is_day: bool, temp: float, description: str, rain
 
     table.add_column("Time of Day", justify="center")
     table.add_column("📝", justify="center")
-    table.add_column("Temp. 🌡", justify="center")
+    table.add_column("Real Feel Temp. 🌡", justify="center")
     table.add_column("Rain prob. 🌦️ ", justify="center")
     table.add_column("Humidity 💧", justify="center")
 

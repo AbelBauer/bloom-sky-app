@@ -43,13 +43,17 @@ import requests
 import time
 import os
 import json
+from dotenv import load_dotenv
+from Api_limiter_class import ApiLimiter
 
 BASE_DETAILS_URL = "https://perenual.com/api/v2/species/details/"
 BASIC_CACHE_PATH = "plants_main_info_DATABASE.json"
 SPECIES_CACHE = "plants_Dataset_cache.json"
 
-API_KEY = "sk-mqLn68b595f6038cd11611"
-CARE_CACHE_PATH = "plants_care_description_DATABASE.json"
+load_dotenv()
+API_KEY=os.getenv("GMAPS_API_KEY")
+CARE_CACHE_PATH="plants_care_description_DATABASE.json"
+limiter = ApiLimiter(filepath="database_builder_calls.json")
 
 def load_cache(path):
     if os.path.exists(path):

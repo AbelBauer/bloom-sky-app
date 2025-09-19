@@ -29086,5 +29086,145 @@
     "from": 1,
     "last_page": 1,
     "total": 1
+  },
+  "mother-in-law's tongue": {
+    "data": [
+      {
+        "id": 851,
+        "species_id": 7177,
+        "common_name": "mother-in-law's tongue",
+        "scientific_name": [
+          "Sansevieria trifasciata 'Gold Flame'"
+        ],
+        "section": [
+          {
+            "id": 2549,
+            "type": "watering",
+            "description": "Mother-in-law's tongue is a very low maintenance plant and is very forgiving if it's not watered regularly. It should only be watered when the soil is dry to the touch. During the growing season (spring and summer months) it should be watered about once every 5-6 weeks though this can vary depending on light, location, and other environmental factors.\n\nWater the plant thoroughly but slowly until the water runs out the bottom of the pot. Be sure that the excess water can drain away and does not become waterlogged. Never leave sitting water in the saucer or tray below the pot. \n\nDuring the winter months, it should be watered less frequently, every 6-8 weeks or so, depending on the amount of light the plant is receiving and the humidity of its environment. Allow the soil to dry out in between waterings. \n"
+          },
+          {
+            "id": 2557,
+            "type": "sunlight",
+            "description": "Mother-in-law's tongue plants require moderate amounts of sunlight. Place them in a bright, sunny spot for 4-5 hours each day. It can also tolerate partial shade; however, if light is too low it may cause the leaf margins to fade. Too much sun can burn the leaves. Avoid any sudden changes in temperature as it can cause stress, leading to leaf damage."
+          },
+          {
+            "id": 2564,
+            "type": "pruning",
+            "description": "Mother-in-law's tongue (Sansevieria trifasciata 'Gold Flame') should be pruned when leaves become too long or there is yellowing and/or browning of foliage. Pruning can be done throughout the year, but for best results, prune in the spring. Generally, it is recommended to trim no more than a third of the existing leaves to allow the plant to focus its energy on the remaining foliage. After pruning, use a sharp pair of scissors to remove any old or dead leaves. This helps to encourage healthy, new growth."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "sansevieria cylindrica": {
+    "data": [
+      {
+        "id": 839,
+        "species_id": 7163,
+        "common_name": "bowstring hemp",
+        "scientific_name": [
+          "Sansevieria cylindrica"
+        ],
+        "section": [
+          {
+            "id": 2513,
+            "type": "watering",
+            "description": "Bowstring hemp is a drought-tolerant plant, and only needs to be watered about once per month in the summer. During the winter, it can be watered as little as once every 6-8 weeks. When watering, it is important to thoroughly soak the soil and allow it to dry out between waterings. Over-watering can cause root rot and other problems, so make sure not to saturate it too frequently."
+          },
+          {
+            "id": 2516,
+            "type": "sunlight",
+            "description": "Bowstring hemp (Sansevieria cylindrica) does best with bright, indirect sunlight. It should receive at least 4 hours of bright light per day, ideally during the morning and/or evening when the sun is not at its peak intensity. Bright, direct light can damage this plant's leaves, so be sure to keep it away from intense midday sun."
+          },
+          {
+            "id": 2519,
+            "type": "pruning",
+            "description": "The best time for pruning a bowstring hemp (Sansevieria cylindrica) is once per month towards the end of summer. To ensure healthy regrowth, it is important to not cut off more than 1-third of the total height of the plant. For instance, if the plant is 20 cm tall, you should only cut off 6-7 cm of the leaves. It is also important to ensure that the cut is done above the nodes or growth points on the leaves for encouraging better regrowth."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "rose": {
+    "data": [
+      {
+        "id": 7527,
+        "species_id": 6942,
+        "common_name": "rose",
+        "scientific_name": [
+          "Rosa 'Zlesak Poly3' OSO HAPPY SMOOTHIE"
+        ],
+        "section": [
+          {
+            "id": 22808,
+            "type": "watering",
+            "description": "Water your Rose \u2018Zlesak Poly3\u2019 OSO HAPPY SMOOTHIE deeply but infrequently, usually once every 10-14 days. Make sure the soil is evenly moist but not overly wet, and if the temperatures are high you may need to water more often. If the plant wilts, then it is time to water. Overwatering may cause root rot and prevent the plant from producing beautiful blooms."
+          },
+          {
+            "id": 22809,
+            "type": "sunlight",
+            "description": "The Rose (Rosa 'Zlesak Poly3' OSO HAPPY SMOOTHIE) species of plant prefers full sun exposure for a minimum of 6 to 8 hours each day. It is best to provide the Rose with direct sunlight in the morning and then some filtered sunlight in the afternoon. However, if full sun exposure is unavailable, rose plants can tolerate partial shade as well. During peak summer months, it is a good idea to provide rose plants with extra shade in the afternoon to avoid any sunburn or wilting."
+          },
+          {
+            "id": 22810,
+            "type": "pruning",
+            "description": "The best time to prune a Rose ('Zlesak Poly3' OSO HAPPY SMOOTHIE) is late winter to early spring before new growth begins. This species of rose should be pruned annually in order to maintain a full, healthy growth habit. Prune to shape and remove dead or damaged branches. A general guideline is to only remove no more than \u2153 of the plant's overall growth per year. Always use sharp, clean pruning shears and make sure to cut branches at a 45-degree angle. Finally, apply a light fertilizer to promote new growth and healthy blooms."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "abelmoschus esculentus": {
+    "data": [
+      {
+        "id": 1000,
+        "species_id": 410,
+        "common_name": "okra",
+        "scientific_name": [
+          "Abelmoschus esculentus"
+        ],
+        "section": [
+          {
+            "id": 2997,
+            "type": "watering",
+            "description": "Okra should be watered frequently, as soon as the topsoil becomes dry to the touch. Small okra plants should receive a light watering every 2 to 3 days, while mature plants should be watered daily or every other day during hot, dry periods. During cooler weather, okra will require less water; however, it is important to not neglect the plant, as it is still growing and producing fruit. Be sure to never over-water your okra plants; okra thrives in dry soil and too much water can stunt its growth or cause it to rot."
+          },
+          {
+            "id": 3005,
+            "type": "sunlight",
+            "description": "Okra prefers full sunlight for optimal growth and production of fruit. The plants should receive at least 6-8 hours of direct sun per day, with midday summer sun being best. If grown in partial shade, okra will produce an abundance of foliage but few fruit pods. Allowing okra to grow in an area with too much shade will often lead to spindly, sparse plants that are susceptible to disease and pests."
+          },
+          {
+            "id": 3012,
+            "type": "pruning",
+            "description": "Pruning okra (Abelmoschus esculentus) should take place after the okra has flowered. You should remove the flower stalks when they die off, to help promote bushier growth. During the season, lightly prune the okra plant by pinching off the growing tips of the branches. This will help ensure more lateral branching. The okra plants can be pruned about once a month until the end of August, at which time they should be pruned back to about 12 inches. Overall, you should plan to remove about 1/3 of the older, mature stems each year to prevent disease build-up and promote new growth."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
   }
 }

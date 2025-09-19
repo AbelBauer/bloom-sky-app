@@ -1,43 +1,132 @@
+'''
+Bloom and Sky - Gardening Forecast & Plant Care Advisor
+
+This module is the heart of Bloom and Sky's garden care intelligence. It blends real-time weather data with expressive plant care logic to help users 
+make informed decisions about watering, placement, and protection. With support for diverse sunlight profiles and nuanced forecast parsing, it delivers 
+personalized advice that feels both practical and poetic.
+
+Overview:
+---------
+- Retrieves 2-day weather forecasts using the Google Weather API.
+- Extracts and normalizes forecast data for analysis.
+- Generates watering recommendations based on short-term humidity and precipitation trends.
+- Evaluates sky conditions against plant sunlight preferences for today and tomorrow.
+- Combines all insights into a conversational care advisory.
+- Implements persistent caching to reduce API usage and improve performance.
+
+Functions:
+----------
+get_forecast(location: str) → tuple  
+    Retrieves today's and tomorrow's forecast data for the specified location. Uses caching to avoid redundant API calls.
+
+extract(TODAY_data: list, TMW_data: list) → tuple  
+    Unpacks and normalizes forecast data for both days. Converts strings to lowercase and returns key metrics for analysis.
+
+recommend_watering(watering: str, TODAY_day_rain: int, TODAY_day_humidity: int, TODAY_night_rain: int, TODAY_night_humidity: int, 
+                   TMW_day_rain: int, TMW_day_humidity: int, TMW_night_rain: int, TMW_night_humidity: int) → str  
+    Returns a personalized watering recommendation based on short-term rain and humidity trends. 
+    Considers both today's and tomorrow's conditions and adapts advice to the plant's watering profile ('minimum', 'average', 'frequent').
+
+recommend_today_sunlight(sunlight: str, TODAY_day_sky: str) → str  
+    Evaluates today's sky conditions against the plant's sunlight needs. 
+    Returns a descriptive recommendation for placement and care based on light exposure compatibility.
+
+recommend_tmw_sunlight(sunlight: str, TMW_day_sky: str) → str  
+    Returns a descriptive recommendation for plant placement based on tomorrow's forecasted sky conditions. 
+    Supports the same sunlight profiles as 'recommend_today_sunlight' and adapts advice to expected light availability.
+
+recommend(watering: str, sunlight_today: str, sunlight_tomorrow: str) → str  
+    Combines watering and sunlight recommendations into a single formatted string.
+
+plant_weather_advisor(location: str, watering: str, sunlight: str) → str  
+    Main advisory function. Retrieves forecast data, analyzes weather and light conditions, and returns a full care recommendation.
+
+main() → None  
+    CLI entry point for testing. Prompts the user for a location and prints the full plant care advisory.
+
+gmaps_API_descr : list[str]  
+    A reference list of supported weather descriptors used for matching forecast data to care logic.
+
+Supported Sunlight Profiles:
+----------------------------
+- 'full sun', 'sun', 'full sun partial sun'
+- 'full sun only if soil kept moist'
+- 'part sun', 'part shade', 'partial shade'
+- 'shade', 'full shade', 'deep shade'
+- 'filtered shade'
+- 'part sun/part shade', 'partial sun shade'
+- 'deciduous shade (spring sun)'
+- 'full sun partial sun shade'
+
+Design Notes:
+-------------
+- Forecast data includes daytime and nighttime breakdowns for rain probability, humidity, and sky conditions.
+- Watering logic aggregates values across both days to assess total moisture exposure.
+- Sunlight recommendations are tailored to specific plant light profiles and matched against curated weather descriptors.
+- Recommendations are phrased conversationally to enhance user engagement and readability.
+- Caching is handled via 'extended_weather_cache.json' using helper functions from 'garden_care_guide'.
+
+Limitations:
+------------
+- Assumes forecast data is complete and well-formed; missing keys may trigger fallback behavior.
+- Sunlight compatibility logic is static and does not account for seasonal variation or indoor lighting conditions.
+- Watering advice is generalized and may not suit all plant species or microclimates.
+- Unexpected or unsupported weather descriptors may trigger fallback messaging.
+
+Author:
+-------
+abelnuovo@gmail.com - Bloom and Sky Project
+'''
+
+
 import requests, os
 from googlemaps.exceptions import HTTPError
-from diskcache import Cache
 from dotenv import load_dotenv
 from gmaps_package import extract_forecast, get_geocode
-from helpers import get_geocode
+from helper_functions import get_geocode
+from garden_care_guide import load_cache, save_cache
+from Api_limiter_class import ApiLimiter
 
-# Initialize local cache for geocoding.
-cache = Cache("gmaps_module_cache")
+EXTENDED_WEATHER = "extended_weather_cache.json"
+limiter=ApiLimiter(daily_max_calls=100, filepath="gmaps_weather&plants_calls.json")
 
-def get_forecast(location):
-    lat, long = get_geocode(location)
+@limiter.guard(error_message="Gmaps Weather API quota reached!")
+def get_forecast(location): # Get forecast for location. (get_extended_forecast variant for gardening section)
 
-    load_dotenv()
-    API_key = os.getenv("GMAPS_API_KEY")
-    url = f"https://weather.googleapis.com/v1/forecast/days:lookup?key={API_key}&location.latitude={lat}&location.longitude={long}&days=2"
+    # Get coordinates from location. Cache already implemented inside function.
+    lat, lon = get_geocode(location) 
 
-    try:
-        key = (location, lat, long)
-        if key in cache:
-            cached = cache[key]
-            td_result = cached["today"]
-            tm_result = cached["tomorrow"]
-        else:
+    cache = load_cache(EXTENDED_WEATHER)
+    key = f"{float(lat):.7f}, {float(lon):.7f}"
+    # Check cache first.
+    if key in cache:
+        today, tomorrow = cache[key]
+    # Otherwise call API.
+    else:
+        try:
+            load_dotenv()
+            API_key = os.getenv("GMAPS_API_KEY")
+            url = f"https://weather.googleapis.com/v1/forecast/days:lookup?key={API_key}&location.latitude={lat}&location.longitude={lon}&days=2"
+
             response = requests.get(url)
             content = response.json()
             forecast = content.get('forecastDays', [])
             if len(forecast) < 2:
                 return "Error fetching weather forecast data"
 
-            td_result = extract_forecast(forecast[0])
-            tm_result = extract_forecast(forecast[1])
-            cache[key] = {"today": td_result, "tomorrow": tm_result}
+            today = extract_forecast(forecast[0])
+            tomorrow = extract_forecast(forecast[1])
 
-        return td_result, tm_result
+            # Save locations forecast data in cache and log API call.
+            limiter.record_call()
+            save_cache(EXTENDED_WEATHER, {key: [today, tomorrow]})
 
-    except (requests.RequestException, HTTPError) as r:
-        print(f"Error fetching forecast data: {r}")
-    except KeyError as k:
-        print(f"Error processing forecast data: {k}")
+        except (requests.RequestException, HTTPError) as r:
+            print(f"Error fetching forecast data: {r}")
+        except KeyError as k:
+            print(f"Error processing forecast data: {k}")
+
+    return today, tomorrow
 
 def extract(TODAY_data, TMW_data):
     # Unpack today's forecast
@@ -64,13 +153,9 @@ def extract(TODAY_data, TMW_data):
 
     return TODAY_day_sky, TODAY_day_rain, TODAY_day_humidity, TODAY_night_rain, TODAY_night_humidity, TMW_day_sky, TMW_day_rain, TMW_day_humidity,  TMW_night_rain, TMW_night_humidity
 
-def recommend_watering(
-    watering,
-    TODAY_day_rain, TODAY_day_humidity,
-    TODAY_night_rain, TODAY_night_humidity,
-    TMW_day_rain, TMW_day_humidity,
-    TMW_night_rain, TMW_night_humidity
-):
+def recommend_watering(watering, TODAY_day_rain, TODAY_day_humidity, TODAY_night_rain, TODAY_night_humidity,
+    TMW_day_rain, TMW_day_humidity, TMW_night_rain, TMW_night_humidity):
+
     # Aggregate values
     today_rain_total = TODAY_day_rain + TODAY_night_rain
     today_humidity_total = TODAY_day_humidity + TODAY_night_humidity
@@ -122,7 +207,7 @@ def recommend_watering(
         elif watering == "average":
             return "Your plant's not getting much help from the sky. A solid watering session is in order."
         elif watering == "frequent":
-            return "This is your moment. Your plant's craving hydration—don't hold back."
+            return "This is your moment. Your plant's craving hydration. Don't hold back!"
 
     # Dry skies, decent humidity today
     elif today_rain_total < 30 and tmw_rain_total < 30 and today_humidity_total > 70:
@@ -134,11 +219,11 @@ def recommend_watering(
             return "Your plant's expecting its usual pampering. Give it a gentle soak."
 
     # Rain tomorrow, humidity low both days
-    elif tmw_rain_total > 60 and combined_humidity < 120:
+    elif tmw_rain_total > 70 and combined_humidity < 120:
         if watering == "minimum":
             return "Low humidity now, but rain's on the way. Your plant can wait."
         elif watering == "average":
-            return "Tomorrow looks promising. Hold off unless your plant's looking thirsty."
+            return "Tomorrow looks promising. Hold off the watering unless your plant's looking thirsty."
         elif watering == "frequent":
             return "Your plant's used to VIP hydration, but tomorrow's forecast looks good. Let it wait."
 
@@ -164,8 +249,18 @@ def recommend_watering(
     else:
         return "Weather's playing it cool. Check the soil and trust your plant-parent instincts."
 
+# Sunlight recommendations based on plant needs and actual weather
 def recommend_today_sunlight(sunlight, TODAY_day_sky):
-    # Sunlight recommendations based on plant needs and actual weather
+    if sunlight:
+        sunlight = sunlight.lower().strip()
+    else:
+        return "Sunlight needs unavailable for this plant. For today: monitor your plant and adjust care as needed."
+
+    if TODAY_day_sky:
+        TODAY_day_sky = TODAY_day_sky.lower().strip()
+    else:
+        return "Skies condition unavailable. For today: monitor your plant and adjust care as needed."
+
 
     # Today sky conditions for full sun plants
     if sunlight in ["full sun", "sun", "full sun partial sun"]:
@@ -173,7 +268,7 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
             today = "Clear expected: perfect day for sun worship. Your plant's soaking up the rays."
         elif TODAY_day_sky in ["partly cloudy", "mostly cloudy"]:
             today = "Partly cloudy expected: your sun-loving plant might pout today. Keep an eye on leaf behavior."
-        elif TODAY_day_sky in ["cloudy"]:
+        elif TODAY_day_sky in ["cloudy", "overcast"]:
             today = "Cloudy expected: not ideal for full sun plants. Ensure the area receives enough ambient light."
         elif TODAY_day_sky in ["light rain", "rain", "heavy rain", "rain showers", "scattered showers", "chance of showers"]:
             today = "Rain expected: your full sun plant might feel gloomy. Monitor for drooping or leaf stress."
@@ -187,7 +282,7 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
             today = "Sky conditions unclear today: check your plant's response and adjust light exposure as needed."
 
     elif sunlight == "full sun only if soil kept moist":
-        if TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny"]:
+        if TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             today = "Strong sun today: your plant can thrive, but only if the soil stays consistently moist. Don't let it dry out."
         elif TODAY_day_sky in ["partly cloudy", "mostly cloudy"]:
             today = "Filtered light today: good conditions for moisture-sensitive sun lovers. Keep the soil damp."
@@ -209,7 +304,7 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
     elif sunlight in ["part sun", "part shade", "partial shade"]:
         if TODAY_day_sky in ["partly cloudy", "mostly cloudy", "cloudy"]:
             today = "Partly cloudy expected: ideal filtered light today. Your plant's getting a gentle glow."
-        elif TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny"]:
+        elif TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             today = "Sunny expected: bright skies ahead. Your plant might need a break from the spotlight."
         elif TODAY_day_sky in ["light rain", "rain", "heavy rain", "rain showers", "scattered showers", "chance of showers"]:
             today = "Rain expected: soft light and moisture. Your plant should be quite content."
@@ -224,9 +319,9 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
 
     # Today sky conditions for shade/full shade plants
     elif sunlight in ["shade", "full shade", "deep shade"]:
-        if TODAY_day_sky in ["sunny", "partly sunny", "clear", "mostly clear", "mostly sunny", "partly cloudy"]:
+        if TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny", "partly cloudy"]:
             today = "Sunny expected: too much light for a shade-seeker. Consider moving it to a cooler corner."
-        elif TODAY_day_sky in ["cloudy", "mostly cloudy"]:
+        elif TODAY_day_sky in ["cloudy", "mostly cloudy", "overcast"]:
             today = "Cloudy expected: perfect low-light conditions. Your plant's in its comfort zone."
         elif TODAY_day_sky in ["light rain", "rain", "heavy rain", "rain showers", "scattered showers", "chance of showers"]:
             today = "Rain expected: soft light and moisture—ideal for shade-loving plants."
@@ -240,7 +335,7 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
             today = "Sky conditions unclear today: keep your shade plant in a stable spot and monitor for stress."
 
     elif sunlight == "filtered shade":
-        if TODAY_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             today = "Strong light today: filtered shade is essential. Keep your plant behind foliage or sheer curtains."
         elif TODAY_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             today = "Soft light today: filtered shade plants will be comfortable without extra shielding."
@@ -266,7 +361,7 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
             today = "Uncertain skies: maintain filtered exposure and adjust if light drops too low."
 
     elif sunlight in ["part sun/part shade", "partial sun shade"]:
-        if TODAY_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             today = "Bright day ahead: give your plant a few hours of direct sun, then retreat to shade."
         elif TODAY_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             today = "Perfect balance of light and shade today. Your plant will be in its element."
@@ -292,7 +387,7 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
             today = "Mixed conditions: partial exposure should be fine. Just avoid extremes."
 
     elif sunlight == "deciduous shade (spring sun)":
-        if TODAY_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             today = "Spring sun is welcome today—if trees are bare, let your plant enjoy the light. Otherwise, keep it shaded."
         elif TODAY_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             today = "Soft light today: good for transitional shade lovers. No extra care needed."
@@ -318,9 +413,9 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
             today = "Mixed conditions: adjust based on tree cover and light availability."
 
     elif sunlight == "full sun partial sun shade":
-        if TODAY_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TODAY_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny", "partly cloudy"]:
             today = "Bright day ahead: your plant can handle it, but monitor for signs of stress in peak sun."
-        elif TODAY_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
+        elif TODAY_day_sky in ["mostly cloudy", "cloudy", "overcast"]:
             today = "Balanced light today: your plant's flexible needs will be well met."
         elif TODAY_day_sky in ["fog", "mist", "haze"]:
             today = "Dim skies today: not ideal, but your plant's adaptable. No major concerns."
@@ -350,10 +445,20 @@ def recommend_today_sunlight(sunlight, TODAY_day_sky):
     return today
 
 def recommend_tmw_sunlight(sunlight, TMW_day_sky):
+    if sunlight:
+        sunlight = sunlight.lower().strip()
+    else:
+        return "Sunlight needs unavailable for this plant. For tomorrow: monitor your plant and adjust care as needed."
+
+    if TMW_day_sky:
+        TMW_day_sky = TMW_day_sky.lower().strip()
+    else:
+        return "Skies condition unavailable. For tomorrow: monitor your plant and adjust care as needed."
+
     if sunlight in ["full sun", "sun", "full sun partial sun"]:
-        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly cloudy"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny", "partly cloudy"]:
             tomorrow = "Tomorrow's skies are bright: ideal for sun-hungry plants. Let them bask and thrive."
-        elif TMW_day_sky in ["cloudy", "mostly cloudy"]:
+        elif TMW_day_sky in ["cloudy", "mostly cloudy", "overcast"]:
             tomorrow = "Clouds ahead: not harmful, but your sun-lover might feel underfed. Ensure the area receives enough ambient light."
         elif TMW_day_sky in ["light rain", "rain", "heavy rain", "rain showers", "scattered showers","chance of showers", "rain periodically heavy", "moderate to heavy rain"]:
             tomorrow = "Rain expected tomorrow: light levels will dip. If indoors, place near a window to catch stray rays."
@@ -365,7 +470,7 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
             tomorrow = "Tomorrow's light is uncertain. Keep your sun-lover in a bright, stable spot just in case."
 
     elif sunlight == "full sun only if soil kept moist":
-        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             tomorrow = "Tomorrow's sun will be strong: your plant can thrive, but only if the soil stays consistently moist. Don’t let it dry out."
         elif TMW_day_sky in ["partly cloudy", "mostly cloudy"]:
             tomorrow = "Filtered light tomorrow: good conditions for moisture-sensitive sun lovers. Keep the soil damp."
@@ -390,7 +495,10 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
             tomorrow = "Tomorrow's conditions are unclear. Keep soil moist and adjust light exposure based on how your plant responds."
 
     elif sunlight in ["part sun", "part shade", "partial shade"]:
-        if TMW_day_sky in ["partly cloudy", "mostly cloudy", "cloudy"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
+            tomorrow = "Skies are clear today, so your part-shade plant might get more sun than usual. Let it chill under a leafy neighbor " \
+            "during peak hours to avoid leaf stress, and check soil moisture: it may dry out faster than expected."
+        elif TMW_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             tomorrow = "Balanced skies ahead: tomorrow your plant will enjoy gentle light. No extra care needed."
         elif TMW_day_sky in ["light rain", "light to moderate rain", "rain showers", "scattered showers", "chance of showers"]:
             tomorrow = "Soft rain tomorrow: ideal for these light-sensitive plants. Let nature do the watering."
@@ -406,7 +514,10 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
             tomorrow = "Tomorrow's conditions are mixed. Monitor your plant's response and adjust care if needed."
 
     elif sunlight in ["shade", "full shade", "deep shade"]:
-        if TMW_day_sky in ["cloudy", "mostly cloudy", "partly cloudy"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
+            tomorrow = "Skies are clear today, but your shade-loving plant prefers the cool and quiet. " \
+            "Let it chill in its usual low-light spot, no need to chase the sun. Just keep an eye on soil moisture if temps rise."
+        elif TMW_day_sky in ["cloudy", "mostly cloudy", "partly cloudy", "overcast"]:
             tomorrow = "Perfect shade conditions: tomorrow your plant will feel right at home."
         elif TMW_day_sky in ["light rain", "scattered showers", "chance of showers"]:
             tomorrow = "Gentle rain tomorrow: moisture is welcome, but avoid soggy soil."
@@ -422,7 +533,7 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
             tomorrow = "Mix skies conditions tomorrow. Maintain consistent shade and moisture levels."
 
     elif sunlight == "filtered shade":
-        if TMW_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             tomorrow = "Bright skies tomorrow: filtered shade is ideal. Avoid harsh direct rays."
         elif TMW_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             tomorrow = "Gentle light ahead: your plant will thrive without adjustments."
@@ -444,7 +555,7 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
             tomorrow = "Tomorrow's conditions are mixed. Adjust placement based on light availability and plant response."
 
     elif sunlight in ["part sun/part shade", "partial sun shade"]:
-        if TMW_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             tomorrow = "Strong sun tomorrow: give your plant a few hours of exposure, then shift to shade."
         elif TMW_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             tomorrow = "Balanced skies ahead: ideal for part sun part shade plants."
@@ -466,7 +577,7 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
             tomorrow = "Conditions are variable: partial exposure should be fine with a watchful eye."
 
     elif sunlight == "deciduous shade (spring sun)":
-        if TMW_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             tomorrow = "Tomorrow's sun will be strong: if trees are still bare, your plant will benefit. Shade it otherwise."
         elif TMW_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             tomorrow = "Gentle skies ahead: ideal for plants that enjoy spring light under leafless trees."
@@ -488,7 +599,7 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
             tomorrow = "Uncertain skies: monitor tree cover and light levels to guide placement."
 
     elif sunlight == "full sun partial sun shade":
-        if TMW_day_sky in ["clear", "mostly clear", "sunny"]:
+        if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
             tomorrow = "Strong sun tomorrow: your plant can handle it, but check for leaf stress."
         elif TMW_day_sky in ["partly cloudy", "mostly cloudy", "cloudy", "overcast"]:
             tomorrow = "Gentle light ahead: your plant's flexible needs will be satisfied."
@@ -520,7 +631,7 @@ def recommend(watering, sunlight_today, sunlight_tomorrow):
     recommendation = f"{watering} {sunlight_today} {sunlight_tomorrow}"
     return recommendation
 
-def weather_plant(location, watering, sunlight):
+def plant_weather_advisor(location, watering, sunlight):
     today, tmrrw = get_forecast(location)
 
     TODAY_day_sky, TODAY_day_rain, TODAY_day_humidity, TODAY_night_rain, TODAY_night_humidity, TMW_day_sky, TMW_day_rain, TMW_day_humidity,  TMW_night_rain, TMW_night_humidity = extract(today, tmrrw)
@@ -531,10 +642,11 @@ def weather_plant(location, watering, sunlight):
     return recommend(water_care, today_care, tomorrow_care)
 
 def main():
-    print(weather_plant("DEn Haag, NL", "average", "part shade"))
+    from helper_functions import prompt_userLocation
+    location = prompt_userLocation()
+    print(plant_weather_advisor(location, "average", "full sun"))
 if __name__ == "__main__":
     main()
-
 
 #--------------------------------------------------------------------------------------------------------------
 gmaps_API_descr = [
@@ -545,41 +657,4 @@ gmaps_API_descr = [
     "partly_cloudy","rain","rain_and_snow","rain_periodically_heavy","rain_showers","scattered_showers",
     "scattered_snow_showers","scattered_thunderstorms","snow","snow_periodically_heavy","snow_showers",
     "snowstorm","thundershower","thunderstorm","wind_and_rain","windy",
-
 ]
-
-"""
-Watering Advice (Rain + Humidity)
-“Rain’s on the guest list today. Let nature do the watering while you sip your coffee.”
-
-“Humidity’s high and the clouds are moody — your plant’s basically in a botanical spa.”
-
-“Planning to water today? Hold that thought. Afternoon showers are RSVP’ing with 90% certainty.”
-
-“Your plant’s thirst level is ‘frequent,’ but the sky’s already prepping a downpour. Let it rain.”
-
-“Humidity’s low and skies are clear — your plant’s parched and ready for a drink.”
-
-“Rain tomorrow, dry today. If your plant’s not gasping, let the clouds handle hydration.”
-
-“Humidity’s flirting with 90%, but no rain in sight. A light misting might be just the vibe.”
-
-“Your low-maintenance plant says ‘meh,’ but the dry air says ‘maybe.’ Trust your soil.”
-
-Sunlight vs. Sky Condition
-“Full sun plant meets cloudy skies — not ideal, but it’s a good day to observe leaf behavior.”
-
-“Your shade-loving plant is getting spotlighted today. Consider a strategic relocation.”
-
-“Sun’s blazing and your plant’s a shade seeker. Time to play umbrella.”
-
-“Clouds are thick, but your indirect-light plant is vibing. No sunglasses needed.”
-
-“Mostly cloudy with a chance of drama — your part-shade plant will be just fine.”
-
-“Light rain and full sun needs? Not a match made in heaven. Monitor for leaf stress.”
-
-“Sunny skies and loamy soil — your plant’s living its best Mediterranean fantasy.”
-
-"""
-

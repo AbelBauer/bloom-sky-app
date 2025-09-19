@@ -42,23 +42,26 @@ Dependencies:
 
 Usage:
 ------
-Call `run_garden_guide("white fir")` to resolve a plant name, display care info, and show care descriptions.
+Call 'run_garden_guide("white fir")' to resolve a plant name, display care info, and show care descriptions.
 
 Notes:
 ------
 - Ensure all cache files are present and properly formatted.
-- The PERENUAL_API_KEY must be set in a `.env` file for live queries.
-- The `rich` library is used for enhanced console readability.
+- The PERENUAL_API_KEY must be set in a '.env' file for live queries.
+- The 'rich' library is used for enhanced console readability.
 """
 
 
-import os, json, time, requests
+import os, json, time, requests, re
 from fuzzywuzzy import process
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 from plants_recomm_templates import generate_plant_recommendation
 from dotenv import load_dotenv
+from dataclasses import dataclass, field
+from typing import List, Optional
+from Api_limiter_class import ApiLimiter
 
 CARE_CACHE_FILE = "plants_main_info_DATABASE.json"
 FILE_DESCRIP_CACHE = "plants_care_description_DATABASE.json"
@@ -66,11 +69,16 @@ SPECIES_CACHE = "plants_Dataset_cache.json"
 
 load_dotenv()
 API_KEY = os.getenv("PERENUAL_API_KEY")
+limiter = ApiLimiter(max_calls=5000, daily_max_calls=1000, filepath="garden_calls.json")
 
 def load_cache(path):
     if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except json.JSONDecodeError as e:
+            print(f"⚠️ Error leyendo caché en {path}: {e}")
+            return {}
     return {}
 
 def save_cache(path, data):
@@ -78,6 +86,27 @@ def save_cache(path, data):
     cache.update(data)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=True, indent=2)
+
+def clear_cache():
+    console = Console()
+    cache_files = ["pollen_cache.json", "extended_weather_cache.json"]
+    for path in cache_files:
+        try:
+            if os.path.exists(path):
+                os.remove(path)
+                console.print(f"🧹 Cache successfully cleared: [bold red]'{path}'[/bold red].")
+                time.sleep(0.3)
+        except Exception as e:
+            print(f"Error clearing cache [bold red]'{path}'[/bold red]: {e}.")
+
+def sanitize(url: str):
+    # Hide api key in urls when showing errors in CLI.
+    api_key = os.getenv("GMAPS_API_KEY", "")
+    if api_key:
+        url = url.replace(api_key, "[API_KEY]")
+
+    url = re.sub(r'key=[^&]+', 'key=[API_KEY]', url)
+    return url
 
 def extract_care_info(data) -> tuple:
     try:
@@ -106,7 +135,7 @@ def extract_care_descriptions(data) -> tuple:
         print(f"⚠️ Error extracting care descriptions: {e}")
         return "Unavailable data.", "Unavailable data.", "Unavailable data."
 
-def get_fuzzy_plant(name, data, threshold=80):
+def get_fuzzy_plant(name, data, threshold=70):
     console = Console()
     time.sleep(0.3)
     console.print(f"\nSearching for ➜ [bold red]'{name}'...[/bold red]")
@@ -160,7 +189,7 @@ def get_fuzzy_plant(name, data, threshold=80):
     print(f"\n ⚠️ Match score too low: {score}")
     return None, None, None
 
-
+@limiter.guard(error_message="Perenual API quota reached!")
 def api_live_query(name):
     print("🌐 Trying live API...")
     url = f"https://perenual.com/api/v2/species-list?q={name}&key={API_KEY}"
@@ -171,6 +200,7 @@ def api_live_query(name):
         #return data
         if data.get("data"):
             plant = data["data"][0]
+            limiter.record_call()
             return "api", plant.get("common_name", name), plant["id"] #....debugging
     except Exception as e:
         print(f"🚫 API error: {e}")
@@ -192,6 +222,7 @@ def get_best_name_and_id(name):
 
     return api_live_query(name) # Otherwise call API and try to find a match.
 
+@limiter.guard(error_message="Perenual API quota reached!")
 def fetch_care_info(plant_id, plant_name): 
     normalized = plant_name.lower()
     cache = load_cache(CARE_CACHE_FILE)
@@ -205,6 +236,7 @@ def fetch_care_info(plant_id, plant_name):
         response = requests.get(url)
         response.raise_for_status()
         content = response.json()
+        limiter.record_call()
         save_cache(CARE_CACHE_FILE, {normalized: content})
         print(f"❇️  Care data from API.\n")
         return extract_care_info(content)
@@ -212,6 +244,7 @@ def fetch_care_info(plant_id, plant_name):
         print(f"🚫 Error fetching care info: {e}")
         return "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown"
 
+@limiter.guard(error_message="Perenual API quota reached!")
 def fetch_description(plant_id, plant_name):
     normalized = plant_name.lower()
     cache = load_cache(FILE_DESCRIP_CACHE)
@@ -219,11 +252,13 @@ def fetch_description(plant_id, plant_name):
         print("✴️  Description from cache.")
         #return "Skipping." # Enable this line to use the function in DATABASE_BUILDER.py
         return extract_care_descriptions(cache[normalized]) # Disable this line to use in DATABASE_BUILDER.py
+
     url = f"https://perenual.com/api/species-care-guide-list?species_id={plant_id}&key={API_KEY}"
     try:
         response = requests.get(url)
         response.raise_for_status()
         content = response.json()
+        limiter.record_call()
         save_cache(FILE_DESCRIP_CACHE, {normalized: content})
         print("❇️  Description from API.")
         return extract_care_descriptions(content) # Disable this line to use in DATABASE_BUILDER.py
@@ -243,7 +278,7 @@ def display_care_info(plant, growth, soil):
     if not plant_id:
         print("❌ Could not identify plant.")
         return plant_data, None
-    
+
     vernacular, scientific, watering, frequency, sunlight, plant_soil = fetch_care_info(plant_id, plant_name)
 
     if frequency:
@@ -288,6 +323,22 @@ def display_care_description(plant_id, plant_name): # 5. OK
     console.print(s)
     console.print(p)
     time.sleep(1)
+
+@dataclass # New thingy to automate classes that primarily store data. It controls data via fields (location, user_id and history)
+class AppState:
+    location:str = "Statenkwartier, Den Haag"
+    user_id: Optional[str] = None # If in the future the app supports multi-user functionality...
+    history: List[str] = field(default_factory=list)
+
+    def update_location(self, new_location:str):
+        cleaned = new_location.strip().lower()
+        if cleaned and cleaned != self.location:
+            self.history.append(cleaned)
+            self.location = cleaned
+
+    def __post_init__(self):
+        self.location = self.location.strip()
+
 
 #-----------------------------------------------------------------------------
 # Function for module testing purpose only! 
