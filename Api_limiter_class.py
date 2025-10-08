@@ -70,7 +70,6 @@ Author:
 abelnuovo@gmail.com - Bloom and Sky Project
 """
 
-
 from datetime import datetime
 import functools, json, os, smtplib
 from email.message import EmailMessage

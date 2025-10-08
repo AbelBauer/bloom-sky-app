@@ -1,4 +1,4 @@
-"""
+'''
 generate_plant_recommendation
 
 Generates a personalized, conversational care recommendation for a plant based on its environmental needs and growth stage. 
@@ -57,9 +57,8 @@ Limitations:
 Author:
 -------
 abelnuovo@gmail.com - Bloom and Sky Project
-"""
 
-
+'''
 
 import random
 
@@ -84,13 +83,27 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
     }
 
     sunlight_notes = {
-        "full sun": "thrives in full sun, give it a front-row seat to the sky show.",
-        "part sun": "enjoys a mix: a few hours of direct sun, then some shade to chill.",
-        "part shade": "prefers gentle light, like sipping tea under a leafy pergola.",
-        "partial shade": "does best with dappled light: think woodland vibes, not desert heat.",
-        "shade": "is a shade seeker, it flourishes where the sun barely peeks in.",
-        "full shade": "avoids direct sunlight altogether; low light is its comfort zone.",
-        "indirect light": "loves bright but filtered light; cozy near a window, not center stage."
+    "full sun": "thrives in full sun, give it a front row seat to the sky show.",
+    "part sun": "enjoys a mix: a few hours of direct sun, then some shade to chill.",
+    "part shade": "prefers gentle light, like sipping tea under a leafy pergola.",
+    "partial shade": "does best with dappled light: think woodland vibes, not desert heat.",
+    "part shade, full shade": "flourishes in gentle to minimal light. From leafy pergolas to quiet corners, it thrives where the sun whispers rather than shouts.",
+    "shade": "is also a shade seeker, it flourishes where the sun barely peeks in.",
+    "full shade": "avoids direct sunlight altogether; low light is its comfort zone.",
+    "full sun, part shade, filtered shade": "thrives across a spectrum of light, from bold midday rays to dappled woodland shimmer, it's a plant that adapts with grace and style.",
+    "indirect light": "loves bright but filtered light; cozy near a window, not center stage.",
+    "sun": "lives for the spotlight. Give it direct rays and it will reward you with vibrant growth.",
+    "full sun partial sun": "is also flexible and forgiving: thrives in strong light but appreciates a midday break.",
+    "full sun, part sun/part shade": "is flexible and forgiving, thrives in strong light but appreciates a midday break.",
+    "full sun only if soil kept moist": "loves full sun but demands hydration. Think desert diva with a watering can.",
+    "full sun only if soil kept moist, part sun/part shade": "thrives in bright light but needs hydration to stay happy. Give it morning sun and afternoon shade, and keep the soil quenched like a well loved sponge.",
+    "deep shade": "is a true understory dweller, happiest in the quiet corners where sunlight barely whispers.",
+    "filtered shade": "prefers light that dances through leaves: soft, scattered, and never harsh.",
+    "part sun/part shade": "is also balanced and adaptable: enjoys both sunlit mornings and shaded afternoons.",
+    "full sun, part shade": "is balanced and adaptable: enjoys both sunlit mornings and shaded afternoons.",
+    "partial sun shade": "thrives in transitional zones: not too bright, not too dim, just right.",
+    "deciduous shade (spring sun)": "soaks up spring sunshine before the canopy fills in. A total seasonal opportunist.",
+    "full sun partial sun shade": "is a light lover with range. From blazing noon to dappled dusk, it finds its rhythm."
     }
 
     growth_stages = {
@@ -130,7 +143,6 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
     soil_type = soil_types.get(soil_type, "") if soil_type else ""
 
     # Fallback for watering level
-
     watering_phrase = str(water_frequency_phrases.get(
         watering_level,
         f"unpredictable ({watering_level}), so keep an eye out and adjust as needed."
@@ -157,17 +169,17 @@ def generate_plant_recommendation(plant_name, watering_level, watering_frequency
     templates = [
         f"Your {plant_name} is living her best leaf life. It {sunlight_phrase} Give it {watering_phrase} {growth_description} {soil_type}",
         f"{plant_name} {sunlight_phrase} Also, {watering_phrase} {growth_description} {soil_type}",
-        f"{plant_name} needs {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"{plant_name} thrives with {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"Your {plant_name} likes {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
-        f"Your {plant_name} {watering_phrase}. Let it chill: It {sunlight_phrase} {growth_description} {soil_type}",
+        f"Your {plant_name} {watering_phrase}. Let it chill: {plant_name} {sunlight_phrase} {growth_description} {soil_type}",
         f"Your {plant_name} is about needing {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
-        f"{plant_name} is photosynthesizing like a diva. It demands {watering_phrase} {sunlight_phrase.capitalize()} {growth_description} {soil_type}",
+        f"{plant_name} is photosynthesizing like a diva. It demands {watering_phrase} {plant_name} {sunlight_phrase} {growth_description} {soil_type}",
         f"Your {plant_name} is basking in the sun like a superstar. It {sunlight_phrase} Time to step up the watering game: {watering_phrase} {growth_description} {soil_type}",
-        f"{plant_name} expects {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
+        f"{plant_name} expects {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"Your {plant_name} is not just a plant. It's your garden star! It needs {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
-        f"Your {plant_name} is chilling in chlorophyll serenity. {plant_name} is {watering_phrase} It also {sunlight_phrase} {growth_description} {soil_type}",
+        f"Your {plant_name} is chilling in chlorophyll serenity. {plant_name} is {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"Your {plant_name} is vibing with your garden rhythm. Give it {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}",
         f"Your {plant_name} {watering_phrase} It {sunlight_phrase} {growth_description} {soil_type}"
     ]

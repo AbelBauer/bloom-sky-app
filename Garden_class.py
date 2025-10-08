@@ -1,5 +1,3 @@
-import requests
-
 class Garden:
     def __init__(self, indoor_plants=None, outdoor_plants=None):
         self.indoor_plants = indoor_plants if indoor_plants else []

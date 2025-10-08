@@ -1,42 +1,65 @@
-"""
-Plant Care Database Builder
+'''
+Plant Database Builder Module
 
-This script builds two local JSON databases by retrieving plant data from the Perenual API:
+This module constructs and updates a local plant care database by retrieving species details and care descriptions
+from the Perenual API. It supports persistent caching, error logging, and API quota management to ensure efficient
+and reliable data collection.
 
-1. Basic Plant Info Database (`plants_main_info_DATABASE.json`)
-   - Uses plant species IDs to fetch full plant details.
-   - Stores each entry using a normalized version of the plant's common name as the key.
-   - Skips entries already cached or missing a common name.
-   - Logs any failed requests to `error_log.txt`.
+Core Responsibilities:
+----------------------
+- Load and normalize plant names from a local text file
+- Fetch plant metadata and care descriptions using plant IDs and fuzzy name matching
+- Store structured data in JSON cache files for later use by recommendation and care modules
+- Log errors and skipped entries for review and debugging
 
-2. Plant Care Guide Database (`plants_care_description_DATABASE.json`)
-   - Uses a curated list of scientific names to fetch care guide descriptions.
-   - Relies on fuzzy matching to resolve names to valid species IDs.
-   - Stores care guide data using normalized common names as keys.
-   - Skips duplicates and logs any errors encountered.
+Key Functions:
+--------------
+- load_cache(path): Loads existing JSON cache from disk
+- save_cache(path, data): Updates and writes cache data to disk
+- normalize_name(name): Converts plant names to lowercase, underscore-separated keys
+- save_to_disk(plant, error): Logs failed API fetch attempts to 'error_log.txt'
+- load_plants_names(file_path): Parses a comma-separated list of plant names from a text file
+- build_basic_care_cache(plant_ids): Fetches and stores basic plant metadata using numeric IDs
+- clean_list(names): Sorts and returns a cleaned list of plant names
 
-Utilities:
-- `load_cache(path)`: Loads existing cache from disk.
-- `save_cache(path, data)`: Merges new data into cache and saves to disk.
-- `normalize_name(name)`: Converts names to lowercase and replaces spaces with underscores.
-- `save_to_disk(plant, error)`: Appends error messages to a local log file for future actions.
-- `clean_list(names)`: Sorts and returns a cleaned list of plant names.
-- `load_plants_names(file_path)`: Loads a comma-separated `.txt` file of scientific names from disk, strips quotes and whitespace, and returns a sorted list.
+Execution Flow:
+---------------
+- Loads plant names from 'plants_list.txt'
+- For each plant:
+    - Uses fuzzy matching to find the best name and ID
+    - Fetches care description via Perenual API
+    - Saves result to disk if successful
+    - Logs errors if any occur
+
+Caching:
+--------
+- BASIC_CACHE_PATH: Stores general plant metadata
+- CARE_CACHE_PATH: Stores care descriptions
+- SPECIES_CACHE: Optional dataset cache
+- API calls are tracked using 'database_builder_calls.json'
 
 Dependencies:
-- `requests`, `json`, `time`, `os`
-- External module: `fuzzy_match` (must provide `fetch_description` and `get_name_and_id`)
+-------------
+- requests
+- dotenv
+- time, os, json
+- ApiLimiter (custom quota management class)
+- garden_care_guide (custom care description fetcher)
 
-Usage:
-- Configure `API_KEY` with your Perenual API key.
-- Adjust `plants_idX` ranges or `plants` list as needed.
-- To build the care guide database, provide a `.txt` file containing scientific names (e.g. `"plants_list.txt"`).
-- Run the script to populate both databases incrementally.
+Environment:
+------------
+- Requires 'PERENUAL_API_KEY' in a .env file for API access
 
 Note:
-- The script includes built-in rate limiting (`time.sleep`) to avoid overwhelming the API.
-- Error handling ensures resilience against network failures or malformed responses.
-"""
+-----
+This module is designed for batch execution and may take several minutes depending on the number of plants processed.
+Ensure that 'plants_list.txt' is properly formatted and updated with desired plant names.
+
+Author:
+-------
+abelnuovo@gmail.com - Bloom and Sky Project
+
+'''
 
 
 import requests
@@ -51,7 +74,7 @@ BASIC_CACHE_PATH = "plants_main_info_DATABASE.json"
 SPECIES_CACHE = "plants_Dataset_cache.json"
 
 load_dotenv()
-API_KEY=os.getenv("GMAPS_API_KEY")
+API_KEY=os.getenv("PERENUAL_API_KEY")
 CARE_CACHE_PATH="plants_care_description_DATABASE.json"
 limiter = ApiLimiter(filepath="database_builder_calls.json")
 
@@ -119,7 +142,7 @@ plants_id5 = range(8001,10000)
 
 #-------------------------------------------------------------------
 
-from garden_care_guide import fetch_description, get_name_and_id
+from garden_care_guide import fetch_description, get_best_name_and_id
 
 def clean_list(names):
     return sorted(names)
@@ -131,7 +154,7 @@ plants_list = load_plants_names("plants_list.txt") # File path of the plants lis
 counter = 1
 for plant in plants_list:
     try:
-        report, name, id = get_name_and_id(plant.lower())
+        report, name, id = get_best_name_and_id(plant.lower())
         result = fetch_description(id, name)
         if result == "Skipping.":
             continue

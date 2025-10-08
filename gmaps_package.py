@@ -1,60 +1,73 @@
-"""
-Weather Forecast Module - Bloom and Sky
+'''
+Gmaps Weather and Geolocation Module
 
-This module provides geolocation and weather forecasting capabilities using the Google Maps and Google Weather APIs.
-It includes persistent caching, quota-aware API limiting, and rich terminal output for daily and extended forecasts.
+This module integrates Google Maps and Google Weather APIs to provide geolocation-based weather data,
+including current conditions and extended forecasts. It supports persistent caching, quota management,
+and rich console output for enhanced readability.
 
-Designed for personal use, the system integrates with Gmail to send usage alerts once API consumption reaches critical thresholds.
-All API calls are tracked and throttled using the `ApiLimiter` class to avoid exceeding monthly quotas.
+Core Functions:
+---------------
+- get_geocode(location: str):
+    Retrieves latitude and longitude for a given location using the Google Maps Geocoding API.
+    Results are cached locally to minimize API usage.
 
-Features:
----------
-- Geocoding: Converts location names to latitude/longitude using Google Maps API, with persistent caching.
-- Current Weather: Retrieves real-time conditions including temperature, humidity, rain probability, and daylight status.
-- Extended Forecast: Displays today and tomorrow's weather with daytime/nighttime breakdowns.
-- Rich Output: Uses 'rich' tables for colorful, readable CLI presentation.
-- Caching: Stores geocode and forecast data locally to reduce redundant API calls.
-- API Limiting: Enforces monthly quota and triggers alerts via Gmail when usage exceeds 50%.
-- Alerting: Begins sending daily usage summaries once quota crosses 50%, using Gmail SMTP.
+- get_current_weather(lat: float, lon: float) -> tuple:
+    Fetches current weather conditions for the specified coordinates using the Google Weather API.
+    Returns a tuple containing: is_daytime, temperature, description, rain probability, and humidity.
 
-Functions:
+- get_extended_forecast(location: str, lat: float, lon: float):
+    Retrieves and displays today's and tomorrow's forecast using rich tables.
+    Includes temperature, humidity, and rain probability for both day and night.
+    Results are cached and API usage is tracked.
+
+- extract_forecast(api_data: dict) -> tuple:
+    Parses forecast data from the API response and returns structured weather metrics.
+
+- print_table(location: str, is_day: bool, temp: float, description: str, rain_prob: int, humidity: int):
+    Displays a compact weather summary for the current conditions using rich formatting.
+
+- sort_json():
+    Sorts the geocode cache file alphabetically for efficient lookup and maintenance.
+
+Utilities:
 ----------
-get_geocode(location: str) → tuple[float, float]
-    Returns latitude and longitude for a given location, using cache if available.
+- time_to_emoji(value: bool) -> str:
+    Converts a boolean daytime flag into a corresponding time-of-day symbol.
 
-get_current_weather(lat: float, lon: float) → tuple[bool, int, str, int, int]
-    Returns current weather conditions including daylight status, temperature, description, humidity, and rain probability.
+- main():
+    Example entry point that fetches and prints current weather for a hardcoded location.
+    Includes error handling and function name tracing for debugging.
 
-get_extended_forecast(location: str, lat: float, lon: float) → None
-    Displays today and tomorrow's forecast in the terminal using rich tables.
-
-extract_forecast(api_data: dict) → tuple
-    Parses forecast data from API response and returns structured weather metrics.
-
-sort_json() → None
-    Alphabetically sorts the geocode cache file for efficient lookup.
-
-Email Provider Compatibility:
------------------------------
-This module is currently designed to work **exclusively with Gmail**, using Gmail's SMTP server and app-specific passwords.
-No other email providers are supported at this time.
-
-If the project scales up, future versions may include support for other popular providers such as Outlook, Yahoo, and custom domains.
-
-Requirements:
+Dependencies:
 -------------
-- Python 3.8+
-- Google Maps and Weather API access
-- Gmail account with app-specific password
-- .env file containing GMAPS_API_KEY
-- Packages: 'googlemaps', 'requests', 'rich', 'python-dotenv'
+- googlemaps
+- requests
+- rich
+- dotenv
+- os
+- json
+- garden_care_guide (custom module)
+- Api_limiter_class (custom module)
+
+Caching:
+--------
+- Geocode results are stored in 'geocode_cache.json'
+- Extended forecasts are stored in 'extended_weather_cache.json'
+
+Quota Management:
+-----------------
+- Uses ApiLimiter to enforce monthly and daily API call limits.
+- Functions that call external APIs are wrapped with @limiter.guard() to prevent overuse.
+
+Environment:
+------------
+- Requires a valid 'GMAPS_API_KEY' in the .env file for API access.
 
 Author:
 -------
 abelnuovo@gmail.com - Bloom and Sky Project
-"""
 
-
+'''
 
 import googlemaps, requests
 from googlemaps.exceptions import HTTPError
@@ -124,7 +137,6 @@ def get_current_weather(lat: float, lon: float) -> tuple[bool, int, str, int, in
         description = content.get("weatherCondition", {}).get("description", {}).get("text", "N/A")
         rain_prob = content.get("precipitation", {}).get("probability", {}).get("percent") or 0
         humidity = content.get("relativeHumidity") or 0
-        
         try:
             result = bool(is_day), int(temp), str(description.title()), int(rain_prob), int(humidity)
             return result
@@ -132,9 +144,12 @@ def get_current_weather(lat: float, lon: float) -> tuple[bool, int, str, int, in
             raise
     except TypeError:
         raise
-
     except (HTTPError, requests.RequestException):
         raise
+
+def default_forecast():
+    is_day, temp, description, rain_prob, humidity = get_current_weather(lat=52.0945228, lon=4.2795905) # coordinates for 'HOME'(default location)
+    return is_day, temp, description, rain_prob, humidity
 
 # Get extended forecast (today and tomorrow)
 @limiter.guard(error_message="Gmaps Weather API quota reached!")
@@ -202,6 +217,28 @@ def get_extended_forecast(location: str, lat: float, lon: float):
     console.print(tm_table_day)
     console.print(tm_table_temps)
 
+# Print today's compact weather forecast for chosen location using 'rich' module.
+def time_to_emoji(value): # Convert is_day to emoji
+    if value == False:
+        return "🌘"
+    return "🌞"
+
+def print_table(location: str, is_day: bool, temp: float, description: str, rain_prob: int, humidity: int):
+
+    console = Console()
+    table = Table(title=f"\n{location} ➜  Now:\n", title_style="bold on green", header_style="bold red")
+
+    table.add_column("Time of Day", justify="center")
+    table.add_column("📝", justify="center")
+    table.add_column("Real Feel Temp. 🌡", justify="center")
+    table.add_column("Rain prob. 🌦️ ", justify="center")
+    table.add_column("Humidity 💧", justify="center")
+
+    table.add_row(time_to_emoji(is_day), str(description), f"{str(temp)}°C",
+                f"{str(rain_prob)} %", f"{str(humidity)} %")
+
+    console.print(table)
+
 # Sort alphabetically geocode_cache.json file for efficient usage.
 def sort_json():
     with open(GEOCODE, "r", encoding="utf-8") as f:
@@ -210,7 +247,6 @@ def sort_json():
         with open(GEOCODE, "w", encoding="utf-8") as f:
                 json.dump(sorted_data, f, indent=2, ensure_ascii=False)
         print("JSON successfuly sorted!")
-
 
 def main():
     import inspect

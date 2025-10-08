@@ -3,7 +3,7 @@ Bloom and Sky - Gardening Forecast & Plant Care Advisor
 
 This module is the heart of Bloom and Sky's garden care intelligence. It blends real-time weather data with expressive plant care logic to help users 
 make informed decisions about watering, placement, and protection. With support for diverse sunlight profiles and nuanced forecast parsing, it delivers 
-personalized advice that feels both practical and poetic.
+personalized advice that feels both practical and conversational.
 
 Overview:
 ---------
@@ -77,7 +77,6 @@ Author:
 -------
 abelnuovo@gmail.com - Bloom and Sky Project
 '''
-
 
 import requests, os
 from googlemaps.exceptions import HTTPError
@@ -459,7 +458,7 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
         if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny", "partly cloudy"]:
             tomorrow = "Tomorrow's skies are bright: ideal for sun-hungry plants. Let them bask and thrive."
         elif TMW_day_sky in ["cloudy", "mostly cloudy", "overcast"]:
-            tomorrow = "Clouds ahead: not harmful, but your sun-lover might feel underfed. Ensure the area receives enough ambient light."
+            tomorrow = "Clouds ahead: not harmful, but your sun-lover might feel underfed. Make sure the space gets sufficient natural light throughout the day."
         elif TMW_day_sky in ["light rain", "rain", "heavy rain", "rain showers", "scattered showers","chance of showers", "rain periodically heavy", "moderate to heavy rain"]:
             tomorrow = "Rain expected tomorrow: light levels will dip. If indoors, place near a window to catch stray rays."
         elif TMW_day_sky in ["thunderstorm", "scattered thunderstorms", "thundershower", "light thunderstorm rain", "heavy thunderstorm"]:
@@ -471,11 +470,11 @@ def recommend_tmw_sunlight(sunlight, TMW_day_sky):
 
     elif sunlight == "full sun only if soil kept moist":
         if TMW_day_sky in ["clear", "mostly clear", "sunny", "mostly sunny", "partly sunny"]:
-            tomorrow = "Tomorrow's sun will be strong: your plant can thrive, but only if the soil stays consistently moist. Don’t let it dry out."
+            tomorrow = "Tomorrow's sun will be strong: your plant can thrive, but only if the soil stays consistently moist. Don't let it dry out."
         elif TMW_day_sky in ["partly cloudy", "mostly cloudy"]:
             tomorrow = "Filtered light tomorrow: good conditions for moisture-sensitive sun lovers. Keep the soil damp."
         elif TMW_day_sky in ["cloudy", "overcast"]:
-            tomorrow = "Low light tomorrow: your plant won't get full sun, but maintaining soil moisture is still key."
+            tomorrow = "Tomorrow brings softer light. Your plant won't bask in full sun, but keeping the soil moist remains essential for its well-being."
         elif TMW_day_sky in ["light rain", "rain", "scattered showers", "showers",
             "chance of showers", "rain periodically heavy", "moderate to heavy rain", "heavy rain"]:
             tomorrow = "Rain expected tomorrow: perfect for plants that need moist soil to handle full sun. Let nature do the watering."

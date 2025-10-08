@@ -52,7 +52,7 @@ def default_pollen():
 def main():
     import sys
     try:
-        lat, lon = get_geocode("caracas, venezuela") # This will trigger 400 Client Error: Bad Request
+        lat, lon = get_geocode("madrid, spain") # This will trigger 400 Client Error: Bad Request
         print(get_pollen(lat, lon))  # lat=51.5074, lon=-0.1278 for London
     except requests.exceptions.HTTPError:
         print("Google Maps Pollen data currently unavailable for this location.")

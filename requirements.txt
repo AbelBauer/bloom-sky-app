@@ -1,32 +1,6 @@
-requests~=2.32
-python-dotenv~=1.0
-openmeteo_requests
-datetime
-pandas
-requests-cache~=1.2
-schedule~=1.2
-rich~=13.7
-sys
-opencage.geocoder
-
-# Nice-to-haves (uncomment if wanna use them)
-# geopy~=2.4
-# tenacity~=8.4
-# typer~=0.12
-# pydantic~=2.8
-
-pytz
-#pytz brings the entire Olson timezone database into Python, allowing you to work with timezones accurately across platforms.
-#Key Features:
-#Converts naive datetime objects into timezone-aware ones
-#Handles Daylight Saving Time transitions properly.
-#Supports nearly all global timezones (e.g. 'Europe/Amsterdam', 'US/Eastern', 'Asia/Tokyo').
-#Works well with Python’s built-in datetime module.
-
-python-dateutil
-#dateutil is like a Swiss Army knife for dates. It extends Python’s datetime module with intelligent parsing, relative deltas, and recurrence rules.
-#Key Features:
-#Parse almost any date string format (e.g. "16th September, 2024")
-#Calculate relative time deltas (e.g. “next Monday”, “2 weeks ago”)
-#Handle timezones with its own tz module.
-#Manage recurring events (like calendar rules)
+pytest==7.4.2
+requests==2.31.0
+python-dotenv==1.0.0
+fuzzywuzzy==0.18.0
+rich==13.6.0
+googlemaps==4.10.0

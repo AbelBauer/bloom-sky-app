@@ -1,5 +1,3 @@
-# Helper function to provide 'snapshot' recommendations to the user based on the weather forecast and pollen risk levels variables.
-
 """
 get_recommendation
 
@@ -38,7 +36,15 @@ str
 
 def get_recommendation(is_daytime, temp, rain_prob, humidity, grass_pollen_risk, tree_pollen_risk, weed_pollen_risk) -> str:
 
-    if is_daytime and temp and rain_prob and humidity == "N/A":
+    if not isinstance(is_daytime, bool):
+        raise TypeError
+    if not isinstance(temp, (int, float)):
+        raise TypeError
+    if not isinstance(rain_prob and humidity, int):
+        raise TypeError
+    if not isinstance(grass_pollen_risk and tree_pollen_risk and weed_pollen_risk, str):
+        raise TypeError
+    if temp and rain_prob and humidity == "N/A":
         raise TypeError
 
     recommendation = ""
@@ -131,3 +137,10 @@ def get_recommendation(is_daytime, temp, rain_prob, humidity, grass_pollen_risk,
         recommendation += "\n⭕   ➜ 🌿 Weed pollen 'N/A'"
 
     return recommendation
+
+def main():
+    result = get_recommendation(is_daytime=True, temp=10.6, rain_prob=75, humidity=75, grass_pollen_risk="low",
+                                tree_pollen_risk="low", weed_pollen_risk="very low")
+    print(result)
+if __name__ == "__main__":
+    main()

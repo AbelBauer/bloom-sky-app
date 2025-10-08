@@ -1,4 +1,4 @@
-"""
+'''
 garden_guide.py
 
 Plant Identification and Care Recommendation Utility
@@ -49,15 +49,19 @@ Notes:
 - Ensure all cache files are present and properly formatted.
 - The PERENUAL_API_KEY must be set in a '.env' file for live queries.
 - The 'rich' library is used for enhanced console readability.
-"""
 
+Author:
+-------
+abelnuovo@gmail.com - Bloom and Sky Project
+
+'''
 
 import os, json, time, requests, re
 from fuzzywuzzy import process
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from plants_recomm_templates import generate_plant_recommendation
+from plants_recommendations import generate_plant_recommendation
 from dotenv import load_dotenv
 from dataclasses import dataclass, field
 from typing import List, Optional
@@ -161,7 +165,7 @@ def get_fuzzy_plant(name, data, threshold=70):
 
     total_plants = set()
 
-    console.print(f"\n[bold green]Related species found: ")
+    console.print(f"\n[bold green]Found in local cache... ")
     index = 1
     for match, score in total_matches:
         plant = plant_map.get(match)
@@ -313,7 +317,7 @@ def display_care_info(plant, growth, soil):
 
     return plant_name, plant_id, watering.lower().strip(), sunlight.lower().strip()
 
-def display_care_description(plant_id, plant_name): # 5. OK
+def display_care_description(plant_id, plant_name):
     console = Console()
     water, sun, prun = fetch_description(plant_id, plant_name)
     w, s, p = care_description_table(water, sun, prun)

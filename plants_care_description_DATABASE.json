@@ -29226,5 +29226,75 @@
     "from": 1,
     "last_page": 1,
     "total": 1
+  },
+  "mangosteen": {
+    "data": [
+      {
+        "id": 463,
+        "species_id": 3086,
+        "common_name": "mangosteen",
+        "scientific_name": [
+          "Garcinia mangostana"
+        ],
+        "section": [
+          {
+            "id": 1392,
+            "type": "watering",
+            "description": "Mangosteen plants should be watered thoroughly once or twice a week, depending on the time of year, and the particular needs of the plant. In warm weather, the plants should be watered more frequently, as they will dry out quickly. In cooler months, the plant will need less water, as they will retain moisture more easily during these times. During the growing season, around spring and summer, you should ensure that the plant has a constant, even supply of water. Aim to water the plant deeply, but not too much, so that the soil can still retain air and keep the roots healthy."
+          },
+          {
+            "id": 1393,
+            "type": "sunlight",
+            "description": "Mangosteen plants prefer full or partial sunlight. Ideally, they should receive at least 6 to 8 hours of direct sunlight when grown outside, although this may be slightly less for plants growing indoors. For best results, the plants should be exposed to direct sunlight for at least 5 to 6 hours per day. However, manogsteens tend to prefer cooler temperatures and will suffer if exposed to too hot of a climate and direct sunlight for more than 8 hours per day. They may also require some afternoon shade during the hottest parts of the day."
+          },
+          {
+            "id": 1394,
+            "type": "pruning",
+            "description": "Mangosteen (Garcinia mangostana) should be pruned twice a year, in late winter and mid-summer. Light pruning during the growing season can help to keep the plant compact and eliminate any dead or weak growth. Generally, it's best to trim less than 1/3 of the foliage in any 1 session. This can help to prevent shock and significant reductions in flowering and fruiting. Ensure all tools are sterilized between plants to decrease the risk of spreading disease."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
+  },
+  "moth orchid": {
+    "data": [
+      {
+        "id": 110,
+        "species_id": 5837,
+        "common_name": "moth orchid",
+        "scientific_name": [
+          "Phalaenopsis (group)"
+        ],
+        "section": [
+          {
+            "id": 1118,
+            "type": "watering",
+            "description": "Moth orchids (Phalaenopsis (group)) should be watered every 7 to 10 days, with the soil kept lightly moist. An easy method is to water thoroughly until the water drains out the bottom of the pot, and then allow the plant to dry out completely between waterings. In warmer temperatures and lower humidity, they may need to be watered more often. In cooler temperatures and higher humidity, they may need to be watered less often.\n\nIt is important to water with lukewarm water and avoid using water that is too cold, as this can cause root shock. Since moth orchids are tropical, they prefer a humidity range of around 50 to 70 percent and a temperature range of 65 to 80 degrees Fahrenheit. To ensure adequate humidity, you can mist your orchid a couple times a week or keep it in a bathroom with a window or other area with high humidity. Remember to avoid overwatering as this can cause root rot and other diseases."
+          },
+          {
+            "id": 1119,
+            "type": "sunlight",
+            "description": "Moth orchids (Phalaenopsis (group)) require bright, indirect sunlight. The best place to put these plants is within 3-8 feet of a sunny window, though they should never be placed right in front of the window. Indoors, these plants should be exposed to 6-8 hours of bright, indirect light every day. Outdoors (in warmer climates), they should be placed in a shady spot that receives only dappled sunlight throughout the day. Too much direct sunlight can cause the leaves of the moth orchid to burn, so it is important to monitor the plant to make sure it is not receiving too much or too little light."
+          },
+          {
+            "id": 1120,
+            "type": "pruning",
+            "description": "When to Prune: The best time to prune Phalaenopsis is when the blooms have finished and the plant is at least 2-thirds of the way through its growth cycle. During this period, the plant will benefit from removal of old, dead, and damaged leaves, as well as any dead or damaged flower stems.\n\nHow Much to Prune: Pruning should be done gently and with care, as these orchids are fragile and can be easily damaged. Generally, it is recommended to clip just above the remaining pseudobulbs and panicles, though it is best to leave some leaves and flower stems for the orchid to regain energy. In any case, it is important to cut away with as few snips as possible, as too much pruning can slow the growth of the plant."
+          }
+        ]
+      }
+    ],
+    "to": 1,
+    "per_page": 30,
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "total": 1
   }
 }

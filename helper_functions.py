@@ -124,8 +124,7 @@ Author:
 abelnuovo@gmail.com - Bloom and Sky Project
 '''
 
-
-import time, datetime, re, sys
+import time, re, sys
 from googlemaps.exceptions import HTTPError
 import requests, re
 from rich.console import Console
@@ -133,13 +132,11 @@ from rich import print
 from rich.panel import Panel
 
 from recommendations import get_recommendation
-from display_weather_table import print_table
-from gmaps_package import get_geocode, get_current_weather, get_extended_forecast
+from gmaps_package import get_geocode, get_current_weather, print_table, get_extended_forecast
 from gmaps_pollen import get_pollen
-from garden_care_guide import display_care_info, display_care_description, sanitize, clear_cache
+from garden_care_guide import display_care_info, display_care_description, clear_cache
 from plant_vs_weather import plant_weather_advisor
 
-# HELPERS
 def ask_retry():
     choice = input("\nWould you like to try again? yes [Y], or no [N]?  ➤  ").lower().strip()
     return choice == "y"
@@ -169,7 +166,6 @@ def ask_careInfo():
             continue
 
 def display_custom_forecast(location, latitude, longitude):
-        
     #1 fetch data from Google Maps API
     try:
         is_day, temp, description, rain_prob, humidity = get_current_weather(latitude, longitude)
@@ -294,10 +290,10 @@ def prompt_plants(location):
         print("")
         if retry_choice == "y":
             display_care_description(plant_id, plant_name) # Display detailed care information from perenual.com.
-            add_plants_choice = add_more_plants() # Ask the user for more plants.
-            if add_plants_choice == "y":
+            plants_choice = add_more_plants() # Ask the user for more plants.
+            if plants_choice == "y":
                 continue
-            elif add_plants_choice == "n":
+            elif plants_choice == "n":
                 break
         elif retry_choice == "n":
             continue
@@ -373,7 +369,7 @@ def plants_subMenu():
             print("\nInvalid option. Please, try again.")
             time.sleep(0.5)
             continue
-        
+
 def prompt_userLocation():
         console = Console()
         for _ in range(3):
