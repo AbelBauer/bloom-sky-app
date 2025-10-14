@@ -75,7 +75,7 @@ SPECIES_CACHE = "plants_Dataset_cache.json"
 
 load_dotenv()
 API_KEY=os.getenv("PERENUAL_API_KEY")
-CARE_CACHE_PATH="plants_care_description_DATABASE.json"
+CARE_CACHE_PATH="/Users/abelrodriguez/Documents/CS/Bloom & Sky/plants_care_description_DATABASE.json"
 limiter = ApiLimiter(filepath="database_builder_calls.json")
 
 def load_cache(path):
@@ -92,7 +92,7 @@ def save_cache(path, data):
 
 
 def normalize_name(name: str) -> str:
-    return name.strip().lower().replace(" ", "_")
+    return name.strip().lower()
 
 def save_to_disk(plant, error):
     with open("error_log.txt", "a", encoding="utf-8") as f:
@@ -134,11 +134,12 @@ def build_basic_care_cache(plant_ids):
             print(f"Error fetching plant {plant_id}: {e}")
             continue
 
-plants_id1 = range(1,100)
+plants_id1 = range(1,2000)
 plants_id2 = range(2001,4000)
 plants_id3 = range(4001,6000)
 plants_id4 = range(6001,8000)
 plants_id5 = range(8001,10000)
+plants_id6 = range(10001, 11000)
 
 #-------------------------------------------------------------------
 
@@ -151,7 +152,7 @@ plants_list = load_plants_names("plants_list.txt") # File path of the plants lis
 #Go there to update with new plants names.
 
 # Execution.
-counter = 1
+'''counter = 1
 for plant in plants_list:
     try:
         report, name, id = get_best_name_and_id(plant.lower())
@@ -167,4 +168,50 @@ for plant in plants_list:
         save_to_disk(plant, e)
         continue
 
-print("All done!")
+print("All done!") '''
+
+
+def description_database(plant_ids):
+    cache = load_cache(CARE_CACHE_PATH)
+    counter = 1
+
+    for plant_id in plant_ids:
+        url = f"https://perenual.com/api/species-care-guide-list?page=1&species_id={plant_id}&key={API_KEY}"
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                data = response.json()
+                care_list = data.get("data", [])
+
+                if not care_list:
+                    print(f"⚠️ Skipping plant {plant_id}: No care data found.")
+                    continue
+
+                common_name = care_list[0].get("common_name")
+                if not common_name:
+                    print(f"⚠️ Skipping plant {plant_id}: No common name found.")
+                    continue
+
+                key = normalize_name(common_name)
+                if key in cache:
+                    print(f"Plant '{common_name}' already in cache.")
+                    continue
+
+                cache[key] = data
+                save_cache(CARE_CACHE_PATH, cache)
+                print(f"❇️ Data successfully retrieved! - {counter} - {common_name}")
+                counter += 1
+
+            time.sleep(1)
+
+        except Exception as e:
+            print(f"Error fetching plant {plant_id}: {e}")
+            continue
+
+
+
+def main():
+    description_database(plants_id6)
+    print("Done!")
+if __name__ == "__main__":
+    main()
