@@ -66,7 +66,7 @@ def main():
         print("Error displaying recommendations.")
         pass
 
-    # Interactive Main Menu...
+    # Interactive Menu...
     while True:
         console = Console()
         main_choice = main_menu()
